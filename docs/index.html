@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Qualia Design System</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: 'Qualia Design System',
+      repo: 'DesignTinker27/qualia-design-system',
+      loadSidebar: true,
+      auto2top: true,
+      homepage: 'README.md',
+      subMaxLevel: 3,
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: 'Search',
+        noData: 'No Results!',
+        depth: 2,
+      },
+      tabs: {
+        persist: true,      // default
+        sync: true,      // default
+        theme: 'material',  // default
+        tabComments: true, // default
+        tabLabel: "",      // default
+      },
+      plugins: [
+        function (hook, vm) {
+          hook.beforeEach(function (content) {
+            // Add component status to pages based on front-matter
+            if (vm.frontmatter && vm.frontmatter.status) {
+              const status = vm.frontmatter.status.toLowerCase();
+              let statusBadge = '';
+              if (status === 'ready') {
+                statusBadge = '<span style="background-color:#4CAF50;color:white;padding:2px 6px;border-radius:3px;font-size:0.8em;">Ready to Use ✅</span>';
+              } else if (status === 'coming soon') {
+                statusBadge = '<span style="background-color:#FFC107;color:black;padding:2px 6px;border-radius:3px;font-size:0.8em;">Coming Soon 🚧</span>';
+              } else if (status === 'deprecated') {
+                statusBadge = '<span style="background-color:#F44336;color:white;padding:2px 6px;border-radius:3px;font-size:0.8em;">Deprecated 🗑️</span>';
+              }
+              return statusBadge + '\n\n' + content;
+            }
+            return content;
+          });
+        },
+      ],
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+</body>
+</html>
