@@ -1,0 +1,135 @@
+.qds-button {
+  font-family: var(--qualia-font-family-body);
+  font-weight: var(--qualia-font-weight-medium);
+  border: none;
+  border-radius: var(--qualia-border-radius-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--qualia-spacing-xs);
+}
+
+.qds-button:focus-visible {
+  outline: 2px solid var(--qualia-color-interactive-primary-focus);
+  outline-offset: 2px;
+}
+
+/* Sizes */
+.qds-button--small {
+  padding: var(--qualia-spacing-xxs) var(--qualia-spacing-sm);
+  font-size: var(--qualia-font-size-sm);
+  line-height: var(--qualia-line-height-sm);
+}
+
+.qds-button--medium {
+  padding: var(--qualia-spacing-xs) var(--qualia-spacing-md);
+  font-size: var(--qualia-font-size-md);
+  line-height: var(--qualia-line-height-md);
+}
+
+.qds-button--large {
+  padding: var(--qualia-spacing-sm) var(--qualia-spacing-lg);
+  font-size: var(--qualia-font-size-lg);
+  line-height: var(--qualia-line-height-lg);
+}
+
+/* Variants */
+.qds-button--primary {
+  background-color: var(--qualia-color-interactive-primary-default);
+  color: var(--qualia-color-text-inverted);
+}
+
+.qds-button--primary:hover:not(:disabled) {
+  background-color: var(--qualia-color-interactive-primary-hover);
+}
+
+.qds-button--primary:active:not(:disabled) {
+  background-color: var(--qualia-color-interactive-primary-pressed);
+}
+
+.qds-button--primary.qds-button--disabled {
+  background-color: var(--qualia-color-interactive-primary-disabled);
+  color: var(--qualia-color-text-inverted);
+  cursor: not-allowed;
+}
+
+.qds-button--secondary {
+  background-color: var(--qualia-color-interactive-secondary-default);
+  color: var(--qualia-color-text-inverted);
+}
+
+.qds-button--secondary:hover:not(:disabled) {
+  background-color: var(--qualia-color-interactive-secondary-hover);
+}
+
+.qds-button--secondary:active:not(:disabled) {
+  background-color: var(--qualia-color-interactive-secondary-pressed);
+}
+
+.qds-button--secondary.qds-button--disabled {
+  background-color: var(--qualia-color-interactive-secondary-disabled);
+  color: var(--qualia-color-text-inverted);
+  cursor: not-allowed;
+}
+
+.qds-button--destructive {
+  background-color: var(--qualia-color-interactive-destructive-default);
+  color: var(--qualia-color-text-inverted);
+}
+
+.qds-button--destructive:hover:not(:disabled) {
+  background-color: var(--qualia-color-interactive-destructive-hover);
+}
+
+.qds-button--destructive:active:not(:disabled) {
+  background-color: var(--qualia-color-interactive-destructive-pressed);
+}
+
+.qds-button--destructive.qds-button--disabled {
+  background-color: var(--qualia-color-interactive-destructive-disabled);
+  color: var(--qualia-color-text-inverted);
+  cursor: not-allowed;
+}
+
+.qds-button--outline {
+  background-color: var(--qualia-color-interactive-outline-default);
+  color: var(--qualia-color-interactive-outline-border-default);
+  border: 1px solid var(--qualia-color-interactive-outline-border-default);
+}
+
+.qds-button--outline:hover:not(:disabled) {
+  background-color: var(--qualia-color-interactive-outline-hover);
+  border-color: var(--qualia-color-interactive-outline-border-hover);
+}
+
+.qds-button--outline:active:not(:disabled) {
+  background-color: var(--qualia-color-interactive-outline-pressed);
+  border-color: var(--qualia-color-interactive-outline-border-pressed);
+}
+
+.qds-button--outline:focus-visible {
+  border-color: var(--qualia-color-interactive-outline-border-focus);
+  outline-color: var(--qualia-color-interactive-primary-focus);
+}
+
+.qds-button--outline.qds-button--disabled {
+  color: var(--qualia-color-interactive-outline-border-disabled);
+  border-color: var(--qualia-color-interactive-outline-border-disabled);
+  background-color: var(--qualia-color-interactive-outline-disabled);
+  cursor: not-allowed;
+}
+
+/* Example font styles using tokens (placeholder, assuming these will be defined) */
+:root {
+  --qualia-font-family-body: sans-serif;
+  --qualia-font-weight-medium: 500;
+  --qualia-font-size-sm: 14px;
+  --qualia-font-size-md: 16px;
+  --qualia-font-size-lg: 18px;
+  --qualia-line-height-sm: 20px;
+  --qualia-line-height-md: 24px;
+  --qualia-line-height-lg: 28px;
+  --qualia-border-radius-sm: 4px;
+}
