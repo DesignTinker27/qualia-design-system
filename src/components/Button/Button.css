@@ -1,0 +1,92 @@
+/**
+ * Button CSS Styles
+ * Using CSS custom properties from design tokens
+ */
+
+.qds-button {
+  /* Base styles are handled in React component */
+  /* Additional CSS-only styles for enhanced functionality */
+}
+
+/* Focus styles for better accessibility */
+.qds-button:focus-visible {
+  outline: 2px solid var(--qds-color-border-focus);
+  outline-offset: 2px;
+}
+
+/* Hover states */
+.qds-button--primary:hover:not(:disabled) {
+  background-color: var(--qds-color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--qds-shadow-md);
+}
+
+.qds-button--secondary:hover:not(:disabled) {
+  background-color: var(--qds-color-secondary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--qds-shadow-sm);
+}
+
+.qds-button--outline:hover:not(:disabled) {
+  background-color: var(--qds-color-primary-50);
+  border-color: var(--qds-color-primary-700);
+  transform: translateY(-1px);
+}
+
+.qds-button--destructive:hover:not(:disabled) {
+  background-color: var(--qds-color-destructive-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--qds-shadow-md);
+}
+
+/* Active states */
+.qds-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--qds-shadow-sm);
+}
+
+/* Loading state animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .qds-button {
+    border-width: 2px !important;
+  }
+  
+  .qds-button--primary {
+    border: 2px solid var(--qds-color-primary-700) !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .qds-button {
+    transition: none;
+    transform: none !important;
+  }
+  
+  .animate-spin {
+    animation: none;
+  }
+}
+
+/* Dark mode support (future) */
+@media (prefers-color-scheme: dark) {
+  .qds-button--secondary {
+    background-color: var(--qds-color-neutral-800);
+    border-color: var(--qds-color-neutral-600);
+    color: var(--qds-color-text-inverse);
+  }
+}
