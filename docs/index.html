@@ -30,7 +30,27 @@
       --qds-color-neutral-800: #1e293b;
       --qds-color-neutral-900: #0f172a;
 
+      --qds-color-success-500: #22c55e;
+      --qds-color-warning-500: #f59e0b;
+      --qds-color-error-500: #ef4444;
+      --qds-color-info-500: #3b82f6;
+
+      /* Semantic Colors (for text, backgrounds, borders) */
+      --qds-color-text-primary: var(--qds-color-neutral-900);
+      --qds-color-text-secondary: var(--qds-color-neutral-600);
+      --qds-color-text-tertiary: var(--qds-color-neutral-500);
+      --qds-color-text-inverse: var(--qds-color-neutral-50);
+      --qds-color-text-link: var(--qds-color-primary-600);
+
+      --qds-color-bg-primary: var(--qds-color-neutral-50);
+      --qds-color-bg-secondary: var(--qds-color-neutral-100);
+      --qds-color-bg-tertiary: var(--qds-color-neutral-200);
+
+      --qds-color-border-primary: var(--qds-color-neutral-200);
+      --qds-color-border-focus: var(--qds-color-primary-500);
+
       /* Spacing */
+      --qds-space-0: 0px;
       --qds-space-1: 4px;
       --qds-space-2: 8px;
       --qds-space-3: 12px;
@@ -44,154 +64,238 @@
       --qds-space-20: 80px;
 
       /* Typography */
-      --qds-font-family-sans: Inter, system-ui, -apple-system, sans-serif;
-      --qds-font-size-sm: 0.875rem;
-      --qds-font-size-base: 1rem;
-      --qds-font-size-lg: 1.125rem;
-      --qds-font-size-xl: 1.25rem;
-      --qds-font-size-2xl: 1.5rem;
-      --qds-font-size-3xl: 1.875rem;
-      --qds-font-size-4xl: 2.25rem;
+      --qds-font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --qds-font-family-mono: 'Monaco', 'Menlo', monospace;
+      --qds-font-size-xs: 0.75rem;    /* 12px */
+      --qds-font-size-sm: 0.875rem;   /* 14px */
+      --qds-font-size-base: 1rem;     /* 16px */
+      --qds-font-size-lg: 1.125rem;   /* 18px */
+      --qds-font-size-xl: 1.25rem;    /* 20px */
+      --qds-font-size-2xl: 1.5rem;    /* 24px */
+      --qds-font-size-3xl: 1.875rem; /* 30px */
+      --qds-font-size-4xl: 2.25rem;  /* 36px */
+      --qds-font-size-5xl: 3rem;     /* 48px */
+      --qds-font-weight-light: 300;
       --qds-font-weight-normal: 400;
       --qds-font-weight-medium: 500;
       --qds-font-weight-semibold: 600;
       --qds-font-weight-bold: 700;
+      --qds-line-height-tight: 1.2;
+      --qds-line-height-normal: 1.5;
+      --qds-line-height-relaxed: 1.75;
+      --qds-letter-spacing-tight: -0.025em;
+      --qds-letter-spacing-normal: 0em;
+      --qds-letter-spacing-wide: 0.025em;
 
       /* Border Radius */
+      --qds-radius-none: 0px;
       --qds-radius-sm: 2px;
       --qds-radius-md: 4px;
       --qds-radius-lg: 8px;
       --qds-radius-xl: 12px;
+      --qds-radius-2xl: 16px;
+      --qds-radius-3xl: 24px;
+      --qds-radius-full: 9999px;
 
       /* Shadows */
       --qds-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
       --qds-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
       --qds-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --qds-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+      /* Transitions */
+      --qds-transition-fast: 150ms ease-out;
+      --qds-transition-normal: 250ms ease-out;
+      --qds-transition-slow: 350ms ease-out;
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
       font-family: var(--qds-font-family-sans);
-      margin: 0;
-      padding: 0;
-      color: var(--qds-color-neutral-800);
-      background-color: var(--qds-color-neutral-50);
-      line-height: 1.6;
+      font-size: var(--qds-font-size-base);
+      line-height: var(--qds-line-height-normal);
+      color: var(--qds-color-text-primary);
+      background-color: var(--qds-color-bg-primary);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: var(--qds-space-6);
+      padding: var(--qds-space-8);
     }
 
     /* Header */
     .header {
-      background: linear-gradient(135deg, var(--qds-color-primary-600), var(--qds-color-primary-700));
-      color: white;
-      padding: var(--qds-space-20) 0;
+      background: linear-gradient(135deg, var(--qds-color-primary-600), var(--qds-color-primary-800));
+      color: var(--qds-color-text-inverse);
+      padding: var(--qds-space-16) 0 var(--qds-space-12) 0;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/cubes.png') repeat;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
     }
 
     .header h1 {
-      font-size: var(--qds-font-size-4xl);
+      font-size: var(--qds-font-size-5xl);
       font-weight: var(--qds-font-weight-bold);
       margin: 0 0 var(--qds-space-4) 0;
+      letter-spacing: var(--qds-letter-spacing-tight);
     }
 
     .header p {
-      font-size: var(--qds-font-size-lg);
+      font-size: var(--qds-font-size-xl);
       opacity: 0.9;
-      margin: 0;
+      margin: 0 auto;
+      max-width: 800px;
+      line-height: var(--qds-line-height-relaxed);
     }
 
     /* Navigation */
     .nav {
       background: white;
-      border-bottom: 1px solid var(--qds-color-neutral-200);
+      border-bottom: 1px solid var(--qds-color-border-primary);
       padding: var(--qds-space-4) 0;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      box-shadow: var(--qds-shadow-sm);
     }
 
     .nav-container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 var(--qds-space-6);
+      padding: 0 var(--qds-space-8);
       display: flex;
-      gap: var(--qds-space-8);
+      gap: var(--qds-space-6);
       align-items: center;
+      justify-content: center;
     }
 
     .nav a {
-      color: var(--qds-color-neutral-600);
+      color: var(--qds-color-text-secondary);
       text-decoration: none;
       font-weight: var(--qds-font-weight-medium);
-      padding: var(--qds-space-2) var(--qds-space-3);
+      padding: var(--qds-space-2) var(--qds-space-4);
       border-radius: var(--qds-radius-md);
-      transition: all 0.15s ease;
+      transition: all var(--qds-transition-fast);
     }
 
     .nav a:hover, .nav a.active {
-      color: var(--qds-color-primary-600);
+      color: var(--qds-color-primary-700);
       background-color: var(--qds-color-primary-50);
     }
 
     /* Section */
     .section {
-      margin-bottom: var(--qds-space-20);
+      padding: var(--qds-space-16) 0;
+      border-bottom: 1px solid var(--qds-color-bg-tertiary);
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
     }
 
     .section h2 {
-      font-size: var(--qds-font-size-3xl);
+      font-size: var(--qds-font-size-4xl);
       font-weight: var(--qds-font-weight-bold);
       color: var(--qds-color-neutral-900);
       margin: 0 0 var(--qds-space-8) 0;
-      border-bottom: 2px solid var(--qds-color-primary-500);
-      padding-bottom: var(--qds-space-3);
+      text-align: center;
+      position: relative;
+      padding-bottom: var(--qds-space-4);
+      margin-bottom: var(--qds-space-10);
+    }
+
+    .section h2::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: var(--qds-color-primary-500);
+      border-radius: var(--qds-radius-full);
     }
 
     .section h3 {
-      font-size: var(--qds-font-size-xl);
+      font-size: var(--qds-font-size-2xl);
       font-weight: var(--qds-font-weight-semibold);
       color: var(--qds-color-neutral-800);
-      margin: var(--qds-space-8) 0 var(--qds-space-4) 0;
+      margin: var(--qds-space-10) 0 var(--qds-space-5) 0;
+    }
+
+    .section p {
+      font-size: var(--qds-font-size-base);
+      line-height: var(--qds-line-height-normal);
+      margin-bottom: var(--qds-space-4);
     }
 
     /* Cards */
     .card {
       background: white;
       border-radius: var(--qds-radius-lg);
-      border: 1px solid var(--qds-color-neutral-200);
+      border: 1px solid var(--qds-color-border-primary);
       padding: var(--qds-space-6);
-      margin-bottom: var(--qds-space-6);
-      box-shadow: var(--qds-shadow-sm);
+      box-shadow: var(--qds-shadow-md);
+      transition: all var(--qds-transition-fast);
+      height: 100%; /* Ensure cards in grid have equal height */
+    }
+
+    .card:hover {
+      box-shadow: var(--qds-shadow-lg);
+      transform: translateY(-2px);
     }
 
     .card h4 {
       margin: 0 0 var(--qds-space-3) 0;
-      color: var(--qds-color-neutral-800);
+      color: var(--qds-color-neutral-900);
       font-weight: var(--qds-font-weight-semibold);
+      font-size: var(--qds-font-size-lg);
     }
 
     /* Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: var(--qds-space-6);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--qds-space-8);
     }
 
-    .grid-3 {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     }
 
     /* Color Palette */
+    .color-group {
+      margin-bottom: var(--qds-space-8);
+    }
+    
     .color-palette {
       display: flex;
+      flex-wrap: wrap;
       border-radius: var(--qds-radius-lg);
       overflow: hidden;
       box-shadow: var(--qds-shadow-md);
@@ -199,22 +303,38 @@
     }
 
     .color-swatch {
-      flex: 1;
-      height: 80px;
+      flex: 1 1 10%; /* Allow wrapping and even distribution */
+      min-width: 60px;
+      height: 100px;
       display: flex;
-      align-items: end;
+      flex-direction: column;
+      justify-content: space-between;
       padding: var(--qds-space-2);
-      color: white;
-      font-size: var(--qds-font-size-sm);
+      color: var(--qds-color-text-inverse);
+      font-size: var(--qds-font-size-xs);
       font-weight: var(--qds-font-weight-medium);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+      transition: all var(--qds-transition-fast);
+      cursor: pointer;
+    }
+    
+    .color-swatch:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: var(--qds-shadow-lg);
+      z-index: 10;
     }
 
+    .color-swatch span {
+      opacity: 0.9;
+    }
+    
     /* Button Demo */
     .button-demo {
       display: flex;
       flex-wrap: wrap;
-      gap: var(--qds-space-3);
+      gap: var(--qds-space-4);
       margin: var(--qds-space-4) 0;
+      align-items: center;
     }
 
     .btn {
@@ -229,42 +349,87 @@
       font-size: var(--qds-font-size-base);
       font-weight: var(--qds-font-weight-medium);
       cursor: pointer;
-      transition: all 0.15s ease;
+      transition: all var(--qds-transition-fast);
       text-decoration: none;
       min-height: 40px;
+      box-shadow: var(--qds-shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--qds-color-border-focus);
+      outline-offset: 2px;
     }
 
     .btn-primary {
       background-color: var(--qds-color-primary-500);
-      color: white;
+      color: var(--qds-color-text-inverse);
     }
 
-    .btn-primary:hover {
+    .btn-primary:hover:not(:disabled) {
       background-color: var(--qds-color-primary-600);
       transform: translateY(-1px);
       box-shadow: var(--qds-shadow-md);
     }
 
-    .btn-secondary {
-      background-color: var(--qds-color-neutral-100);
-      color: var(--qds-color-neutral-700);
-      border: 1px solid var(--qds-color-neutral-200);
+    .btn-primary:active:not(:disabled) {
+      background-color: var(--qds-color-primary-700);
+      transform: translateY(0);
+      box-shadow: var(--qds-shadow-sm);
     }
 
-    .btn-secondary:hover {
-      background-color: var(--qds-color-neutral-200);
+    .btn-secondary {
+      background-color: var(--qds-color-bg-primary);
+      color: var(--qds-color-text-primary);
+      border: 1px solid var(--qds-color-border-primary);
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background-color: var(--qds-color-bg-secondary);
       transform: translateY(-1px);
+      box-shadow: var(--qds-shadow-sm);
+    }
+
+    .btn-secondary:active:not(:disabled) {
+      background-color: var(--qds-color-bg-tertiary);
+      transform: translateY(0);
     }
 
     .btn-outline {
       background-color: transparent;
-      color: var(--qds-color-primary-600);
-      border: 1px solid var(--qds-color-primary-600);
+      color: var(--qds-color-text-link);
+      border: 1px solid var(--qds-color-text-link);
     }
 
-    .btn-outline:hover {
+    .btn-outline:hover:not(:disabled) {
       background-color: var(--qds-color-primary-50);
+      color: var(--qds-color-primary-700);
       border-color: var(--qds-color-primary-700);
+      transform: translateY(-1px);
+      box-shadow: var(--qds-shadow-sm);
+    }
+
+    .btn-outline:active:not(:disabled) {
+      background-color: var(--qds-color-primary-100);
+      transform: translateY(0);
+    }
+
+    .btn-destructive {
+      background-color: var(--qds-color-error-500);
+      color: var(--qds-color-text-inverse);
+    }
+
+    .btn-destructive:hover:not(:disabled) {
+      background-color: #dc2626; /* Darker red */
+      transform: translateY(-1px);
+      box-shadow: var(--qds-shadow-md);
+    }
+
+    .btn-destructive:active:not(:disabled) {
+      background-color: #b91c1c; /* Even darker red */
+      transform: translateY(0);
+      box-shadow: var(--qds-shadow-sm);
     }
 
     .btn-small {
@@ -279,16 +444,47 @@
       min-height: 48px;
     }
 
-    /* Code */
-    .code {
-      background-color: var(--qds-color-neutral-100);
-      border: 1px solid var(--qds-color-neutral-200);
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* Loading Spinner */
+    .btn .loading-spinner {
+      width: 1em;
+      height: 1em;
+      border: 2px solid currentColor;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      display: inline-block;
+      animation: spin 0.75s linear infinite;
+      margin-right: var(--qds-space-1);
+    }
+    .btn.icon-right .loading-spinner { margin-left: var(--qds-space-1); margin-right: 0; }
+    .btn.no-text .loading-spinner { margin: 0; }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Code Blocks */
+    .code-block {
+      background-color: var(--qds-color-bg-secondary);
+      border: 1px solid var(--qds-color-border-primary);
       border-radius: var(--qds-radius-md);
       padding: var(--qds-space-4);
-      font-family: 'Monaco', 'Menlo', monospace;
+      font-family: var(--qds-font-family-mono);
       font-size: var(--qds-font-size-sm);
       overflow-x: auto;
-      margin: var(--qds-space-4) 0;
+      margin: var(--qds-space-4) 0 var(--qds-space-8) 0;
+      line-height: var(--qds-line-height-normal);
+    }
+    
+    .code-block pre {
+      margin: 0;
+      padding: 0;
     }
 
     /* Status Badge */
@@ -300,18 +496,73 @@
       border-radius: var(--qds-radius-md);
       font-size: var(--qds-font-size-sm);
       font-weight: var(--qds-font-weight-medium);
+      margin-top: var(--qds-space-3);
     }
 
     .status-ready {
-      background-color: #f0fdf4;
-      color: #15803d;
-      border: 1px solid #bbf7d0;
+      background-color: var(--qds-color-success-500);
+      color: var(--qds-color-text-inverse);
     }
 
     .status-in-progress {
-      background-color: #fffbeb;
-      color: #a16207;
-      border: 1px solid #fed7aa;
+      background-color: var(--qds-color-warning-500);
+      color: var(--qds-color-text-inverse);
+    }
+    
+    .status-coming-soon {
+      background-color: var(--qds-color-info-500);
+      color: var(--qds-color-text-inverse);
+    }
+
+    /* Typography examples */
+    .type-sample {
+      margin-bottom: var(--qds-space-6);
+      padding: var(--qds-space-4);
+      border: 1px dashed var(--qds-color-border-primary);
+      border-radius: var(--qds-radius-md);
+    }
+
+    /* Spacing examples */
+    .spacing-box-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--qds-space-4);
+      margin-top: var(--qds-space-4);
+    }
+    .spacing-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      background-color: var(--qds-color-primary-100);
+      border: 1px solid var(--qds-color-primary-300);
+      border-radius: var(--qds-radius-sm);
+      font-size: var(--qds-font-size-xs);
+      font-family: var(--qds-font-family-mono);
+      color: var(--qds-color-primary-800);
+      position: relative;
+      min-width: 60px;
+      min-height: 60px;
+      padding-bottom: var(--qds-space-1);
+    }
+    .spacing-box::before {
+      content: attr(data-value);
+      position: absolute;
+      top: var(--qds-space-1);
+      left: var(--qds-space-1);
+      font-size: var(--qds-font-size-xs);
+      font-weight: var(--qds-font-weight-semibold);
+      color: var(--qds-color-primary-700);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--qds-color-neutral-900);
+      color: var(--qds-color-text-inverse);
+      text-align: center;
+      padding: var(--qds-space-10) 0;
+      font-size: var(--qds-font-size-sm);
+      margin-top: var(--qds-space-16);
     }
 
     /* Responsive */
@@ -325,6 +576,21 @@
         gap: var(--qds-space-4);
       }
       
+      .header h1 {
+        font-size: var(--qds-font-size-4xl);
+      }
+      .header p {
+        font-size: var(--qds-font-size-base);
+      }
+      
+      .section h2 {
+        font-size: var(--qds-font-size-3xl);
+      }
+
+      .section h3 {
+        font-size: var(--qds-font-size-xl);
+      }
+      
       .grid {
         grid-template-columns: 1fr;
       }
@@ -333,15 +599,26 @@
         flex-direction: column;
         align-items: flex-start;
       }
+      
+      .color-swatch {
+        flex: 1 1 20%; /* More wrapping on small screens */
+      }
     }
+
+    @media (max-width: 480px) {
+      .color-swatch {
+        flex: 1 1 33%; /* Even more wrapping */
+      }
+    }
+
   </style>
 </head>
 <body>
   <!-- Header -->
   <header class="header">
-    <div class="container">
+    <div class="header-content container">
       <h1>Qualia Design System</h1>
-      <p>Consistent, accessible, and beautiful components for modern web applications</p>
+      <p>A comprehensive, accessible, and elegant design system for building consistent Qualia products with speed and confidence.</p>
     </div>
   </header>
 
@@ -361,25 +638,26 @@
     <!-- Overview -->
     <section id="overview" class="section">
       <h2>Overview</h2>
+      <p>The Qualia Design System is the single source of truth for our product's user interface. It provides a shared language and set of tools for designers and developers to create cohesive and high-quality experiences efficiently.</p>
       <div class="grid">
         <div class="card">
           <h4>🎨 Design Tokens</h4>
-          <p>Foundational design values including colors, spacing, typography, and more. Available as JavaScript modules and CSS custom properties.</p>
+          <p>The foundational visual design values, including colors, typography, spacing, and more. Centralized and platform-agnostic.</p>
           <div class="status status-ready">✅ Ready to Ship</div>
         </div>
         <div class="card">
-          <h4>🔘 Components</h4>
-          <p>React components built with design tokens. Starting with buttons, expanding to full component library.</p>
+          <h4>🔘 React Components</h4>
+          <p>A library of accessible, reusable UI components built with our design tokens, enabling rapid and consistent product development.</p>
           <div class="status status-ready">✅ Ready to Ship</div>
         </div>
         <div class="card">
-          <h4>📚 Documentation</h4>
-          <p>Comprehensive usage guidelines, examples, and best practices for designers and developers.</p>
+          <h4>📚 Usage Documentation</h4>
+          <p>Detailed guidelines, code examples, and interactive demos to ensure correct and effective application of the design system.</p>
           <div class="status status-ready">✅ Ready to Ship</div>
         </div>
         <div class="card">
-          <h4>🔄 Migration Tools</h4>
-          <p>Automated tools to help migrate from Semantic UI to Qualia Design System components.</p>
+          <h4>🔄 Migration Toolkit</h4>
+          <p>Tools and strategies to facilitate the seamless transition from legacy interfaces (like Semantic UI) to the new design system.</p>
           <div class="status status-in-progress">🚧 In Progress</div>
         </div>
       </div>
@@ -388,155 +666,161 @@
     <!-- Design Tokens -->
     <section id="tokens" class="section">
       <h2>Design Tokens</h2>
+      <p>Design tokens are named entities that store visual design attributes. They serve as a single source of truth, ensuring consistency and making it easy to manage changes across our entire ecosystem.</p>
       
       <h3>Color Palette</h3>
-      <div class="card">
+      <div class="card color-group">
         <h4>Primary Colors</h4>
         <div class="color-palette">
-          <div class="color-swatch" style="background-color: #f0f9ff;">50</div>
-          <div class="color-swatch" style="background-color: #e0f2fe;">100</div>
-          <div class="color-swatch" style="background-color: #bae6fd;">200</div>
-          <div class="color-swatch" style="background-color: #7dd3fc;">300</div>
-          <div class="color-swatch" style="background-color: #38bdf8;">400</div>
-          <div class="color-swatch" style="background-color: #0ea5e9;">500</div>
-          <div class="color-swatch" style="background-color: #0284c7;">600</div>
-          <div class="color-swatch" style="background-color: #0369a1;">700</div>
-          <div class="color-swatch" style="background-color: #075985;">800</div>
-          <div class="color-swatch" style="background-color: #0c4a6e;">900</div>
+          <div class="color-swatch" style="background-color: var(--qds-color-primary-50); color: var(--qds-color-primary-900);"><span>50</span><span>#f0f9ff</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-primary-100); color: var(--qds-color-primary-900);"><span>100</span><span>#e0f2fe</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-primary-200); color: var(--qds-color-primary-900);"><span>200</span><span>#bae6fd</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-primary-300);"><span>300</span><span>#7dd3fc</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-primary-400);"><span>400</span><span>#38bdf8</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-primary-500);"><span>500</span><span>#0ea5e9</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-primary-600);"><span>600</span><span>#0284c7</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-primary-700);"><span>700</span><span>#0369a1</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-primary-800);"><span>800</span><span>#075985</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-primary-900);"><span>900</span><span>#0c4a6e</span></div>
         </div>
-        <div class="code">--qds-color-primary-500: #0ea5e9;</div>
+        <div class="code-block"><pre>--qds-color-primary-500: #0ea5e9;</pre></div>
       </div>
 
-      <div class="card">
+      <div class="card color-group">
         <h4>Neutral Colors</h4>
         <div class="color-palette">
-          <div class="color-swatch" style="background-color: #f8fafc; color: #333;">50</div>
-          <div class="color-swatch" style="background-color: #f1f5f9; color: #333;">100</div>
-          <div class="color-swatch" style="background-color: #e2e8f0; color: #333;">200</div>
-          <div class="color-swatch" style="background-color: #cbd5e1;">300</div>
-          <div class="color-swatch" style="background-color: #94a3b8;">400</div>
-          <div class="color-swatch" style="background-color: #64748b;">500</div>
-          <div class="color-swatch" style="background-color: #475569;">600</div>
-          <div class="color-swatch" style="background-color: #334155;">700</div>
-          <div class="color-swatch" style="background-color: #1e293b;">800</div>
-          <div class="color-swatch" style="background-color: #0f172a;">900</div>
+          <div class="color-swatch" style="background-color: var(--qds-color-neutral-50); color: var(--qds-color-neutral-900);"><span>50</span><span>#f8fafc</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-neutral-100); color: var(--qds-color-neutral-900);"><span>100</span><span>#f1f5f9</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-neutral-200); color: var(--qds-color-neutral-900);"><span>200</span><span>#e2e8f0</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-neutral-300); color: var(--qds-color-neutral-900);"><span>300</span><span>#cbd5e1</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-neutral-400);"><span>400</span><span>#94a3b8</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-neutral-500);"><span>500</span><span>#64748b</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-neutral-600);"><span>600</span><span>#475569</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-neutral-700);"><span>700</span><span>#334155</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-neutral-800);"><span>800</span><span>#1e293b</span></div>
+          <div class="color-swatch" style="background-color: var(--qds-color-neutral-900);"><span>900</span><span>#0f172a</span></div>
         </div>
-        <div class="code">--qds-color-neutral-500: #64748b;</div>
+        <div class="code-block"><pre>--qds-color-neutral-500: #64748b;</pre></div>
       </div>
 
-      <h3>Spacing System</h3>
-      <div class="grid grid-3">
-        <div class="card">
-          <h4>Base Unit: 8px</h4>
-          <p>All spacing follows an 8px grid system for visual consistency and developer ease.</p>
-          <div class="code">--qds-space-4: 16px; /* 8px × 2 */</div>
+      <h3>Spacing System (8px Grid)</h3>
+      <p>All horizontal and vertical spacing is built on an 8px grid to ensure consistent visual rhythm. Use semantic tokens for better readability.</p>
+      <div class="card">
+        <h4>Semantic Spacing Scale</h4>
+        <div class="spacing-box-container">
+          <div class="spacing-box" data-value="--qds-space-xs" style="width: var(--qds-space-1); height: var(--qds-space-1);">4px</div>
+          <div class="spacing-box" data-value="--qds-space-sm" style="width: var(--qds-space-2); height: var(--qds-space-2);">8px</div>
+          <div class="spacing-box" data-value="--qds-space-md" style="width: var(--qds-space-4); height: var(--qds-space-4);">16px</div>
+          <div class="spacing-box" data-value="--qds-space-lg" style="width: var(--qds-space-6); height: var(--qds-space-6);">24px</div>
+          <div class="spacing-box" data-value="--qds-space-xl" style="width: var(--qds-space-8); height: var(--qds-space-8);">32px</div>
+          <div class="spacing-box" data-value="--qds-space-2xl" style="width: var(--qds-space-10); height: var(--qds-space-10);">40px</div>
+          <div class="spacing-box" data-value="--qds-space-3xl" style="width: var(--qds-space-12); height: var(--qds-space-12);">48px</div>
         </div>
-        <div class="card">
-          <h4>Semantic Names</h4>
-          <p>Use semantic spacing names for better maintainability and readability.</p>
-          <div class="code">--qds-space-md: 16px;</div>
-        </div>
-        <div class="card">
-          <h4>Scale: 4px - 128px</h4>
-          <p>Comprehensive scale from micro spacing to large layout gaps.</p>
-          <div class="code">--qds-space-1: 4px;<br>--qds-space-32: 128px;</div>
-        </div>
+        <div class="code-block"><pre>padding: var(--qds-space-md);   /* 16px */</pre></div>
       </div>
 
       <h3>Typography</h3>
+      <p>The Qualia Design System utilizes the <strong>Inter</strong> font family for a clean, modern, and highly legible experience across all platforms.</p>
       <div class="card">
-        <div style="font-family: var(--qds-font-family-sans); font-size: var(--qds-font-size-4xl); font-weight: var(--qds-font-weight-bold); margin-bottom: var(--qds-space-4);">Inter Font Family</div>
-        <div style="font-size: var(--qds-font-size-3xl); margin-bottom: var(--qds-space-3);">Heading 1 - 30px</div>
-        <div style="font-size: var(--qds-font-size-2xl); margin-bottom: var(--qds-space-3);">Heading 2 - 24px</div>
-        <div style="font-size: var(--qds-font-size-xl); margin-bottom: var(--qds-space-3);">Heading 3 - 20px</div>
-        <div style="font-size: var(--qds-font-size-lg); margin-bottom: var(--qds-space-3);">Large Text - 18px</div>
-        <div style="font-size: var(--qds-font-size-base); margin-bottom: var(--qds-space-3);">Base Text - 16px</div>
-        <div style="font-size: var(--qds-font-size-sm);">Small Text - 14px</div>
-        <div class="code" style="margin-top: var(--qds-space-4);">font-family: var(--qds-font-family-sans);</div>
+        <h4>Font Family</h4>
+        <div class="type-sample" style="font-family: var(--qds-font-family-sans);">
+          <p style="font-size: var(--qds-font-size-3xl); font-weight: var(--qds-font-weight-bold); line-height: var(--qds-line-height-tight);">Display Heading Example</p>
+          <p style="font-size: var(--qds-font-size-base); font-weight: var(--qds-font-weight-normal); line-height: var(--qds-line-height-normal);">The quick brown fox jumps over the lazy dog.</p>
+        </div>
+        <div class="code-block"><pre>font-family: var(--qds-font-family-sans);</pre></div>
+
+        <h4>Font Sizes & Weights</h4>
+        <div class="type-sample">
+          <p style="font-size: var(--qds-font-size-5xl); font-weight: var(--qds-font-weight-bold);">Heading 1 (48px Bold)</p>
+          <p style="font-size: var(--qds-font-size-3xl); font-weight: var(--qds-font-weight-semibold);">Heading 2 (30px Semibold)</p>
+          <p style="font-size: var(--qds-font-size-xl); font-weight: var(--qds-font-weight-medium);">Heading 3 (20px Medium)</p>
+          <p style="font-size: var(--qds-font-size-base); font-weight: var(--qds-font-weight-normal);">Body Text (16px Normal)</p>
+          <p style="font-size: var(--qds-font-size-sm); font-weight: var(--qds-font-weight-light);">Small Text (14px Light)</p>
+        </div>
+        <div class="code-block"><pre>font-size: var(--qds-font-size-base);\nfont-weight: var(--qds-font-weight-normal);</pre></div>
       </div>
     </section>
 
     <!-- Components -->
     <section id="components" class="section">
       <h2>Components</h2>
+      <p>Our React component library is built on top of the design tokens, providing a set of reusable and accessible UI elements. Starting with the foundational Button component.</p>
       
       <h3>Buttons</h3>
+      <p>Buttons are essential for user interaction, allowing them to initiate actions and navigate. The Qualia Button component ensures consistent behavior and styling.</p>
       <div class="card">
-        <h4>Button Variants</h4>
+        <h4>Button Variants <span class="status status-ready">✅ Ready</span></h4>
         <div class="button-demo">
-          <button class="btn btn-primary">Primary</button>
-          <button class="btn btn-secondary">Secondary</button>
-          <button class="btn btn-outline">Outline</button>
-          <button class="btn btn-primary" style="background-color: #ef4444;" onmouseover="this.style.backgroundColor='#dc2626'" onmouseout="this.style.backgroundColor='#ef4444'">Destructive</button>
+          <button class="btn btn-primary">Primary Action</button>
+          <button class="btn btn-secondary">Secondary Action</button>
+          <button class="btn btn-outline">Outline Action</button>
+          <button class="btn btn-destructive">Destructive Action</button>
         </div>
-        <div class="code">import { Button } from '@qualia/design-system';
-
-&lt;Button variant="primary"&gt;Save Changes&lt;/Button&gt;</div>
+        <div class="code-block"><pre>&lt;Button variant="primary"&gt;Primary Action&lt;/Button&gt;</pre></div>
       </div>
 
       <div class="card">
-        <h4>Button Sizes</h4>
+        <h4>Button Sizes <span class="status status-ready">✅ Ready</span></h4>
         <div class="button-demo" style="align-items: center;">
-          <button class="btn btn-primary btn-small">Small</button>
-          <button class="btn btn-primary">Medium</button>
-          <button class="btn btn-primary btn-large">Large</button>
+          <button class="btn btn-primary btn-small">Small Button</button>
+          <button class="btn btn-primary">Medium Button</button>
+          <button class="btn btn-primary btn-large">Large Button</button>
         </div>
-        <div class="code">&lt;Button size="large"&gt;Get Started&lt;/Button&gt;</div>
+        <div class="code-block"><pre>&lt;Button size="large"&gt;Large Button&lt;/Button&gt;</pre></div>
       </div>
 
       <div class="card">
-        <h4>Button States</h4>
+        <h4>Button States <span class="status status-ready">✅ Ready</span></h4>
         <div class="button-demo">
-          <button class="btn btn-primary">Default</button>
-          <button class="btn btn-primary" style="opacity: 0.6; cursor: not-allowed;" disabled>Disabled</button>
-          <button class="btn btn-primary" onclick="this.innerHTML='Loading...'; setTimeout(() => this.innerHTML='Loaded!', 2000)">Click to Load</button>
+          <button class="btn btn-primary">Default State</button>
+          <button class="btn btn-primary" disabled>Disabled State</button>
+          <button id="loadingBtn" class="btn btn-primary" onclick="toggleLoading(this)">Click to Load</button>
+          <button class="btn btn-secondary" id="loadingBtn2" onclick="toggleLoading(this)">Click to Load</button>
         </div>
-        <div class="code">&lt;Button loading={isSubmitting} disabled={!isValid}&gt;
-  {isSubmitting ? 'Saving...' : 'Save'}
-&lt;/Button&gt;</div>
+        <div class="code-block"><pre>&lt;Button loading={isLoading}&gt;Loading...&lt;/Button&gt;\n&lt;Button disabled&gt;Disabled&lt;/Button&gt;</pre></div>
+      </div>
+
+      <div class="card">
+        <h4>Button with Icons <span class="status status-coming-soon">🔜 Coming Soon</span></h4>
+        <div class="button-demo">
+          <button class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+            Add Item
+          </button>
+          <button class="btn btn-secondary">
+            Download
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </button>
+        </div>
+        <div class="code-block"><pre>&lt;Button icon={&lt;PlusIcon /&gt;}&gt;Add Item&lt;/Button&gt;</pre></div>
       </div>
     </section>
 
     <!-- Guidelines -->
     <section id="guidelines" class="section">
       <h2>Usage Guidelines</h2>
+      <p>These guidelines provide best practices and detailed instructions for effectively using the Qualia Design System, ensuring consistency and high quality across all products.</p>
       
-      <div class="grid">
+      <div class="grid grid-2">
         <div class="card">
-          <h4>🎨 Design Tokens</h4>
-          <ul>
-            <li><strong>Always use tokens</strong> instead of hardcoded values</li>
-            <li><strong>Semantic naming</strong> over specific values</li>
-            <li><strong>Consistent spacing</strong> with 8px grid system</li>
-            <li><strong>Accessible colors</strong> with WCAG AA compliance</li>
-          </ul>
+          <h4>🎨 Design Tokens Usage</h4>
+          <p>Learn how to correctly apply colors, spacing, typography, and other tokens in your code. Avoid hardcoding values and embrace semantic naming.</p>
+          <a href="tokens-usage-guide.md" class="btn btn-outline" style="margin-top: var(--qds-space-4);">Read Token Guide</a>
         </div>
         <div class="card">
-          <h4>🔘 Button Usage</h4>
-          <ul>
-            <li><strong>Primary:</strong> Main actions, CTAs (max 1 per section)</li>
-            <li><strong>Secondary:</strong> Supporting actions, cancel buttons</li>
-            <li><strong>Outline:</strong> Subtle actions, tertiary options</li>
-            <li><strong>Destructive:</strong> Dangerous actions, deletion</li>
-          </ul>
+          <h4>🔘 Button Component Best Practices</h4>
+          <p>Understand when to use each button variant and size, how to manage interactive states, and ensure optimal accessibility for all users.</p>
+          <a href="button-usage-guide.md" class="btn btn-outline" style="margin-top: var(--qds-space-4);">Read Button Guide</a>
         </div>
         <div class="card">
-          <h4>♿ Accessibility</h4>
-          <ul>
-            <li><strong>Keyboard navigation</strong> for all interactive elements</li>
-            <li><strong>Focus indicators</strong> clearly visible</li>
-            <li><strong>Color contrast</strong> meeting WCAG standards</li>
-            <li><strong>Screen reader</strong> compatible with ARIA labels</li>
-          </ul>
+          <h4>♿ Accessibility Standards</h4>
+          <p>Ensure all components meet WCAG AA guidelines. Focus on keyboard navigation, screen reader compatibility, and proper color contrast ratios.</p>
+          <a href="#" class="btn btn-outline" style="margin-top: var(--qds-space-4); opacity: 0.6; cursor: not-allowed;" disabled>Accessibility Guide (Soon)</a>
         </div>
         <div class="card">
-          <h4>📱 Responsive Design</h4>
-          <ul>
-            <li><strong>Mobile first</strong> approach to component design</li>
-            <li><strong>Touch targets</strong> minimum 44px for mobile</li>
-            <li><strong>Flexible layouts</strong> adapting to screen size</li>
-            <li><strong>Content priority</strong> on smaller screens</li>
-          </ul>
+          <h4>📱 Responsive Design Principles</h4>
+          <p>Guidelines for building interfaces that adapt seamlessly to various screen sizes and devices, prioritizing mobile-first development and touch interactions.</p>
+          <a href="#" class="btn btn-outline" style="margin-top: var(--qds-space-4); opacity: 0.6; cursor: not-allowed;" disabled>Responsive Guide (Soon)</a>
         </div>
       </div>
     </section>
@@ -544,80 +828,97 @@
     <!-- Installation -->
     <section id="installation" class="section">
       <h2>Installation & Usage</h2>
+      <p>Get started with the Qualia Design System in your project quickly and efficiently.</p>
       
       <div class="card">
         <h4>📦 Install Package</h4>
-        <div class="code">npm install @qualia/design-system</div>
+        <div class="code-block"><pre>npm install @qualia/design-system</pre></div>
       </div>
 
       <div class="card">
         <h4>🎨 Import Design Tokens</h4>
-        <div class="code">// JavaScript/React
-import { colors, spacing, typography } from '@qualia/design-system/tokens';
-
-// CSS
-@import '@qualia/design-system/tokens/tokens.css';</div>
+        <p>You can import tokens as JavaScript modules or include the CSS custom properties file.</p>
+        <div class="code-block"><pre>// JavaScript/React\nimport { colors, spacing, typography } from '@qualia/design-system/tokens';\n\n// CSS (e.g., in your main CSS file or a PostCSS setup)\n@import '@qualia/design-system/tokens/tokens.css';</pre></div>
       </div>
 
       <div class="card">
         <h4>🔘 Use Components</h4>
-        <div class="code">import { Button } from '@qualia/design-system';
-
-function MyApp() {
-  return (
-    &lt;Button 
-      variant="primary" 
-      size="large"
-      onClick={handleClick}
-    &gt;
-      Get Started
-    &lt;/Button&gt;
-  );
-}</div>
+        <p>Import and use React components directly in your application. Ensure you've imported the main CSS bundle for component styling.</p>
+        <div class="code-block"><pre>import { Button } from '@qualia/design-system';\n\nfunction MyApp() {\n  return (\n    &lt;Button \n      variant="primary" \n      size="large"\n      onClick={handleClick}\n    &gt;\n      Get Started\n    &lt;/Button&gt;\n  );\n}</pre></div>
       </div>
 
       <div class="card">
         <h4>🔄 Migration from Semantic UI</h4>
-        <div class="code">// Before (Semantic UI)
-&lt;Button primary size="large" loading={loading}&gt;
-  Submit
-&lt;/Button&gt;
-
-// After (Qualia Design System)
-&lt;Button variant="primary" size="large" loading={loading}&gt;
-  Submit
-&lt;/Button&gt;</div>
+        <p>Transitioning from Semantic UI? Our components offer direct mappings to streamline the migration process.</p>
+        <div class="code-block"><pre>// Before (Semantic UI)\n&lt;Button primary size="large" loading={loading}&gt;\n  Submit\n&lt;/Button&gt;\n\n// After (Qualia Design System)\n&lt;Button variant="primary" size="large" loading={loading}&gt;\n  Submit\n&lt;/Button&gt;</pre></div>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; 2025 Qualia Design System. All rights reserved.
+  </footer>
+
   <script>
-    // Simple navigation highlighting
-    document.addEventListener('DOMContentLoaded', function() {
-      const navLinks = document.querySelectorAll('.nav a');
-      
-      navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          
-          // Remove active class from all links
-          navLinks.forEach(l => l.classList.remove('active'));
-          
-          // Add active class to clicked link
-          this.classList.add('active');
-          
-          // Smooth scroll to section
-          const targetId = this.getAttribute('href');
-          const targetSection = document.querySelector(targetId);
-          if (targetSection) {
-            targetSection.scrollIntoView({ 
-              behavior: 'smooth',
-              block: 'start'
+    // Smooth scroll for navigation
+    document.querySelectorAll('.nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
-          }
+            // Update active state in nav
+            document.querySelectorAll('.nav a').forEach(link => link.classList.remove('active'));
+            this.classList.add('active');
         });
-      });
     });
+
+    // Button loading state demo
+    function toggleLoading(buttonElement) {
+      buttonElement.disabled = true;
+      buttonElement.innerHTML = '<span class="loading-spinner"></span> Loading...';
+      setTimeout(() => {
+        buttonElement.disabled = false;
+        buttonElement.innerHTML = 'Loaded!';
+        setTimeout(() => {
+            // Reset to original text after a short delay
+            if (buttonElement.id === 'loadingBtn') {
+                buttonElement.innerHTML = 'Click to Load';
+            } else if (buttonElement.id === 'loadingBtn2') {
+                buttonElement.innerHTML = 'Click to Load';
+            }
+        }, 1000);
+      }, 2000);
+    }
+
+    // Highlight current section in nav on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav a');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.3 // Adjust as needed
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${entry.target.id}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
   </script>
 </body>
 </html>
