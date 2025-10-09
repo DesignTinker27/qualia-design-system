@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Qualia Design System</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Qualia Design System - Docs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
       /* Design Tokens - Colors */
@@ -30,43 +30,71 @@
       --qds-color-neutral-800: #1e293b;
       --qds-color-neutral-900: #0f172a;
 
+      --qds-color-success-500: #22c55e;
+      --qds-color-warning-500: #f59e0b;
+      --qds-color-error-500: #ef4444;
+      --qds-color-info-500: #3b82f6;
+
+      --qds-color-text-primary: var(--qds-color-neutral-900);
+      --qds-color-text-secondary: var(--qds-color-neutral-600);
+      --qds-color-text-inverse: var(--qds-color-neutral-50);
+      --qds-color-bg-primary: var(--qds-color-neutral-50);
+      --qds-color-bg-secondary: var(--qds-color-neutral-100);
+      --qds-color-border-primary: var(--qds-color-neutral-200);
+      --qds-color-border-focus: var(--qds-color-primary-500);
+
       /* Spacing */
-      --qds-space-1: 4px;
-      --qds-space-2: 8px;
+      --qds-space-1: 4px;  /* xs */
+      --qds-space-2: 8px;  /* sm */
       --qds-space-3: 12px;
-      --qds-space-4: 16px;
+      --qds-space-4: 16px; /* md */
       --qds-space-5: 20px;
-      --qds-space-6: 24px;
-      --qds-space-8: 32px;
-      --qds-space-10: 40px;
-      --qds-space-12: 48px;
+      --qds-space-6: 24px; /* lg */
+      --qds-space-8: 32px; /* xl */
+      --qds-space-10: 40px; /* 2xl */
+      --qds-space-12: 48px; /* 3xl */
       --qds-space-16: 64px;
       --qds-space-20: 80px;
 
       /* Typography */
-      --qds-font-family-sans: Inter, system-ui, -apple-system, sans-serif;
-      --qds-font-size-sm: 0.875rem;
-      --qds-font-size-base: 1rem;
-      --qds-font-size-lg: 1.125rem;
-      --qds-font-size-xl: 1.25rem;
-      --qds-font-size-2xl: 1.5rem;
-      --qds-font-size-3xl: 1.875rem;
-      --qds-font-size-4xl: 2.25rem;
+      --qds-font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --qds-font-family-mono: 'Monaco', 'Menlo', monospace;
+      --qds-font-size-xs: 0.75rem; /* 12px */
+      --qds-font-size-sm: 0.875rem; /* 14px */
+      --qds-font-size-base: 1rem; /* 16px */
+      --qds-font-size-lg: 1.125rem; /* 18px */
+      --qds-font-size-xl: 1.25rem; /* 20px */
+      --qds-font-size-2xl: 1.5rem; /* 24px */
+      --qds-font-size-3xl: 1.875rem; /* 30px */
+      --qds-font-size-4xl: 2.25rem; /* 36px */
+      --qds-font-weight-light: 300;
       --qds-font-weight-normal: 400;
       --qds-font-weight-medium: 500;
       --qds-font-weight-semibold: 600;
       --qds-font-weight-bold: 700;
+      --qds-line-height-tight: 1.2;
+      --qds-line-height-normal: 1.5;
+      --qds-line-height-relaxed: 1.75;
 
       /* Border Radius */
+      --qds-radius-none: 0px;
       --qds-radius-sm: 2px;
       --qds-radius-md: 4px;
       --qds-radius-lg: 8px;
       --qds-radius-xl: 12px;
+      --qds-radius-2xl: 16px;
+      --qds-radius-3xl: 24px;
+      --qds-radius-full: 9999px;
 
       /* Shadows */
       --qds-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
       --qds-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
       --qds-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --qds-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+      /* Transitions */
+      --qds-transition-fast: 150ms ease-in-out;
+      --qds-transition-normal: 250ms ease-in-out;
     }
 
     * {
@@ -77,54 +105,89 @@
       font-family: var(--qds-font-family-sans);
       margin: 0;
       padding: 0;
-      color: var(--qds-color-neutral-800);
-      background-color: var(--qds-color-neutral-50);
-      line-height: 1.6;
+      color: var(--qds-color-text-primary);
+      background-color: var(--qds-color-bg-primary);
+      line-height: var(--qds-line-height-normal);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: var(--qds-space-6);
+      padding: var(--qds-space-8);
     }
 
     /* Header */
     .header {
-      background: linear-gradient(135deg, var(--qds-color-primary-600), var(--qds-color-primary-700));
-      color: white;
-      padding: var(--qds-space-20) 0;
+      background: linear-gradient(135deg, var(--qds-color-primary-600), var(--qds-color-primary-800));
+      color: var(--qds-color-text-inverse);
+      padding: var(--qds-space-16) 0 var(--qds-space-12);
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: pulse 10s infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.8) rotate(0deg); opacity: 0.8; }
+      100% { transform: scale(1.2) rotate(10deg); opacity: 1; }
     }
 
     .header h1 {
       font-size: var(--qds-font-size-4xl);
       font-weight: var(--qds-font-weight-bold);
       margin: 0 0 var(--qds-space-4) 0;
+      position: relative;
+      z-index: 1;
     }
 
     .header p {
       font-size: var(--qds-font-size-lg);
       opacity: 0.9;
       margin: 0;
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     /* Navigation */
     .nav {
       background: white;
-      border-bottom: 1px solid var(--qds-color-neutral-200);
+      border-bottom: 1px solid var(--qds-color-border-primary);
       padding: var(--qds-space-4) 0;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000; /* Ensure nav is always on top */
+      box-shadow: var(--qds-shadow-sm);
     }
 
     .nav-container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 var(--qds-space-6);
+      padding: 0 var(--qds-space-8);
       display: flex;
       gap: var(--qds-space-8);
       align-items: center;
+      justify-content: flex-start;
+      overflow-x: auto; /* For small screens */
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;  /* IE and Edge */
+    }
+    .nav-container::-webkit-scrollbar { /* Chrome, Safari, Opera */
+      display: none;
     }
 
     .nav a {
@@ -133,16 +196,21 @@
       font-weight: var(--qds-font-weight-medium);
       padding: var(--qds-space-2) var(--qds-space-3);
       border-radius: var(--qds-radius-md);
-      transition: all 0.15s ease;
+      transition: all var(--qds-transition-fast);
+      flex-shrink: 0; /* Prevent links from shrinking */
     }
 
     .nav a:hover, .nav a.active {
       color: var(--qds-color-primary-600);
       background-color: var(--qds-color-primary-50);
     }
+    .nav a.active {
+      box-shadow: inset 0 -2px 0 0 var(--qds-color-primary-500); /* Underline effect */
+    }
 
     /* Section */
     .section {
+      padding-top: var(--qds-space-16);
       margin-bottom: var(--qds-space-20);
     }
 
@@ -153,29 +221,36 @@
       margin: 0 0 var(--qds-space-8) 0;
       border-bottom: 2px solid var(--qds-color-primary-500);
       padding-bottom: var(--qds-space-3);
+      display: inline-block;
     }
 
     .section h3 {
       font-size: var(--qds-font-size-xl);
       font-weight: var(--qds-font-weight-semibold);
       color: var(--qds-color-neutral-800);
-      margin: var(--qds-space-8) 0 var(--qds-space-4) 0;
+      margin: var(--qds-space-10) 0 var(--qds-space-4) 0;
+    }
+
+    .section h4 {
+      font-size: var(--qds-font-size-lg);
+      font-weight: var(--qds-font-weight-semibold);
+      color: var(--qds-color-neutral-800);
+      margin: var(--qds-space-8) 0 var(--qds-space-3) 0;
     }
 
     /* Cards */
     .card {
       background: white;
       border-radius: var(--qds-radius-lg);
-      border: 1px solid var(--qds-color-neutral-200);
+      border: 1px solid var(--qds-color-border-primary);
       padding: var(--qds-space-6);
       margin-bottom: var(--qds-space-6);
-      box-shadow: var(--qds-shadow-sm);
+      box-shadow: var(--qds-shadow-md);
+      transition: transform var(--qds-transition-fast), box-shadow var(--qds-transition-fast);
     }
-
-    .card h4 {
-      margin: 0 0 var(--qds-space-3) 0;
-      color: var(--qds-color-neutral-800);
-      font-weight: var(--qds-font-weight-semibold);
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--qds-shadow-lg);
     }
 
     /* Grid */
@@ -188,33 +263,68 @@
     .grid-3 {
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
+    
+    .grid-2 {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
 
     /* Color Palette */
+    .color-palette-group {
+        display: flex;
+        flex-direction: column;
+        gap: var(--qds-space-6);
+        margin-bottom: var(--qds-space-8);
+    }
     .color-palette {
       display: flex;
       border-radius: var(--qds-radius-lg);
       overflow: hidden;
       box-shadow: var(--qds-shadow-md);
-      margin-bottom: var(--qds-space-4);
+      border: 1px solid var(--qds-color-border-primary);
     }
 
     .color-swatch {
       flex: 1;
-      height: 80px;
+      height: 90px;
       display: flex;
       align-items: end;
+      justify-content: start;
       padding: var(--qds-space-2);
       color: white;
       font-size: var(--qds-font-size-sm);
       font-weight: var(--qds-font-weight-medium);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      position: relative;
+      transition: all var(--qds-transition-fast);
+    }
+    .color-swatch:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: var(--qds-shadow-lg);
+        z-index: 1; /* Bring hovered swatch to front */
+    }
+    .color-swatch span {
+        position: absolute;
+        bottom: var(--qds-space-2);
+        left: var(--qds-space-2);
+    }
+    .color-swatch.dark-text {
+        color: var(--qds-color-neutral-900);
+        text-shadow: none;
     }
 
-    /* Button Demo */
-    .button-demo {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--qds-space-3);
+    /* Button Demo (from PR #2) */
+    .button-demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--qds-space-6);
       margin: var(--qds-space-4) 0;
+    }
+    .button-example-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--qds-space-3);
+        margin-bottom: var(--qds-space-4);
+        align-items: center;
     }
 
     .btn {
@@ -229,20 +339,31 @@
       font-size: var(--qds-font-size-base);
       font-weight: var(--qds-font-weight-medium);
       cursor: pointer;
-      transition: all 0.15s ease;
+      transition: all var(--qds-transition-fast);
       text-decoration: none;
       min-height: 40px;
+      box-shadow: var(--qds-shadow-sm);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--qds-color-border-focus);
+      outline-offset: 2px;
     }
 
     .btn-primary {
       background-color: var(--qds-color-primary-500);
-      color: white;
+      color: var(--qds-color-text-inverse);
     }
 
-    .btn-primary:hover {
+    .btn-primary:hover:not(:disabled) {
       background-color: var(--qds-color-primary-600);
       transform: translateY(-1px);
       box-shadow: var(--qds-shadow-md);
+    }
+    .btn-primary:active:not(:disabled) {
+        background-color: var(--qds-color-primary-700);
+        transform: translateY(0);
+        box-shadow: var(--qds-shadow-sm);
     }
 
     .btn-secondary {
@@ -251,9 +372,15 @@
       border: 1px solid var(--qds-color-neutral-200);
     }
 
-    .btn-secondary:hover {
+    .btn-secondary:hover:not(:disabled) {
       background-color: var(--qds-color-neutral-200);
       transform: translateY(-1px);
+      box-shadow: var(--qds-shadow-sm);
+    }
+    .btn-secondary:active:not(:disabled) {
+        background-color: var(--qds-color-neutral-300);
+        transform: translateY(0);
+        box-shadow: none;
     }
 
     .btn-outline {
@@ -262,9 +389,38 @@
       border: 1px solid var(--qds-color-primary-600);
     }
 
-    .btn-outline:hover {
+    .btn-outline:hover:not(:disabled) {
       background-color: var(--qds-color-primary-50);
       border-color: var(--qds-color-primary-700);
+      transform: translateY(-1px);
+      box-shadow: var(--qds-shadow-sm);
+    }
+    .btn-outline:active:not(:disabled) {
+        background-color: var(--qds-color-primary-100);
+        border-color: var(--qds-color-primary-800);
+        transform: translateY(0);
+        box-shadow: none;
+    }
+
+    .btn-destructive {
+        background-color: var(--qds-color-error-500);
+        color: var(--qds-color-text-inverse);
+    }
+    .btn-destructive:hover:not(:disabled) {
+        background-color: #dc2626; /* Slightly darker red */
+        transform: translateY(-1px);
+        box-shadow: var(--qds-shadow-md);
+    }
+    .btn-destructive:active:not(:disabled) {
+        background-color: #b91c1c; /* Even darker red */
+        transform: translateY(0);
+        box-shadow: var(--qds-shadow-sm);
+    }
+
+    .btn[disabled] {
+        opacity: 0.6;
+        cursor: not-allowed;
+        box-shadow: none;
     }
 
     .btn-small {
@@ -278,40 +434,86 @@
       font-size: var(--qds-font-size-lg);
       min-height: 48px;
     }
+    .btn-full-width {
+        width: 100%;
+    }
 
-    /* Code */
-    .code {
-      background-color: var(--qds-color-neutral-100);
-      border: 1px solid var(--qds-color-neutral-200);
+    /* Loading state animation */
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    .loading-spinner {
+        animation: spin 1s linear infinite;
+        margin-right: var(--qds-space-2);
+    }
+
+    /* Code Block */
+    .code-block {
+      background-color: var(--qds-color-bg-secondary);
+      border: 1px solid var(--qds-color-border-primary);
       border-radius: var(--qds-radius-md);
       padding: var(--qds-space-4);
-      font-family: 'Monaco', 'Menlo', monospace;
+      font-family: var(--qds-font-family-mono);
       font-size: var(--qds-font-size-sm);
       overflow-x: auto;
-      margin: var(--qds-space-4) 0;
+      margin: var(--qds-space-4) 0 var(--qds-space-8);
+      position: relative;
+    }
+    .code-block code {
+        display: block;
+        white-space: pre-wrap;
+    }
+    .copy-btn {
+        position: absolute;
+        top: var(--qds-space-2);
+        right: var(--qds-space-2);
+        background-color: var(--qds-color-neutral-300);
+        color: var(--qds-color-neutral-800);
+        border: none;
+        border-radius: var(--qds-radius-sm);
+        padding: var(--qds-space-1) var(--qds-space-2);
+        font-size: var(--qds-font-size-xs);
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity var(--qds-transition-fast);
+    }
+    .code-block:hover .copy-btn {
+        opacity: 1;
+    }
+    .copy-btn:active {
+        background-color: var(--qds-color-primary-500);
+        color: var(--qds-color-text-inverse);
     }
 
     /* Status Badge */
-    .status {
+    .status-badge {
       display: inline-flex;
       align-items: center;
-      gap: var(--qds-space-2);
+      gap: var(--qds-space-1);
       padding: var(--qds-space-1) var(--qds-space-3);
       border-radius: var(--qds-radius-md);
       font-size: var(--qds-font-size-sm);
-      font-weight: var(--qds-font-weight-medium);
+      font-weight: var(--qds-font-weight-semibold);
+      margin-left: var(--qds-space-4);
     }
 
     .status-ready {
-      background-color: #f0fdf4;
-      color: #15803d;
-      border: 1px solid #bbf7d0;
+      background-color: var(--qds-color-success-500);
+      color: white;
+      border: 1px solid var(--qds-color-success-500);
+      opacity: 0.9;
     }
 
     .status-in-progress {
-      background-color: #fffbeb;
-      color: #a16207;
-      border: 1px solid #fed7aa;
+      background-color: var(--qds-color-warning-500);
+      color: white;
+      border: 1px solid var(--qds-color-warning-500);
+      opacity: 0.9;
+    }
+    .status-icon {
+        width: 1em;
+        height: 1em;
     }
 
     /* Responsive */
@@ -320,18 +522,37 @@
         padding: var(--qds-space-4);
       }
       
+      .header h1 {
+        font-size: var(--qds-font-size-3xl);
+      }
+      .header p {
+        font-size: var(--qds-font-size-base);
+      }
+      
       .nav-container {
         flex-wrap: wrap;
         gap: var(--qds-space-4);
+        justify-content: center;
       }
       
-      .grid {
+      .section h2 {
+        font-size: var(--qds-font-size-2xl);
+      }
+
+      .grid, .grid-2, .grid-3 {
         grid-template-columns: 1fr;
       }
       
-      .button-demo {
+      .button-example-group {
         flex-direction: column;
         align-items: flex-start;
+      }
+      .btn-full-width {
+          width: auto; /* Allow full width on small screens if not specified */
+      }
+      .status-badge {
+          margin-left: 0;
+          margin-top: var(--qds-space-2);
       }
     }
   </style>
@@ -341,18 +562,18 @@
   <header class="header">
     <div class="container">
       <h1>Qualia Design System</h1>
-      <p>Consistent, accessible, and beautiful components for modern web applications</p>
+      <p>Building consistent, accessible, and beautiful experiences for Qualia products.</p>
     </div>
   </header>
 
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-container">
-      <a href="#overview" class="active">Overview</a>
-      <a href="#tokens">Design Tokens</a>
-      <a href="#components">Components</a>
-      <a href="#guidelines">Guidelines</a>
-      <a href="#installation">Installation</a>
+      <a href="#overview" class="nav-link active">Overview</a>
+      <a href="#tokens" class="nav-link">Design Tokens</a>
+      <a href="#components" class="nav-link">Components</a>
+      <a href="#guidelines" class="nav-link">Guidelines</a>
+      <a href="#installation" class="nav-link">Installation</a>
     </div>
   </nav>
 
@@ -360,182 +581,214 @@
   <main class="container">
     <!-- Overview -->
     <section id="overview" class="section">
-      <h2>Overview</h2>
+      <h2>Overview <span class="status-badge status-ready">✅ Stable</span></h2>
+      <p>The Qualia Design System is a centralized library of reusable components and guidelines that help us build consistent, accessible, and delightful user experiences across all Qualia products. It aims to streamline the design and development workflow, reduce technical debt, and elevate the overall quality of our digital products.</p>
       <div class="grid">
         <div class="card">
           <h4>🎨 Design Tokens</h4>
-          <p>Foundational design values including colors, spacing, typography, and more. Available as JavaScript modules and CSS custom properties.</p>
-          <div class="status status-ready">✅ Ready to Ship</div>
+          <p>The foundational design values (colors, spacing, typography, etc.) that power our entire system. Available as JavaScript modules and CSS custom properties.</p>
+          <span class="status-badge status-ready">✅ Ready to Ship</span>
         </div>
         <div class="card">
-          <h4>🔘 Components</h4>
-          <p>React components built with design tokens. Starting with buttons, expanding to full component library.</p>
-          <div class="status status-ready">✅ Ready to Ship</div>
+          <h4>🔘 Components (React)</h4>
+          <p>A library of accessible and reusable React components, built on our design tokens. Starting with a robust Button, with more to follow.</p>
+          <span class="status-badge status-ready">✅ Ready to Ship</span>
         </div>
         <div class="card">
-          <h4>📚 Documentation</h4>
-          <p>Comprehensive usage guidelines, examples, and best practices for designers and developers.</p>
-          <div class="status status-ready">✅ Ready to Ship</div>
+          <h4>📚 Usage Documentation</h4>
+          <p>Comprehensive guidelines, live examples, and best practices for both designers and developers to ensure consistent application of the system.</p>
+          <span class="status-badge status-ready">✅ Ready to Ship</span>
         </div>
         <div class="card">
-          <h4>🔄 Migration Tools</h4>
-          <p>Automated tools to help migrate from Semantic UI to Qualia Design System components.</p>
-          <div class="status status-in-progress">🚧 In Progress</div>
+          <h4>🔄 Migration Strategy</h4>
+          <p>Tools and patterns to facilitate a smooth transition from legacy Semantic UI components and hardcoded styles to the Qualia Design System.</p>
+          <span class="status-badge status-in-progress">🚧 In Progress</span>
         </div>
       </div>
     </section>
 
     <!-- Design Tokens -->
     <section id="tokens" class="section">
-      <h2>Design Tokens</h2>
+      <h2>Design Tokens <span class="status-badge status-ready">✅ Stable</span></h2>
+      <p>Design tokens are abstract representations of visual design elements. They serve as the single source of truth, connecting design tools like Figma directly to our code. Our token system uses semantic naming, ensuring better communication and flexibility.</p>
       
       <h3>Color Palette</h3>
-      <div class="card">
-        <h4>Primary Colors</h4>
-        <div class="color-palette">
-          <div class="color-swatch" style="background-color: #f0f9ff;">50</div>
-          <div class="color-swatch" style="background-color: #e0f2fe;">100</div>
-          <div class="color-swatch" style="background-color: #bae6fd;">200</div>
-          <div class="color-swatch" style="background-color: #7dd3fc;">300</div>
-          <div class="color-swatch" style="background-color: #38bdf8;">400</div>
-          <div class="color-swatch" style="background-color: #0ea5e9;">500</div>
-          <div class="color-swatch" style="background-color: #0284c7;">600</div>
-          <div class="color-swatch" style="background-color: #0369a1;">700</div>
-          <div class="color-swatch" style="background-color: #075985;">800</div>
-          <div class="color-swatch" style="background-color: #0c4a6e;">900</div>
-        </div>
-        <div class="code">--qds-color-primary-500: #0ea5e9;</div>
+      <p>Our color system is divided into Primary, Neutral, Interactive, and Semantic categories. This structured approach helps ensure every color has a clear purpose and usage context.</p>
+
+      <h4>Primary Colors <span class="status-badge status-ready">✅ Stable</span></h4>
+      <div class="color-palette-group">
+          <div class="color-palette">
+            <div class="color-swatch dark-text" style="background-color: var(--qds-color-primary-50);"><span>50</span></div>
+            <div class="color-swatch dark-text" style="background-color: var(--qds-color-primary-100);"><span>100</span></div>
+            <div class="color-swatch dark-text" style="background-color: var(--qds-color-primary-200);"><span>200</span></div>
+            <div class="color-swatch" style="background-color: var(--qds-color-primary-300);"><span>300</span></div>
+            <div class="color-swatch" style="background-color: var(--qds-color-primary-400);"><span>400</span></div>
+            <div class="color-swatch" style="background-color: var(--qds-color-primary-500);"><span>500</span></div>
+            <div class="color-swatch" style="background-color: var(--qds-color-primary-600);"><span>600</span></div>
+            <div class="color-swatch" style="background-color: var(--qds-color-primary-700);"><span>700</span></div>
+            <div class="color-swatch" style="background-color: var(--qds-color-primary-800);"><span>800</span></div>
+            <div class="color-swatch" style="background-color: var(--qds-color-primary-900);"><span>900</span></div>
+          </div>
+          <div class="code-block">
+            <code>--qds-color-primary-500: #0ea5e9;</code>
+            <button class="copy-btn">Copy</button>
+          </div>
       </div>
 
-      <div class="card">
-        <h4>Neutral Colors</h4>
-        <div class="color-palette">
-          <div class="color-swatch" style="background-color: #f8fafc; color: #333;">50</div>
-          <div class="color-swatch" style="background-color: #f1f5f9; color: #333;">100</div>
-          <div class="color-swatch" style="background-color: #e2e8f0; color: #333;">200</div>
-          <div class="color-swatch" style="background-color: #cbd5e1;">300</div>
-          <div class="color-swatch" style="background-color: #94a3b8;">400</div>
-          <div class="color-swatch" style="background-color: #64748b;">500</div>
-          <div class="color-swatch" style="background-color: #475569;">600</div>
-          <div class="color-swatch" style="background-color: #334155;">700</div>
-          <div class="color-swatch" style="background-color: #1e293b;">800</div>
-          <div class="color-swatch" style="background-color: #0f172a;">900</div>
-        </div>
-        <div class="code">--qds-color-neutral-500: #64748b;</div>
+      <h4>Neutral Colors <span class="status-badge status-ready">✅ Stable</span></h4>
+      <div class="color-palette-group">
+          <div class="color-palette">
+            <div class="color-swatch dark-text" style="background-color: var(--qds-color-neutral-50);"><span>50</span></div>
+            <div class="color-swatch dark-text" style="background-color: var(--qds-color-neutral-100);"><span>100</span></div>
+            <div class="color-swatch dark-text" style="background-color: var(--qds-color-neutral-200);"><span>200</span></div>
+            <div class="color-swatch" style="background-color: var(--qds-color-neutral-300);"><span>300</span></div>
+            <div class="color-swatch" style="background-color: var(--qds-color-neutral-400);"><span>400</span></div>
+            <div class="color-swatch" style="background-color: var(--qds-color-neutral-500);"><span>500</span></div>
+            <div class="color-swatch" style="background-color: var(--qds-color-neutral-600);"><span>600</span></div>
+            <div class="color-swatch" style="background-color: var(--qds-color-neutral-700);"><span>700</span></div>
+            <div class="color-swatch" style="background-color: var(--qds-color-neutral-800);"><span>800</span></div>
+            <div class="color-swatch" style="background-color: var(--qds-color-neutral-900);"><span>900</span></div>
+          </div>
+          <div class="code-block">
+            <code>--qds-color-neutral-500: #64748b;</code>
+            <button class="copy-btn">Copy</button>
+          </div>
       </div>
 
-      <h3>Spacing System</h3>
+      <p>For more detailed color usage, refer to the <a href="./tokens-usage-guide.md#color-tokens">full tokens usage guide</a>.</p>
+
+      <h3>Spacing System <span class="status-badge status-ready">✅ Stable</span></h3>
+      <p>Our 8px grid-based spacing system ensures harmonious layouts and consistent visual rhythm. Use semantic tokens for better readability.</p>
       <div class="grid grid-3">
         <div class="card">
           <h4>Base Unit: 8px</h4>
-          <p>All spacing follows an 8px grid system for visual consistency and developer ease.</p>
-          <div class="code">--qds-space-4: 16px; /* 8px × 2 */</div>
+          <p>All spacing adheres to an 8px base unit. This simplifies calculations and ensures consistent visual rhythm across the UI.</p>
+          <div class="code-block"><code>--qds-space-4: 16px; /* 8px × 2 */</code><button class="copy-btn">Copy</button></div>
         </div>
         <div class="card">
           <h4>Semantic Names</h4>
-          <p>Use semantic spacing names for better maintainability and readability.</p>
-          <div class="code">--qds-space-md: 16px;</div>
+          <p>Prioritize semantic spacing tokens (`space.md`) over direct numeric values (`spacing[4]`) for enhanced readability and maintainability.</p>
+          <div class="code-block"><code>--qds-space-md: 16px;</code><button class="copy-btn">Copy</button></div>
         </div>
         <div class="card">
           <h4>Scale: 4px - 128px</h4>
-          <p>Comprehensive scale from micro spacing to large layout gaps.</p>
-          <div class="code">--qds-space-1: 4px;<br>--qds-space-32: 128px;</div>
+          <p>A comprehensive, yet constrained, scale from micro (`4px`) to large layout gaps (`128px`) ensures flexibility without chaos.</p>
+          <div class="code-block"><code>--qds-space-xs: 4px;\n--qds-space-3xl: 48px;</code><button class="copy-btn">Copy</button></div>
         </div>
       </div>
+      <p>For detailed spacing scale and common patterns, refer to the <a href="./tokens-usage-guide.md#spacing-tokens">full tokens usage guide</a>.</p>
 
-      <h3>Typography</h3>
+      <h3>Typography <span class="status-badge status-ready">✅ Stable</span></h3>
+      <p>Our typography system uses the Inter font family, offering a clear hierarchy and optimal readability across various content types.</p>
       <div class="card">
-        <div style="font-family: var(--qds-font-family-sans); font-size: var(--qds-font-size-4xl); font-weight: var(--qds-font-weight-bold); margin-bottom: var(--qds-space-4);">Inter Font Family</div>
-        <div style="font-size: var(--qds-font-size-3xl); margin-bottom: var(--qds-space-3);">Heading 1 - 30px</div>
-        <div style="font-size: var(--qds-font-size-2xl); margin-bottom: var(--qds-space-3);">Heading 2 - 24px</div>
-        <div style="font-size: var(--qds-font-size-xl); margin-bottom: var(--qds-space-3);">Heading 3 - 20px</div>
-        <div style="font-size: var(--qds-font-size-lg); margin-bottom: var(--qds-space-3);">Large Text - 18px</div>
-        <div style="font-size: var(--qds-font-size-base); margin-bottom: var(--qds-space-3);">Base Text - 16px</div>
-        <div style="font-size: var(--qds-font-size-sm);">Small Text - 14px</div>
-        <div class="code" style="margin-top: var(--qds-space-4);">font-family: var(--qds-font-family-sans);</div>
+        <div style="font-family: var(--qds-font-family-sans); font-size: var(--qds-font-size-4xl); font-weight: var(--qds-font-weight-bold); margin-bottom: var(--qds-space-4); color: var(--qds-color-text-primary);">Qualia Design System</div>
+        <div style="font-family: var(--qds-font-family-sans); font-size: var(--qds-font-size-3xl); font-weight: var(--qds-font-weight-bold); margin-bottom: var(--qds-space-3); color: var(--qds-color-text-primary);">Heading 1 - The System</div>
+        <div style="font-family: var(--qds-font-family-sans); font-size: var(--qds-font-size-2xl); font-weight: var(--qds-font-weight-semibold); margin-bottom: var(--qds-space-3); color: var(--qds-color-text-primary);">Heading 2 - Components</div>
+        <div style="font-family: var(--qds-font-family-sans); font-size: var(--qds-font-size-xl); font-weight: var(--qds-font-weight-semibold); margin-bottom: var(--qds-space-3); color: var(--qds-color-text-primary);">Heading 3 - Buttons</div>
+        <div style="font-family: var(--qds-font-family-sans); font-size: var(--qds-font-size-lg); margin-bottom: var(--qds-space-3); color: var(--qds-color-text-primary);">Body Large - Empowering Experience</div>
+        <div style="font-family: var(--qds-font-family-sans); font-size: var(--qds-font-size-base); margin-bottom: var(--qds-space-3); color: var(--qds-color-text-primary);">Body Base - Seamlessly build interfaces.</div>
+        <div style="font-family: var(--qds-font-family-sans); font-size: var(--qds-font-size-sm); color: var(--qds-color-text-secondary);">Body Small - Accessible and consistent.</div>
+        <div class="code-block" style="margin-top: var(--qds-space-4);"><code>--qds-font-family-sans: Inter, system-ui, sans-serif;</code><button class="copy-btn">Copy</button></div>
       </div>
+      <p>Explore detailed font sizes, weights, line heights, and usage combinations in the <a href="./tokens-usage-guide.md#typography-tokens">full tokens usage guide</a>.</p>
     </section>
 
     <!-- Components -->
     <section id="components" class="section">
-      <h2>Components</h2>
+      <h2>Components <span class="status-badge status-in-progress">🚧 Expanding</span></h2>
+      <p>Our React component library is built with accessibility and consistency at its core, consuming our design tokens to ensure a unified user experience. Each component comes with comprehensive usage guidelines and interactive demos.</p>
       
-      <h3>Buttons</h3>
+      <h3>Buttons <span class="status-badge status-ready">✅ Stable</span></h3>
+      <p>A versatile and accessible button component with multiple variants, sizes, and states. Designed for clear user actions and optimal interactivity.</p>
       <div class="card">
-        <h4>Button Variants</h4>
-        <div class="button-demo">
-          <button class="btn btn-primary">Primary</button>
-          <button class="btn btn-secondary">Secondary</button>
-          <button class="btn btn-outline">Outline</button>
-          <button class="btn btn-primary" style="background-color: #ef4444;" onmouseover="this.style.backgroundColor='#dc2626'" onmouseout="this.style.backgroundColor='#ef4444'">Destructive</button>
+        <h4>Button Variants (Interactive Demo)</h4>
+        <div class="button-example-group">
+          <button class="btn btn-primary" data-variant="primary">Primary</button>
+          <button class="btn btn-secondary" data-variant="secondary">Secondary</button>
+          <button class="btn btn-outline" data-variant="outline">Outline</button>
+          <button class="btn btn-destructive" data-variant="destructive">Destructive</button>
         </div>
-        <div class="code">import { Button } from '@qualia/design-system';
-
-&lt;Button variant="primary"&gt;Save Changes&lt;/Button&gt;</div>
+        <div class="code-block">
+          <code>import { Button } from '@qualia/design-system';\n\n&lt;Button variant="primary"&gt;Save Changes&lt;/Button&gt;</code>
+          <button class="copy-btn">Copy</button>
+        </div>
       </div>
 
       <div class="card">
         <h4>Button Sizes</h4>
-        <div class="button-demo" style="align-items: center;">
+        <div class="button-example-group">
           <button class="btn btn-primary btn-small">Small</button>
           <button class="btn btn-primary">Medium</button>
           <button class="btn btn-primary btn-large">Large</button>
         </div>
-        <div class="code">&lt;Button size="large"&gt;Get Started&lt;/Button&gt;</div>
+        <div class="code-block">
+          <code>&lt;Button size="large"&gt;Get Started&lt;/Button&gt;</code>
+          <button class="copy-btn">Copy</button>
+        </div>
       </div>
 
       <div class="card">
-        <h4>Button States</h4>
-        <div class="button-demo">
+        <h4>Button States (Interactive Demo)</h4>
+        <div class="button-example-group">
           <button class="btn btn-primary">Default</button>
-          <button class="btn btn-primary" style="opacity: 0.6; cursor: not-allowed;" disabled>Disabled</button>
-          <button class="btn btn-primary" onclick="this.innerHTML='Loading...'; setTimeout(() => this.innerHTML='Loaded!', 2000)">Click to Load</button>
+          <button class="btn btn-primary" disabled>Disabled</button>
+          <button class="btn btn-primary" data-loading-toggle="true">Click to Load</button>
         </div>
-        <div class="code">&lt;Button loading={isSubmitting} disabled={!isValid}&gt;
-  {isSubmitting ? 'Saving...' : 'Save'}
-&lt;/Button&gt;</div>
+        <div class="code-block">
+          <code>&lt;Button loading={isSubmitting} disabled={!isValid}&gt;\n  {isSubmitting ? 'Saving...' : 'Save'}\n&lt;/Button&gt;</code>
+          <button class="copy-btn">Copy</button>
+        </div>
       </div>
+      <p>For comprehensive guidelines on button usage, states, accessibility, and migration, refer to the <a href="./button-usage-guide.md">full button usage guide</a>.</p>
+
     </section>
 
     <!-- Guidelines -->
     <section id="guidelines" class="section">
-      <h2>Usage Guidelines</h2>
-      
-      <div class="grid">
+      <h2>Usage Guidelines <span class="status-badge status-ready">✅ Stable</span></h2>
+      <p>Our usage guidelines ensure that both designers and developers apply the Qualia Design System consistently, leading to a cohesive user experience and efficient workflows. These principles cover tokens, components, accessibility, and responsive design.</p>
+      <div class="grid grid-2">
         <div class="card">
-          <h4>🎨 Design Tokens</h4>
+          <h4>🎨 Design Tokens Best Practices</h4>
+          <p>Always prioritize design tokens over hardcoded values. Use semantic names for clarity and follow the established scales to ensure consistency. Regularly test for accessibility and maintain a unified approach.</p>
           <ul>
-            <li><strong>Always use tokens</strong> instead of hardcoded values</li>
-            <li><strong>Semantic naming</strong> over specific values</li>
-            <li><strong>Consistent spacing</strong> with 8px grid system</li>
-            <li><strong>Accessible colors</strong> with WCAG AA compliance</li>
+            <li><strong>Always use tokens</strong> instead of hardcoded values.</li>
+            <li><strong>Semantic naming</strong> over specific values.</li>
+            <li><strong>Consistent spacing</strong> with 8px grid system.</li>
+            <li><strong>Accessible colors</strong> with WCAG AA compliance.</li>
+            <li><a href="./tokens-usage-guide.md">Read the full token usage guide</a></li>
           </ul>
         </div>
         <div class="card">
-          <h4>🔘 Button Usage</h4>
+          <h4>🔘 Button Usage & Principles</h4>
+          <p>Buttons should clearly communicate actions and intent. Use primary buttons for main actions, secondary for supporting roles, outline for subtle interactions, and destructive for critical operations. Always consider accessibility and responsiveness.</p>
           <ul>
-            <li><strong>Primary:</strong> Main actions, CTAs (max 1 per section)</li>
-            <li><strong>Secondary:</strong> Supporting actions, cancel buttons</li>
-            <li><strong>Outline:</strong> Subtle actions, tertiary options</li>
-            <li><strong>Destructive:</strong> Dangerous actions, deletion</li>
+            <li><strong>Primary:</strong> Main actions, CTAs (max 1 per section).</li>
+            <li><strong>Secondary:</strong> Supporting actions, cancel buttons.</li>
+            <li><strong>Outline:</strong> Subtle actions, tertiary options.</li>
+            <li><strong>Destructive:</strong> Dangerous actions, deletion.</li>
+            <li><a href="./button-usage-guide.md">Read the full button usage guide</a></li>
           </ul>
         </div>
         <div class="card">
-          <h4>♿ Accessibility</h4>
+          <h4>♿ Accessibility Standards</h4>
+          <p>Accessibility is not an afterthought; it's integral to our design system. We adhere to WCAG 2.1 AA guidelines, ensuring our components are usable by everyone, regardless of ability or assistive technology.</p>
           <ul>
-            <li><strong>Keyboard navigation</strong> for all interactive elements</li>
-            <li><strong>Focus indicators</strong> clearly visible</li>
-            <li><strong>Color contrast</strong> meeting WCAG standards</li>
-            <li><strong>Screen reader</strong> compatible with ARIA labels</li>
+            <li><strong>Keyboard navigation</strong> for all interactive elements.</li>
+            <li><strong>Focus indicators</strong> are clearly visible.</li>
+            <li><strong>Color contrast</strong> meets WCAG standards (4.5:1 minimum).</li>
+            <li><strong>Screen reader</strong> compatible with proper ARIA attributes.</li>
+            <li><strong>Reduced motion</strong> respects user preferences.</li>
           </ul>
         </div>
         <div class="card">
-          <h4>📱 Responsive Design</h4>
+          <h4>📱 Responsive Design Principles</h4>
+          <p>Our components and layouts are designed with a mobile-first approach. They adapt gracefully to various screen sizes, ensuring an optimal user experience across desktops, tablets, and mobile devices.</p>
           <ul>
-            <li><strong>Mobile first</strong> approach to component design</li>
-            <li><strong>Touch targets</strong> minimum 44px for mobile</li>
-            <li><strong>Flexible layouts</strong> adapting to screen size</li>
-            <li><strong>Content priority</strong> on smaller screens</li>
+            <li><strong>Mobile-first</strong> approach to component design.</li>
+            <li><strong>Touch targets</strong> minimum 44px for mobile interactions.</li>
+            <li><strong>Flexible layouts</strong> adapting to screen size.</li>
+            <li><strong>Content priority</strong> on smaller screens.</li>
           </ul>
         </div>
       </div>
@@ -543,79 +796,121 @@
 
     <!-- Installation -->
     <section id="installation" class="section">
-      <h2>Installation & Usage</h2>
+      <h2>Installation & Usage <span class="status-badge status-ready">✅ Stable</span></h2>
+      <p>Get started with the Qualia Design System quickly. Follow these steps to install the package and integrate tokens and components into your project.</p>
       
       <div class="card">
         <h4>📦 Install Package</h4>
-        <div class="code">npm install @qualia/design-system</div>
+        <p>Add the Qualia Design System package to your project dependencies using npm or yarn.</p>
+        <div class="code-block">
+          <code>npm install @qualia/design-system</code>
+          <button class="copy-btn">Copy</button>
+        </div>
       </div>
 
       <div class="card">
         <h4>🎨 Import Design Tokens</h4>
-        <div class="code">// JavaScript/React
-import { colors, spacing, typography } from '@qualia/design-system/tokens';
-
-// CSS
-@import '@qualia/design-system/tokens/tokens.css';</div>
+        <p>Integrate design tokens into your JavaScript/React components or directly into your CSS using custom properties.</p>
+        <div class="code-block">
+          <code>// JavaScript/React\nimport { colors, spacing, typography } from '@qualia/design-system/tokens';\n\n// CSS (e.g., in your main CSS file or component styles)\n@import '@qualia/design-system/tokens/tokens.css';\n\n.my-component {\n  background-color: var(--qds-color-primary-500);\n  padding: var(--qds-space-md);\n}</code>
+          <button class="copy-btn">Copy</button>
+        </div>
       </div>
 
       <div class="card">
         <h4>🔘 Use Components</h4>
-        <div class="code">import { Button } from '@qualia/design-system';
-
-function MyApp() {
-  return (
-    &lt;Button 
-      variant="primary" 
-      size="large"
-      onClick={handleClick}
-    &gt;
-      Get Started
-    &lt;/Button&gt;
-  );
-}</div>
-      </div>
-
+        <p>Import and use React components just like any other React component, applying variants and props as needed.</p>
+        <div class="code-block">
+          <code>import { Button } from '@qualia/design-system';\n\nfunction MyApp() {\n  return (\n    &lt;Button \n      variant="primary" \n      size="large"\n      onClick={handleClick}\n    &gt;\n      Get Started\n    &lt;/Button&gt;\n  );\n}</code>
+          <button class="copy-btn">Copy</button>
+        </div>
+      </div>\n
       <div class="card">
         <h4>🔄 Migration from Semantic UI</h4>
-        <div class="code">// Before (Semantic UI)
-&lt;Button primary size="large" loading={loading}&gt;
-  Submit
-&lt;/Button&gt;
-
-// After (Qualia Design System)
-&lt;Button variant="primary" size="large" loading={loading}&gt;
-  Submit
-&lt;/Button&gt;</div>
+        <p>Seamlessly transition your existing Semantic UI components to the Qualia Design System with clear mapping and guidance.</p>
+        <div class="code-block">
+          <code>// Before (Semantic UI example)\n&lt;Button primary size="large" loading={loading}&gt;\n  Submit\n&lt;/Button&gt;\n\n// After (Qualia Design System)\n&lt;Button variant="primary" size="large" loading={loading}&gt;\n  Submit\n&lt;/Button&gt;</code>
+          <button class="copy-btn">Copy</button>
+        </div>
       </div>
     </section>
   </main>
 
   <script>
-    // Simple navigation highlighting
     document.addEventListener('DOMContentLoaded', function() {
-      const navLinks = document.querySelectorAll('.nav a');
-      
-      navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+      // Smooth scrolling for navigation
+      document.querySelectorAll('.nav-link').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
           e.preventDefault();
-          
-          // Remove active class from all links
-          navLinks.forEach(l => l.classList.remove('active'));
-          
-          // Add active class to clicked link
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+
+          // Update active class
+          document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
           this.classList.add('active');
-          
-          // Smooth scroll to section
-          const targetId = this.getAttribute('href');
-          const targetSection = document.querySelector(targetId);
-          if (targetSection) {
-            targetSection.scrollIntoView({ 
-              behavior: 'smooth',
-              block: 'start'
-            });
+        });
+      });
+
+      // Highlight active nav link on scroll
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            const activeLink = document.querySelector(`.nav a[href="#${entry.target.id}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
           }
         });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -50% 0px', // Adjust when section is 50% in viewport
+        threshold: 0.5
+      });
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+
+      // Button Loading States Demo
+      document.querySelectorAll('button[data-loading-toggle="true"]').forEach(button => {
+        button.addEventListener('click', function() {
+          let isLoading = this.dataset.loading === 'true';
+          if (!isLoading) {
+            this.dataset.loading = 'true';
+            this.setAttribute('disabled', 'true');
+            this.innerHTML = `&lt;svg class="loading-spinner" width="16" height="16" fill="none" viewBox="0 0 24 24"&gt;\n              &lt;circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" class="opacity-25"&gt;&lt;/circle&gt;\n              &lt;path fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" class="opacity-75"&gt;&lt;/path&gt;\n            &lt;/svg&gt; Loading...`;
+            
+            setTimeout(() => {
+              this.dataset.loading = 'false';
+              this.removeAttribute('disabled');
+              this.innerHTML = 'Click to Load';
+            }, 2000); // Simulate network request
+          }
+        });
+      });
+
+      // Code Block Copy functionality
+      document.querySelectorAll('.code-block').forEach(codeBlock => {
+        const copyBtn = codeBlock.querySelector('.copy-btn');
+        if (copyBtn) {
+          copyBtn.addEventListener('click', function() {
+            const code = codeBlock.querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+              const originalText = copyBtn.innerText;
+              copyBtn.innerText = 'Copied!';
+              setTimeout(() => {
+                copyBtn.innerText = originalText;
+              }, 1500);
+            }).catch(err => {
+              console.error('Failed to copy: ', err);
+            });
+          });
+        }
       });
     });
   </script>
