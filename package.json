@@ -1,0 +1,57 @@
+{
+  "name": "@qualia/design-system",
+  "version": "1.0.0",
+  "description": "Qualia Design System tokens, components, and documentation",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./tokens": {
+      "import": "./tokens/index.js"
+    },
+    "./css": "./dist/qualia-design-system.css"
+  },
+  "files": [
+    "src",
+    "tokens", 
+    "dist",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.0",
+    "@storybook/addon-interactions": "^7.0.0",
+    "@storybook/addon-links": "^7.0.0",
+    "@storybook/blocks": "^7.0.0",
+    "@storybook/react": "^7.0.0",
+    "@storybook/react-vite": "^7.0.0",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.0.0",
+    "vite": "^4.3.0",
+    "vitepress": "^1.0.0"
+  },
+  "keywords": [
+    "design-system",
+    "tokens",
+    "components",
+    "react",
+    "qualia"
+  ],
+  "author": "Qualia Design Team",
+  "license": "MIT"
+}
