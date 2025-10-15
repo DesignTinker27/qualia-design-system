@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualia Design System - Live Documentation</title>
+    <style>
+        body {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #6DC278;
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+        .subtitle {
+            color: #6b7280;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        .demo-grid {
+            display: grid;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .demo-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.2s ease;
+        }
+        .demo-card:hover {
+            border-color: #6DC278;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(109, 194, 120, 0.15);
+        }
+        .demo-card h3 {
+            color: #2d3748;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+        .demo-card p {
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+        .demo-button {
+            background: #6DC278;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+        .demo-button:hover {
+            background: #5db86a;
+            transform: translateY(-1px);
+        }
+        .status-badge {
+            background: #10b981;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-left: 12px;
+        }
+        .feedback-section {
+            background: #eff6ff;
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 40px;
+        }
+        .feedback-section h3 {
+            color: #1e40af;
+            margin-top: 0;
+        }
+        .contact-info {
+            color: #374151;
+            margin-top: 20px;
+            padding: 16px;
+            background: white;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Qualia Design System</h1>
+        <p class="subtitle">Interactive documentation and usage guidelines for designer feedback</p>
+        
+        <div class="demo-grid">
+            <div class="demo-card">
+                <h3>📚 Interactive Token Documentation <span class="status-badge">Live</span></h3>
+                <p>Complete interactive reference with all 90+ design tokens, decision tree, and usage guidelines. Perfect for designers to explore and understand our token system.</p>
+                <a href="https://raw.githubusercontent.com/DesignTinker27/qualia-design-system/main/components/tokens-final-v4.html" class="demo-button" download>Download Interactive Demo</a>
+            </div>
+            
+            <div class="demo-card">
+                <h3>🔘 Button Component Demo <span class="status-badge">Live</span></h3>
+                <p>Interactive button component showcase with all variants (Primary, Secondary, Destructive, AI), states, and token usage examples.</p>
+                <a href="https://raw.githubusercontent.com/DesignTinker27/qualia-design-system/main/components/button-demo.html" class="demo-button" download>Download Button Demo</a>
+            </div>
+            
+            <div class="demo-card">
+                <h3>⚙️ Engineering Integration Files <span class="status-badge">Ready</span></h3>
+                <p>CSS Custom Properties and JSON token files ready for engineering integration into the Qualia codebase.</p>
+                <a href="mailto:shelby@qualia.com?subject=Design%20System%20Integration%20Files" class="demo-button">Request Integration Files</a>
+            </div>
+        </div>
+
+        <div class="feedback-section">
+            <h3>💬 We Need Your Feedback!</h3>
+            <p><strong>For Designers:</strong> Download the interactive demos above, open them in your browser, and explore the token system. We specifically want feedback on:</p>
+            <ul>
+                <li>Are the token names intuitive and easy to understand?</li>
+                <li>Do the usage guidelines make sense for your workflow?</li>
+                <li>Are there missing tokens or use cases we should cover?</li>
+                <li>How does the decision tree help (or not help) with token selection?</li>
+            </ul>
+            
+            <div class="contact-info">
+                <strong>📧 Send Feedback To:</strong> shelby@qualia.com<br>
+                <strong>💬 Slack:</strong> #design-systems or DM @shelby<br>
+                <strong>⏰ Target:</strong> Feedback by end of week to finalize for engineering handoff
+            </div>
+        </div>
+        
+        <p style="text-align: center; color: #9ca3af; margin-top: 40px;">
+            <small>Qualia Design System v1.0 • Built with ❤️ by Design Team</small>
+        </p>
+    </div>
+
+    <script>
+        // Track downloads
+        document.querySelectorAll('a[download]').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('Downloaded:', this.href);
+            });
+        });
+    </script>
+</body>
+</html>
