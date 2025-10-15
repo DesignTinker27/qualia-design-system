@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qualia Design System - Live Documentation</title>
+    <title>Qualia Design System - Token Documentation</title>
     <style>
         body {
             font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -30,131 +30,150 @@
             font-size: 1.2rem;
             margin-bottom: 40px;
         }
-        .demo-grid {
-            display: grid;
-            gap: 24px;
+        .download-section {
+            background: #eff6ff;
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
             margin-bottom: 40px;
         }
-        .demo-card {
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 24px;
-            transition: all 0.2s ease;
-        }
-        .demo-card:hover {
-            border-color: #6DC278;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(109, 194, 120, 0.15);
-        }
-        .demo-card h3 {
-            color: #2d3748;
-            margin-top: 0;
-            margin-bottom: 12px;
-        }
-        .demo-card p {
-            color: #6b7280;
-            margin-bottom: 16px;
-        }
-        .demo-button {
+        .download-button {
             background: #6DC278;
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 16px 32px;
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
+            font-size: 1.1rem;
+            margin: 8px;
             transition: all 0.2s ease;
         }
-        .demo-button:hover {
+        .download-button:hover {
             background: #5db86a;
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(109, 194, 120, 0.3);
         }
-        .status-badge {
-            background: #10b981;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-left: 12px;
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+        .feature-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
         }
         .feedback-section {
-            background: #eff6ff;
-            border: 2px solid #3b82f6;
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
             border-radius: 12px;
             padding: 24px;
             margin-top: 40px;
         }
         .feedback-section h3 {
-            color: #1e40af;
+            color: #92400e;
             margin-top: 0;
-        }
-        .contact-info {
-            color: #374151;
-            margin-top: 20px;
-            padding: 16px;
-            background: white;
-            border-radius: 8px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎨 Qualia Design System</h1>
-        <p class="subtitle">Interactive documentation and usage guidelines for designer feedback</p>
+        <h1>🎨 Qualia Design System Tokens</h1>
+        <p class="subtitle">Interactive documentation with 90+ design tokens, decision tree, and usage guidelines</p>
         
-        <div class="demo-grid">
-            <div class="demo-card">
-                <h3>📚 Interactive Token Documentation <span class="status-badge">Live</span></h3>
-                <p>Complete interactive reference with all 90+ design tokens, decision tree, and usage guidelines. Perfect for designers to explore and understand our token system.</p>
-                <a href="https://raw.githubusercontent.com/DesignTinker27/qualia-design-system/main/components/tokens-final-v4.html" class="demo-button" download>Download Interactive Demo</a>
+        <div class="download-section">
+            <h2 style="color: #1e40af; margin-top: 0;">📥 Download Interactive Documentation</h2>
+            <p>These are the actual token documentation files we've been working on together. Download and open in your browser to explore!</p>
+            
+            <a href="https://raw.githubusercontent.com/DesignTinker27/qualia-design-system/main/components/tokens-final-v4.html" 
+               class="download-button" download="qualia-tokens-interactive.html">
+                📊 Interactive Token Guide
+            </a>
+            
+            <a href="https://raw.githubusercontent.com/DesignTinker27/qualia-design-system/main/components/button-demo.html" 
+               class="download-button" download="qualia-button-demo.html">
+                🔘 Button Component Demo
+            </a>
+            
+            <p style="color: #6b7280; margin-top: 20px;">
+                <small>💡 Right-click → "Save Link As..." if the download doesn't work automatically</small>
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>90+ Design Tokens</h3>
+                <p>Complete color palettes, spacing scale, typography, and corner rounding tokens extracted from Figma</p>
             </div>
             
-            <div class="demo-card">
-                <h3>🔘 Button Component Demo <span class="status-badge">Live</span></h3>
-                <p>Interactive button component showcase with all variants (Primary, Secondary, Destructive, AI), states, and token usage examples.</p>
-                <a href="https://raw.githubusercontent.com/DesignTinker27/qualia-design-system/main/components/button-demo.html" class="demo-button" download>Download Button Demo</a>
+            <div class="feature-card">
+                <div class="feature-icon">🌳</div>
+                <h3>Interactive Decision Tree</h3>
+                <p>Step-by-step guidance to help designers choose the right tokens for any use case</p>
             </div>
             
-            <div class="demo-card">
-                <h3>⚙️ Engineering Integration Files <span class="status-badge">Ready</span></h3>
-                <p>CSS Custom Properties and JSON token files ready for engineering integration into the Qualia codebase.</p>
-                <a href="mailto:shelby@qualia.com?subject=Design%20System%20Integration%20Files" class="demo-button">Request Integration Files</a>
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>Usage Guidelines</h3>
+                <p>Comprehensive guidelines with real examples from Qualia's interface patterns</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🚩</div>
+                <h3>Red Flags Section</h3>
+                <p>Clear guidance on when to ask for help and common mistakes to avoid</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile Responsive</h3>
+                <p>Works perfectly on desktop, tablet, and mobile devices</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Ready for Engineering</h3>
+                <p>CSS Custom Properties and JSON formats ready for immediate integration</p>
             </div>
         </div>
 
         <div class="feedback-section">
-            <h3>💬 We Need Your Feedback!</h3>
-            <p><strong>For Designers:</strong> Download the interactive demos above, open them in your browser, and explore the token system. We specifically want feedback on:</p>
+            <h3>🗣️ We Need Your Designer Feedback!</h3>
+            <p><strong>How to provide feedback:</strong></p>
+            <ol>
+                <li>Download the interactive token guide above</li>
+                <li>Open the HTML file in your browser</li>
+                <li>Explore the tokens, decision tree, and guidelines</li>
+                <li>Send feedback via Slack or email</li>
+            </ol>
+            
+            <p><strong>Specific feedback we need:</strong></p>
             <ul>
                 <li>Are the token names intuitive and easy to understand?</li>
                 <li>Do the usage guidelines make sense for your workflow?</li>
+                <li>How helpful is the decision tree for token selection?</li>
                 <li>Are there missing tokens or use cases we should cover?</li>
-                <li>How does the decision tree help (or not help) with token selection?</li>
             </ul>
             
-            <div class="contact-info">
-                <strong>📧 Send Feedback To:</strong> shelby@qualia.com<br>
-                <strong>💬 Slack:</strong> #design-systems or DM @shelby<br>
-                <strong>⏰ Target:</strong> Feedback by end of week to finalize for engineering handoff
-            </div>
+            <p><strong>📧 Contact:</strong> shelby@qualia.com | 💬 Slack: #design-systems</p>
+            <p><strong>⏰ Deadline:</strong> End of week to finalize for engineering handoff</p>
         </div>
         
         <p style="text-align: center; color: #9ca3af; margin-top: 40px;">
-            <small>Qualia Design System v1.0 • Built with ❤️ by Design Team</small>
+            <small>Qualia Design System v1.0 • Built by Shelby with AI assistance ❤️</small>
         </p>
     </div>
-
-    <script>
-        // Track downloads
-        document.querySelectorAll('a[download]').forEach(link => {
-            link.addEventListener('click', function() {
-                console.log('Downloaded:', this.href);
-            });
-        });
-    </script>
 </body>
 </html>
