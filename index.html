@@ -50,7 +50,7 @@
             
             /* Red Scale */
             --red-100: #FFEBEB;
-            --red-200: #FDDCDB;
+            --red-200: #FFDCDC;
             --red-300: #FAB8B5;
             --red-400: #F2807C;
             --red-500: #E63B3B;
@@ -572,7 +572,7 @@
 
         /* Red Flags Section Styling */
         .red-flags-section {
-            border-left: 4px solid #ef4444; 
+            border-left: 4px solid #ef4444; /* red-500 */
             background: #fef2f2;
             border-radius: 12px;
             padding: 32px;
@@ -581,9 +581,9 @@
         }
 
         .red-flags-section h2 {
-            color: #dc2626; 
-            display: flex; 
-            align-items: center; 
+            color: #dc2626; /* red-600 */
+            display: flex; /* For emoji alignment */
+            align-items: center; /* For emoji alignment */
             gap: 8px;
             font-size: 1.5rem;
             margin-top: 0;
@@ -591,35 +591,35 @@
         }
 
         .red-flags-section .description {
-            color: #7f1d1d; 
+            color: #7f1d1d; /* red-900 */
             margin-bottom: 24px;
         }
 
         .red-flags-list-container {
-            background: white; 
-            border: 1px solid #fecaca; 
-            border-radius: 8px; 
+            background: white; /* white */
+            border: 1px solid #fecaca; /* red-200 */
+            border-radius: 8px; /* border-radius-m */
             padding: 24px;
         }
 
         .red-flags-list-container h3 {
-            color: #dc2626; 
-            margin-top: 0; 
+            color: #dc2626; /* red-600 */
+            margin-top: 0; /* no top margin */
             margin-bottom: 16px;
         }
 
         .red-flags-list-container ul {
-            color: #7f1d1d; 
+            color: #7f1d1d; /* red-900 */
             line-height: 1.6;
             margin: 0;
             padding-left: 20px;
         }
 
         .red-flags-callout {
-            text-align: center; 
-            margin-top: 24px; 
-            font-weight: 600; 
-            color: #6366f1; 
+            text-align: center; /* Center align */
+            margin-top: 24px; /* Space from list */
+            font-weight: 600; /* Medium font weight */
+            color: #6366f1; /* indigo-500 */
             font-size: 1.1rem;
         }
 
@@ -634,8 +634,8 @@
         }
 
         .decision-tree-section h2 {
-            color: #0c4a6e; 
-            margin-bottom: 20px; 
+            color: #0c4a6e; /* cyan-900 */
+            margin-bottom: 20px; /* Space below title */
             text-align: center;
             font-size: 2rem;
             font-weight: 700;
@@ -646,12 +646,12 @@
             border-radius: 12px;
             padding: 30px;
             margin-bottom: 20px;
-            border-left: 4px solid #0284c7;
+            border-left: 4px solid #0284c7; /* light-blue-600 */
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
         }
 
         .decision-step-container h3 {
-            color: #0c4a6e;
+            color: #0c4a6e; /* cyan-900 */
             margin-top: 0;
             margin-bottom: 20px;
             text-align: center;
@@ -667,7 +667,7 @@
 
         .decision-button {
             background: white;
-            border: 2px solid #0284c7;
+            border: 2px solid #0284c7; /* light-blue-600 */
             border-radius: 12px;
             padding: 20px;
             cursor: pointer;
@@ -683,7 +683,7 @@
         .decision-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(110, 84, 250, 0.15);
-            border-color: #6e54fa;
+            border-color: #6e54fa; /* purple-500 */
         }
 
         .decision-button-icon {
@@ -721,12 +721,12 @@
             padding: 24px; 
             background: white; 
             border-radius: 12px; 
-            border: 2px solid #10b981;
+            border: 2px solid #10b981; /* emerald-500 */
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .result-section h3 {
-            color: #065f46; 
+            color: #065f46; /* emerald-900 */
             margin-top: 0; 
             margin-bottom: 16px; 
             display: flex; 
@@ -735,8 +735,8 @@
         }
 
         .result-token-card {
-            background: #f8fafc; 
-            border: 1px solid #cbd5e1; 
+            background: #f0fdf4; /* emerald-50 */
+            border: 1px solid #cbd5e1; /* slate-300 */
             border-radius: 8px; 
             padding: 16px; 
             margin-bottom: 12px;
@@ -745,7 +745,7 @@
         .result-token-name {
             font-family: 'Monaco', 'Menlo', monospace; 
             font-weight: 600; 
-            color: #6e54fa; 
+            color: #6e54fa; /* purple-500 */
             margin-bottom: 4px;
             font-size: 14px;
         }
@@ -834,7 +834,7 @@
     <div class="demo-layout">
         <!-- Sidebar -->
         <nav class="sidebar">
-            <h1>🎨 Qualia DS</h1>
+            <h1>🎉 Qualia DS</h1>
             <p class="subtitle">Design Tokens</p>
             
             <div class="nav-section">
@@ -848,10 +848,10 @@
                 <a href="#spacing" class="nav-item">Spacing</a>
                 <a href="#radius" class="nav-item">Corner Rounding</a>
             </div>
-            
+
             <div class="nav-section">
                 <h3>Components</h3>
-                <a href="button-interactive-demo.html" class="nav-item">Button</a>
+                <a href="button-demo.html" class="nav-item">Button</a>
             </div>
         </nav>
 
@@ -873,7 +873,7 @@
 
                 <!-- Red Flags Section -->
                 <section id="red-flags" class="red-flags-section token-section">
-                    <h2><span style="font-size: 1.5rem;">🚩</span>Red Flags: When to Ask for Help</h2>
+                    <h2><span style="font-size: 1.5rem;">⛔</span>Red Flags: When to Ask for Help</h2>
                     <p class="description">
                         These situations indicate you might need guidance from the design systems team.
                     </p>
@@ -889,7 +889,7 @@
                         </ul>
                     </div>
                     <p class="red-flags-callout">
-                        When in doubt, ask! The design systems team is here to help you make the right choices. 🎉
+                        When in doubt, ask! The design systems team is here to help you make the right choices. 🙌
                     </p>
                 </section>
 
@@ -901,15 +901,15 @@
                     </p>
                     
                     <div id="dt-step-1" class="decision-step-container">
-                        <h3>🎨 What are you designing?</h3>
+                        <h3>👆 What are you designing?</h3>
                         <div class="decision-buttons-grid">
                             <button class="decision-button" onclick="dtShowStep('color', 'dt-step-2-color')">
-                                <div class="decision-button-icon">🌈</div>
+                                <div class="decision-button-icon">🎨</div>
                                 <div class="decision-button-title">Colors</div>
                                 <div class="decision-button-description">Backgrounds, text, interactive</div>
                             </button>
                             <button class="decision-button" onclick="dtShowStep('typography', 'dt-step-2-typography')">
-                                <div class="decision-button-icon">📝</div>
+                                <div class="decision-button-icon">✒️</div>
                                 <div class="decision-button-title">Typography</div>
                                 <div class="decision-button-description">Headlines, body, labels</div>
                             </button>
@@ -919,7 +919,7 @@
                                 <div class="decision-button-description">Margins, padding, gaps</div>
                             </button>
                             <button class="decision-button" onclick="dtShowStep('radius', 'dt-step-2-radius')">
-                                <div class="decision-button-icon">⚪</div>
+                                <div class="decision-button-icon">➰</div>
                                 <div class="decision-button-title">Corner Rounding</div>
                                 <div class="decision-button-description">Component corners, borders</div>
                             </button>
@@ -928,8 +928,8 @@
 
                     <!-- Step 2: Color choices -->
                     <div id="dt-step-2-color" class="decision-step-container" style="display: none;">
-                        <button class="back-button" onclick="dtShowStep('', 'dt-step-1')">← Back to categories</button>
-                        <h3>🌈 What type of color?</h3>
+                        <button class="back-button" onclick="dtShowStep('', 'dt-step-1')">⬅️ Back to categories</button>
+                        <h3>🎨 What type of color?</h3>
                         <div class="decision-buttons-grid">
                             <button class="decision-button" onclick="dtShowResult('color', 'surface')">
                                 <div class="color-swatch" style="background-color: var(--surface-01); width: 100%; height: 50px; border-radius: 8px; margin-bottom: 12px;"></div>
@@ -966,8 +966,8 @@
 
                     <!-- Step 2: Typography choices -->
                     <div id="dt-step-2-typography" class="decision-step-container" style="display: none;">
-                        <button class="back-button" onclick="dtShowStep('', 'dt-step-1')">← Back to categories</button>
-                        <h3>📝 What type of typography?</h3>
+                        <button class="back-button" onclick="dtShowStep('', 'dt-step-1')">⬅️ Back to categories</button>
+                        <h3>✒️ What type of typography?</h3>
                         <div class="decision-buttons-grid">
                             <button class="decision-button" onclick="dtShowResult('typography', 'headers')">
                                 <div style="font-size: 2rem; font-weight: 700; color: var(--text-01); margin-bottom: 8px;">H1</div>
@@ -994,7 +994,7 @@
 
                     <!-- Step 2: Spacing choices -->
                     <div id="dt-step-2-spacing" class="decision-step-container" style="display: none;">
-                        <button class="back-button" onclick="dtShowStep('', 'dt-step-1')">← Back to categories</button>
+                        <button class="back-button" onclick="dtShowStep('', 'dt-step-1')">⬅️ Back to categories</button>
                         <h3>📏 How much spacing?</h3>
                         <div class="decision-buttons-grid">
                             <button class="decision-button" onclick="dtShowResult('spacing', 'micro')">
@@ -1022,8 +1022,8 @@
 
                     <!-- Step 2: Corner Rounding choices -->
                     <div id="dt-step-2-radius" class="decision-step-container" style="display: none;">
-                        <button class="back-button" onclick="dtShowStep('', 'dt-step-1')">← Back to categories</button>
-                        <h3>⚪ How much rounding?</h3>
+                        <button class="back-button" onclick="dtShowStep('', 'dt-step-1')">⬅️ Back to categories</button>
+                        <h3>➰ How much rounding?</h3>
                         <div class="decision-buttons-grid">
                             <button class="decision-button" onclick="dtShowResult('radius', 'none-xs')">
                                 <div class="radius-square" style="border-radius: 0px; margin-bottom: 8px;"></div>
@@ -1338,7 +1338,7 @@
                             <div class="color-swatch" style="background-color: var(--red-200); color: white;"></div>
                             <div class="token-info">
                                 <div class="token-name">red-200</div>
-                                <div class="token-value">#FDDCDB</div>
+                                <div class="token-value">#FFDCDC</div>
                             </div>
                             <button class="copy-button" onclick="copyToClipboard('red-200')">Copy</button>
                         </div>
@@ -2140,85 +2140,85 @@
                     <h3>Headers - Creating Hierarchy</h3>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--header-xxl-size); font-weight: var(--font-weight-bold); line-height: var(--header-xxl-line-height); color: var(--text-01);">The quick brown fox jumps over the lazy dog.</div>
-                        <div class="type-specs">header_xxl • Lato Bold • 32px • Line Height 36px</div>
+                        <div class="type-specs">header_xxl – Lato Bold – 32px – Line Height 36px</div>
                     </div>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--header-xl-size); font-weight: var(--font-weight-bold); line-height: var(--header-xl-line-height); color: var(--text-01);">The quick brown fox jumps over the lazy dog.</div>
-                        <div class="type-specs">header_xl • Lato Bold • 28px • Line Height 32px</div>
+                        <div class="type-specs">header_xl – Lato Bold – 28px – Line Height 32px</div>
                     </div>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--header-l-size); font-weight: var(--font-weight-bold); line-height: var(--header-l-line-height); color: var(--text-01);">The quick brown fox jumps over the lazy dog.</div>
-                        <div class="type-specs">header_l • Lato Bold • 22px • Line Height 28px</div>
+                        <div class="type-specs">header_l – Lato Bold – 22px – Line Height 28px</div>
                     </div>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--header-m-size); font-weight: var(--font-weight-bold); line-height: var(--header-m-line-height); color: var(--text-01);">The quick brown fox jumps over the lazy dog.</div>
-                        <div class="type-specs">header_m • Lato Bold • 20px • Line Height 26px</div>
+                        <div class="type-specs">header_m – Lato Bold – 20px – Line Height 26px</div>
                     </div>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--header-s-size); font-weight: var(--font-weight-bold); line-height: var(--header-s-line-height); color: var(--text-01);">The quick brown fox jumps over the lazy dog.</div>
-                        <div class="type-specs">header_s • Lato Bold • 18px • Line Height 24px</div>
+                        <div class="type-specs">header_s – Lato Bold – 18px – Line Height 24px</div>
                     </div>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--header-xs-size); font-weight: var(--font-weight-medium); line-height: var(--header-xs-line-height); color: var(--text-01);">The quick brown fox jumps over the lazy dog.</div>
-                        <div class="type-specs">header_xs • Lato Medium • 18px • Line Height 24px</div>
+                        <div class="type-specs">header_xs – Lato Medium – 18px – Line Height 24px</div>
                     </div>
 
                     <h3>Body Text - For Reading</h3>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--body-size); font-weight: var(--font-weight-regular); line-height: var(--body-line-height); color: var(--text-02);">The quick brown fox jumps over the lazy dog.</div>
-                        <div class="type-specs">body • Lato Regular • 16px • Line Height 24px</div>
+                        <div class="type-specs">body – Lato Regular – 16px – Line Height 24px</div>
                     </div>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--body-dense-size); font-weight: var(--font-weight-regular); line-height: var(--body-dense-line-height); color: var(--text-02);">The quick brown fox jumps over the lazy dog.</div>
-                        <div class="type-specs">body-dense • Lato Regular • 14px • Line Height 20px</div>
+                        <div class="type-specs">body-dense – Lato Regular – 14px – Line Height 20px</div>
                     </div>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--body-dense-size); font-style: italic; font-weight: var(--font-weight-regular); line-height: var(--body-dense-line-height); color: var(--text-02);">The quick brown fox jumps over the lazy dog.</div>
-                        <div class="type-specs">body-dense-italic • Lato Italic • 14px • Line Height 20px</div>
+                        <div class="type-specs">body-dense-italic – Lato Italic – 14px – Line Height 20px</div>
                     </div>
 
                     <h3>Supplementary Text</h3>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--eyebrow-size); font-weight: var(--font-weight-bold); line-height: var(--eyebrow-line-height); text-transform: uppercase; color: var(--text-03);">Eyebrow</div>
-                        <div class="type-specs">eyebrow • Lato Bold • 12px • Line Height 16px • Uppercase</div>
+                        <div class="type-specs">eyebrow – Lato Bold – 12px – Line Height 16px – Uppercase</div>
                     </div>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--caption-size); font-weight: var(--font-weight-regular); line-height: var(--caption-line-height); color: var(--text-03);">Caption</div>
-                        <div class="type-specs">caption • Lato Regular • 12px • Line Height 14px</div>
+                        <div class="type-specs">caption – Lato Regular – 12px – Line Height 14px</div>
                     </div>
 
                     <h3>Labels - For Interface Elements</h3>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--label-l-size); font-weight: var(--font-weight-bold); line-height: var(--label-l-line-height); color: var(--text-02);">Label L</div>
-                        <div class="type-specs">label_l • Lato Bold • 16px • Line Height 24px</div>
+                        <div class="type-specs">label_l – Lato Bold – 16px – Line Height 24px</div>
                     </div>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--label-l-size); font-weight: var(--font-weight-bold); line-height: var(--label-l-line-height); text-transform: uppercase; color: var(--text-02);">Label L Caps</div>
-                        <div class="type-specs">label_l_caps • Lato Bold • 16px • Line Height 24px • Uppercase</div>
+                        <div class="type-specs">label_l_caps – Lato Bold – 16px – Line Height 24px – Uppercase</div>
                     </div>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--label-m-size); font-weight: var(--font-weight-medium); line-height: var(--label-m-line-height); color: var(--text-02);">Label M</div>
-                        <div class="type-specs">label_m • Lato Medium • 16px • Line Height 24px</div>
+                        <div class="type-specs">label_m – Lato Medium – 16px – Line Height 24px</div>
                     </div>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--label-m-size); font-weight: var(--font-weight-medium); line-height: var(--label-m-line-height); text-transform: uppercase; color: var(--text-02);">Label M Caps</div>
-                        <div class="type-specs">label_m_caps • Lato Medium • 16px • Line Height 24px • Uppercase</div>
+                        <div class="type-specs">label_m_caps – Lato Medium – 16px – Line Height 24px – Uppercase</div>
                     </div>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--label-s-size); font-weight: var(--font-weight-medium); line-height: var(--label-s-line-height); color: var(--text-03);">Label S</div>
-                        <div class="type-specs">label_s • Lato Medium • 14px • Line Height 16px</div>
+                        <div class="type-specs">label_s – Lato Medium – 14px – Line Height 16px</div>
                     </div>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--label-s-size); font-weight: var(--font-weight-medium); line-height: var(--label-s-line-height); text-transform: uppercase; color: var(--text-03);">Label S Caps</div>
-                        <div class="type-specs">label_s_caps • Lato Medium • 14px • Line Height 16px • Uppercase</div>
+                        <div class="type-specs">label_s_caps – Lato Medium – 14px – Line Height 16px – Uppercase</div>
                     </div>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--label-xs-size); font-weight: var(--font-weight-bold); line-height: var(--label-xs-line-height); color: var(--text-03);">Label XS</div>
-                        <div class="type-specs">label_xs • Lato Bold • 12px • Line Height 16px</div>
+                        <div class="type-specs">label_xs – Lato Bold – 12px – Line Height 16px</div>
                     </div>
                     <div class="type-example">
                         <div class="type-sample" style="font-size: var(--label-xs-size); font-weight: var(--font-weight-bold); line-height: var(--label-xs-line-height); text-transform: uppercase; color: var(--text-03);">Label XS Caps</div>
-                        <div class="type-specs">label_xs_caps • Lato Bold • 12px • Line Height 16px • Uppercase</div>
+                        <div class="type-specs">label_xs_caps – Lato Bold – 12px – Line Height 16px – Uppercase</div>
                     </div>
                 </section>
 
@@ -2348,7 +2348,7 @@
 
                     <div class="usage-grid">
                         <div class="usage-card">
-                            <h4>🎯 Quick Decision Guide</h4>
+                            <h4><span>💡</span>Quick Decision Guide</h4>
                             <ul>
                                 <li><strong>Inside a component?</strong> Use space_04 to space_16</li>
                                 <li><strong>Between components?</strong> Use space_16 to space_32</li>
@@ -2358,7 +2358,7 @@
                         </div>
 
                         <div class="usage-card">
-                            <h4>📐 Component-Level (4-16px)</h4>
+                            <h4><span>✨</span>Component-Level (4-16px)</h4>
                             <ul>
                                 <li>Icon and text gaps in buttons (space_08)</li>
                                 <li>Form field internal padding (space_08, space_12)</li>
@@ -2368,7 +2368,7 @@
                         </div>
 
                         <div class="usage-card">
-                            <h4>🏗️ Layout-Level (24-64px)</h4>
+                            <h4><span>🏗️</span>Layout-Level (24-64px)</h4>
                             <ul>
                                 <li>Between form sections (space_24, space_32)</li>
                                 <li>Major component separation (space_32, space_40)</li>
@@ -2442,7 +2442,7 @@
 
                     <div class="usage-grid">
                         <div class="usage-card">
-                            <h4>🎯 Rounding Strategy</h4>
+                            <h4><span>💡</span>Rounding Strategy</h4>
                             <ul>
                                 <li><strong>More interactive</strong> = more rounded</li>
                                 <li><strong>More important</strong> = more rounded</li>
@@ -2452,7 +2452,7 @@
                         </div>
 
                         <div class="usage-card">
-                            <h4>🔘 Interactive Elements</h4>
+                            <h4><span>✨</span>Interactive Elements</h4>
                             <ul>
                                 <li><strong>Buttons:</strong> radius_xs to radius_s</li>
                                 <li><strong>Form fields:</strong> radius_xs</li>
@@ -2462,7 +2462,7 @@
                         </div>
 
                         <div class="usage-card">
-                            <h4>🏗️ Content Containers</h4>
+                            <h4><span>🏗️</span>Content Containers</h4>
                             <ul>
                                 <li><strong>Cards:</strong> radius_m to radius_l</li>
                                 <li><strong>Panels:</strong> radius_m</li>
@@ -2604,7 +2604,7 @@
                     tokens: [
                         { name: "space_12", value: "12px", usage: "Form field gaps, card internal padding" },
                         { name: "space_16", value: "16px", usage: "Default component margins (go-to)" },
-                        { name: "space_24", value: "24px", usage: "Between component groups, large card padding" }
+                        { name: "space_24", value: "24px", usage: "Between component groups, larger card padding" }
                     ],
                     link: '#spacing'
                 },
@@ -2665,7 +2665,7 @@
             navigator.clipboard.writeText(text).then(function() {
                 const buttons = document.querySelectorAll('.copy-button');
                 buttons.forEach(btn => {
-                    const tokenNameElement = btn.previousElementSibling; 
+                    const tokenNameElement = btn.previousElementSibling;
                     const tokenNameActual = tokenNameElement ? tokenNameElement.previousElementSibling : null;
 
                     if (tokenNameActual && tokenNameActual.textContent.trim() === text) {
@@ -2698,11 +2698,11 @@
             document.querySelectorAll('.decision-step-container').forEach(step => {
                 step.style.display = 'none';
             });
-            
+
             document.getElementById('dt-result-section').style.display = 'block';
             const resultTitle = document.querySelector('#dt-result-section h3');
             resultTitle.innerHTML = `<span style="font-size: 1.5rem; margin-right: 8px;">✅</span>${result.title}`;
-            
+
             let content = `<p style="color: #374151; margin-bottom: 20px;">${result.description}</p><div style="margin-bottom: 20px;">`;
             result.tokens.forEach(token => {
                 content += `
@@ -2717,7 +2717,7 @@
             content += `<div class="result-example-box"><h4>💡 For more details:</h4><p>Visit the <a href="${result.link}" onclick="event.preventDefault(); scrollToSection('${result.link.substring(1)}') ;dtResetDecisionTree()" style="color: #0284c7; text-decoration: underline;">full ${result.link.substring(1).replace(/_/g, ' ')} section</a> for comprehensive usage guidelines.</p></div>`;
             
             document.getElementById('dt-result-content').innerHTML = content;
-            
+
             document.getElementById('dt-result-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
