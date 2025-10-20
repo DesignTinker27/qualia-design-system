@@ -1,13 +1,15 @@
 # Figma-to-Code Automation Skill
 
+**When asked to extract design tokens from Figma, generate React components, or automate Figma-to-code workflows for Qualia, apply the following technical stack and standards:**
+
 ## Overview
 This skill manages the complete workflow for extracting design tokens from Figma and converting them into production-ready React components and CSS.
 
-## When to Use
-- Extracting tokens from Figma files
-- Creating React components from Figma designs
-- Setting up MCP workflows
-- Converting designs to interactive demos
+## When to Use (Trigger Phrases)
+- "Extract tokens from Figma files"
+- "Create React components from Figma designs"
+- "Set up MCP workflows"
+- "Convert designs to interactive demos"
 
 ## Established Technical Stack
 
@@ -29,12 +31,12 @@ This skill manages the complete workflow for extracting design tokens from Figma
 import React from 'react';
 import './Component.css';
 
-const Component = ({ 
-  variant = 'primary', 
-  size = 'medium', 
+const Component = ({
+  variant = 'primary',
+  size = 'medium',
   disabled = false,
   children,
-  ...props 
+  ...props
 }) => {
   return (
     <element
