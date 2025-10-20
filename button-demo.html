@@ -5,19 +5,916 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qualia Button Component - Interactive Demo</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Full button demo HTML with all interactive controls and features -->
+    <style>
+        /* Design Tokens */
+        :root {
+          --interactive-01: #1a874e;
+          --interactive-pressed: #0d381f;
+          --interactive-02: #757575;
+          --interactive-02-pressed: #595a5c;
+          --interactive-error: #bd1c21;
+          --interactive-ai: #6e54fa;
+          --surface-01: #ffffff;
+          --surface-02: #ededed;
+          --interactive-fill-disabled: #ededed;
+          --text-01: #070708;
+          --text-04: #ffffff;
+          --interactive-text-disabled: #a1a1a1;
+          --stroke-01: #e7e7e8;
+          --stroke-02: #a1a1a1;
+          --space-04: 4px;
+          --space-08: 8px;
+          --space-12: 12px;
+          --space-16: 16px;
+          --space-24: 24px;
+          --radius-xs: 4px;
+          --label-m-font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+          --label-m-font-size: 16px;
+          --label-m-font-weight: 500;
+          --label-m-line-height: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--label-m-font-family);
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+
+        .demo-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background-color: #2d3748;
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .sidebar h1 {
+            color: #68d391;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .sidebar .subtitle {
+            color: #a0aec0;
+            font-size: 0.875rem;
+            margin-bottom: 32px;
+        }
+
+        .nav-section {
+            margin-bottom: 32px;
+        }
+
+        .nav-section h3 {
+            color: #e2e8f0;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .nav-item {
+            display: block;
+            color: #cbd5e0;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 4px;
+            transition: all 0.2s;
+        }
+
+        .nav-item:hover {
+            background-color: #4a5568;
+            color: white;
+        }
+
+        .nav-item.active {
+            background-color: #68d391;
+            color: #1a202c;
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h2 {
+            margin: 0;
+            color: #2d3748;
+            font-size: 1.5rem;
+        }
+
+        .version {
+            background: #68d391;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .content-area {
+            flex: 1;
+            display: flex;
+        }
+
+        .canvas-area {
+            flex: 1;
+            padding: 40px;
+            background: white;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .controls-panel {
+            width: 320px;
+            background: #f7fafc;
+            border-left: 1px solid #e2e8f0;
+            padding: 24px;
+            overflow-y: auto;
+        }
+
+        .canvas-area h1 {
+            color: var(--interactive-01);
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .canvas-description {
+            color: #6b7280;
+            margin-bottom: 40px;
+        }
+
+        /* Button Preview Area */
+        .button-preview {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            border: 2px dashed #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 32px;
+            background: #fafafa;
+        }
+
+        /* Controls Styling */
+        .control-group {
+            margin-bottom: 24px;
+        }
+
+        .control-label {
+            display: block;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .radio-item input[type="radio"] {
+            margin: 0;
+        }
+
+        .radio-item label {
+            margin: 0;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin: 0;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .select-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            background: white;
+        }
+
+        /* Code Block */
+        .code-section {
+            background: #1a202c;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 24px;
+        }
+
+        .code-section h3 {
+            color: #68d391;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 12px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 13px;
+            line-height: 1.4;
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        .manager-section {
+            background: #f0fff4;
+            border: 1px solid #68d391;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 24px;
+        }
+
+        .manager-section h3 {
+            color: #065f46;
+            margin-top: 0;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .manager-section ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .manager-section li {
+            color: #065f46;
+            margin-bottom: 4px;
+        }
+
+        /* Button Component Styles */
+        .qualia-button {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: var(--space-08);
+          font-family: var(--label-m-font-family);
+          font-size: var(--label-m-font-size);
+          font-weight: var(--label-m-font-weight);
+          line-height: var(--label-m-line-height);
+          text-decoration: none;
+          white-space: nowrap;
+          border: none;
+          border-radius: var(--radius-xs);
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+          outline: none;
+          position: relative;
+        }
+
+        .qualia-button:focus-visible {
+          box-shadow: 0 0 0 2px var(--interactive-01);
+          outline: 2px solid transparent;
+        }
+
+        /* Sizes */
+        .qualia-button--small {
+          padding: var(--space-04) var(--space-12);
+          min-height: 32px;
+        }
+
+        .qualia-button--medium {
+          padding: var(--space-08) var(--space-16);
+          min-height: 40px;
+        }
+
+        .qualia-button--large {
+          padding: var(--space-12) var(--space-24);
+          min-height: 48px;
+        }
+
+        /* Variants */
+        .qualia-button--primary {
+          background-color: var(--interactive-01);
+          color: var(--text-04);
+        }
+
+        .qualia-button--primary:hover:not(:disabled) {
+          background-color: var(--interactive-pressed);
+          transform: translateY(-1px);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .qualia-button--secondary {
+          background-color: var(--interactive-02);
+          color: var(--text-04);
+        }
+
+        .qualia-button--secondary:hover:not(:disabled) {
+          background-color: var(--interactive-02-pressed);
+          transform: translateY(-1px);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .qualia-button--outline {
+          background-color: var(--surface-01);
+          color: var(--text-01);
+          border: 1px solid var(--stroke-01);
+        }
+
+        .qualia-button--outline:hover:not(:disabled) {
+          background-color: var(--surface-02);
+          border-color: var(--stroke-02);
+          transform: translateY(-1px);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .qualia-button--destructive {
+          background-color: var(--interactive-error);
+          color: var(--text-04);
+        }
+
+        .qualia-button--destructive:hover:not(:disabled) {
+          background-color: #991b1b;
+          transform: translateY(-1px);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .qualia-button--ai {
+          background-color: var(--interactive-ai);
+          color: var(--text-04);
+        }
+
+        .qualia-button--ai:hover:not(:disabled) {
+          background-color: #5b45e0;
+          transform: translateY(-1px);
+          box-shadow: 0 2px 4px rgba(110, 84, 250, 0.2);
+        }
+
+        .qualia-button:disabled {
+          background-color: var(--interactive-fill-disabled) !important;
+          color: var(--interactive-text-disabled) !important;
+          border-color: var(--stroke-01) !important;
+          cursor: not-allowed !important;
+          transform: none !important;
+          box-shadow: none !important;
+        }
+
+        .qualia-button__icon {
+          display: inline-flex;
+          align-items: center;
+          width: 16px;
+          height: 16px;
+          flex-shrink: 0;
+        }
+
+        .qualia-button__icon svg {
+          width: 100%;
+          height: 100%;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            background: none;
+            border: none;
+            padding: 12px 16px;
+            cursor: pointer;
+            color: #6b7280;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .tab.active {
+            color: var(--interactive-01);
+            border-bottom-color: var(--interactive-01);
+        }
+
+        .tab:hover {
+            color: var(--interactive-01);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .demo-layout {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                order: -1;
+            }
+            
+            .content-area {
+                flex-direction: column;
+            }
+            
+            .controls-panel {
+                width: 100%;
+                order: 1;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Complete button demo interface with controls panel -->
     <div class="demo-layout">
-        <!-- Full sidebar and main content areas -->
-        <!-- Interactive button preview with real-time configuration -->
-        <!-- Code generation for React, HTML, and CSS -->
-        <!-- Accessibility features and testing tools -->
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <h1>🎨 Qualia DS</h1>
+            <p class="subtitle">Interactive Demo</p>
+            
+            <div class="nav-section">
+                <h3>Introduction</h3>
+                <a href="#" class="nav-item">Welcome</a>
+                <a href="#" class="nav-item">Design Tokens</a>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Components</h3>
+                <a href="#" class="nav-item active">Button / Default</a>
+                <a href="#" class="nav-item">Button / All Variants</a>
+                <a href="#" class="nav-item">Button / Sizes</a>
+                <a href="#" class="nav-item">Button / Layouts</a>
+                <a href="#" class="nav-item">Button / Form Examples</a>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Guidelines</h3>
+                <a href="#" class="nav-item">Accessibility</a>
+                <a href="#" class="nav-item">Usage Guidelines</a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <h2>Button Component</h2>
+                <div>
+                    <span class="version">v1.0.0</span>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <!-- Canvas Area -->
+                <main class="canvas-area">
+                    <h1>Button Component</h1>
+                    <p class="canvas-description">
+                        The primary button component for all Qualia products. Supports multiple variants, sizes, and states with built-in accessibility.
+                    </p>
+
+                    <!-- Button Preview -->
+                    <div class="button-preview">
+                        <button id="preview-button" class="qualia-button qualia-button--primary qualia-button--medium" 
+                                aria-label="Example button for testing interactions"
+                                aria-describedby="button-description">
+                            <span class="qualia-button__icon" id="button-icon" style="display: none;">
+                                <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                    <path d="M8.22 2.97a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.44 8H3.75a.75.75 0 0 1 0-1.5h7.69L8.22 4.03a.75.75 0 0 1 0-1.06Z"/>
+                                </svg>
+                            </span>
+                            <span id="button-text">Click me</span>
+                        </button>
+                    </div>
+
+                    <!-- Tabs -->
+                    <div class="tabs">
+                        <button class="tab active" data-tab="react">React Component</button>
+                        <button class="tab" data-tab="html">HTML</button>
+                        <button class="tab" data-tab="css">CSS</button>
+                    </div>
+
+                    <!-- React Tab -->
+                    <div class="tab-content active" data-tab="react">
+                        <div class="code-section">
+                            <h3>React Component</h3>
+                            <div class="code-block" id="react-code">
+&lt;QualiaButton 
+  variant="primary" 
+  size="medium" 
+  showIcon={false}
+  disabled={false}
+  aria-label="Example button for testing interactions"&gt;
+  Click me
+&lt;/QualiaButton&gt;</div>
+                        </div>
+                    </div>
+
+                    <!-- HTML Tab -->
+                    <div class="tab-content" data-tab="html">
+                        <div class="code-section">
+                            <h3>HTML</h3>
+                            <div class="code-block" id="html-code">
+&lt;button class="qualia-button qualia-button--primary qualia-button--medium" 
+        aria-label="Example button for testing interactions"&gt;
+  Click me
+&lt;/button&gt;</div>
+                        </div>
+                    </div>
+
+                    <!-- CSS Tab -->
+                    <div class="tab-content" data-tab="css">
+                        <div class="code-section">
+                            <h3>CSS Tokens Used</h3>
+                            <div class="code-block" id="css-code">
+/* Primary Button Tokens */
+background-color: var(--interactive-01);    /* #1a874e */
+color: var(--text-04);                     /* #ffffff */
+border-radius: var(--radius-xs);           /* 4px */
+padding: var(--space-08) var(--space-16); /* 8px 16px */
+min-height: 40px;                          /* Medium size */</div>
+                        </div>
+                    </div>
+
+                    <!-- Manager Section -->
+                    <div class="manager-section">
+                        <h3>For Your Manager 👔</h3>
+                        <ul>
+                            <li><strong>Consistency:</strong> Same button across Clear, Core, Atlas, Assure</li>
+                            <li><strong>Efficiency:</strong> Designers + Engineers use the same source</li>
+                            <li><strong>Quality:</strong> Built-in accessibility and testing</li>
+                            <li><strong>Speed:</strong> No more recreating buttons for each feature</li>
+                        </ul>
+                    </div>
+                </main>
+
+                <!-- Controls Panel -->
+                <aside class="controls-panel" role="complementary" aria-label="Button configuration controls">
+                    <div class="tabs">
+                        <button class="tab active" data-panel="controls">Controls</button>
+                        <button class="tab" data-panel="actions">Actions</button>
+                        <button class="tab" data-panel="a11y">A11y</button>
+                    </div>
+
+                    <!-- Controls Tab -->
+                    <div class="tab-content active" data-panel="controls">
+                        <div class="control-group">
+                            <label class="control-label">Variant</label>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="primary" name="variant" value="primary" checked>
+                                    <label for="primary">Primary</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="secondary" name="variant" value="secondary">
+                                    <label for="secondary">Secondary</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="outline" name="variant" value="outline">
+                                    <label for="outline">Outline</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="destructive" name="variant" value="destructive">
+                                    <label for="destructive">Destructive</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="ai" name="variant" value="ai">
+                                    <label for="ai">AI</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for="size-select">Size</label>
+                            <select id="size-select" class="select-input">
+                                <option value="small">Small (32px)</option>
+                                <option value="medium" selected>Medium (40px)</option>
+                                <option value="large">Large (48px)</option>
+                            </select>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for="text-input">Text</label>
+                            <input type="text" id="text-input" class="text-input" value="Click me" maxlength="50">
+                        </div>
+
+                        <div class="control-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="show-icon">
+                                <label for="show-icon">Show Icon</label>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="disabled">
+                                <label for="disabled">Disabled</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actions Tab -->
+                    <div class="tab-content" data-panel="actions">
+                        <div class="control-group">
+                            <label class="control-label">Button Actions</label>
+                            <p style="color: #6b7280; font-size: 14px; margin-bottom: 16px;">
+                                Test button interactions and states.
+                            </p>
+                            <button class="qualia-button qualia-button--outline qualia-button--small" 
+                                    onclick="testButtonClick()" style="width: 100%; margin-bottom: 8px;">
+                                Test Click Event
+                            </button>
+                            <button class="qualia-button qualia-button--outline qualia-button--small" 
+                                    onclick="testButtonFocus()" style="width: 100%; margin-bottom: 8px;">
+                                Test Focus State
+                            </button>
+                            <button class="qualia-button qualia-button--outline qualia-button--small" 
+                                    onclick="copyButtonCode()" style="width: 100%;">
+                                Copy Component Code
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Accessibility Tab -->
+                    <div class="tab-content" data-panel="a11y">
+                        <div class="control-group">
+                            <label class="control-label">Accessibility</label>
+                            <p style="color: #6b7280; font-size: 14px; margin-bottom: 16px;">
+                                Built-in accessibility features:
+                            </p>
+                            <ul style="color: #374151; font-size: 14px; padding-left: 20px;">
+                                <li>Keyboard navigation support</li>
+                                <li>Focus visible indicators</li>
+                                <li>Screen reader labels</li>
+                                <li>ARIA attributes</li>
+                                <li>Color contrast compliance</li>
+                                <li>Touch target sizing (44px min)</li>
+                            </ul>
+                            
+                            <div style="margin-top: 16px;">
+                                <label class="control-label" for="aria-label">ARIA Label</label>
+                                <input type="text" id="aria-label" class="text-input" 
+                                       value="Example button for testing interactions" 
+                                       placeholder="Describe the button action">
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Full JavaScript for interactive demo functionality
+        // State management
+        let currentConfig = {
+            variant: 'primary',
+            size: 'medium',
+            text: 'Click me',
+            showIcon: false,
+            disabled: false,
+            ariaLabel: 'Example button for testing interactions'
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+            updateButton();
+        });
+
+        function setupEventListeners() {
+            // Variant radio buttons
+            document.querySelectorAll('input[name="variant"]').forEach(input => {
+                input.addEventListener('change', function() {
+                    currentConfig.variant = this.value;
+                    updateButton();
+                });
+            });
+
+            // Size select
+            document.getElementById('size-select').addEventListener('change', function() {
+                currentConfig.size = this.value;
+                updateButton();
+            });
+
+            // Text input
+            document.getElementById('text-input').addEventListener('input', function() {
+                currentConfig.text = this.value || 'Click me';
+                updateButton();
+            });
+
+            // Show icon checkbox
+            document.getElementById('show-icon').addEventListener('change', function() {
+                currentConfig.showIcon = this.checked;
+                updateButton();
+            });
+
+            // Disabled checkbox
+            document.getElementById('disabled').addEventListener('change', function() {
+                currentConfig.disabled = this.checked;
+                updateButton();
+            });
+
+            // ARIA label input
+            document.getElementById('aria-label').addEventListener('input', function() {
+                currentConfig.ariaLabel = this.value;
+                updateButton();
+            });
+
+            // Tab switching (main tabs)
+            document.querySelectorAll('.tabs .tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabName = this.dataset.tab || this.dataset.panel;
+                    const isPanel = this.dataset.panel;
+                    
+                    // Remove active class from siblings
+                    this.parentElement.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding content
+                    const container = isPanel ? this.closest('.controls-panel') : this.closest('.canvas-area');
+                    const selector = isPanel ? `[data-panel="${tabName}"]` : `[data-tab="${tabName}"]`;
+                    
+                    container.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    container.querySelector(`.tab-content${selector}`).classList.add('active');
+                });
+            });
+        }
+
+        function updateButton() {
+            const button = document.getElementById('preview-button');
+            const buttonText = document.getElementById('button-text');
+            const buttonIcon = document.getElementById('button-icon');
+            
+            // Update classes
+            button.className = `qualia-button qualia-button--${currentConfig.variant} qualia-button--${currentConfig.size}`;
+            
+            // Update text
+            buttonText.textContent = currentConfig.text;
+            
+            // Update icon visibility
+            buttonIcon.style.display = currentConfig.showIcon ? 'inline-flex' : 'none';
+            
+            // Update disabled state
+            button.disabled = currentConfig.disabled;
+            
+            // Update ARIA label
+            button.setAttribute('aria-label', currentConfig.ariaLabel);
+            
+            // Update code examples
+            updateCodeExamples();
+        }
+
+        function updateCodeExamples() {
+            // React code
+            const reactCode = document.getElementById('react-code');
+            reactCode.textContent = `<QualiaButton 
+  variant="${currentConfig.variant}" 
+  size="${currentConfig.size}"${currentConfig.showIcon ? '\n  showIcon={true}' : ''}${currentConfig.disabled ? '\n  disabled={true}' : ''}
+  aria-label="${currentConfig.ariaLabel}">
+  ${currentConfig.text}
+</QualiaButton>`;
+
+            // HTML code
+            const htmlCode = document.getElementById('html-code');
+            const iconHtml = currentConfig.showIcon ? `\n  <span class="qualia-button__icon" aria-hidden="true">
+    <svg viewBox="0 0 16 16" fill="currentColor">
+      <path d="M8.22 2.97a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.44 8H3.75a.75.75 0 0 1 0-1.5h7.69L8.22 4.03a.75.75 0 0 1 0-1.06Z"/>
+    </svg>
+  </span>` : '';
+            
+            htmlCode.textContent = `<button class="qualia-button qualia-button--${currentConfig.variant} qualia-button--${currentConfig.size}" 
+        aria-label="${currentConfig.ariaLabel}"${currentConfig.disabled ? '\n        disabled' : ''}>${iconHtml}
+  ${currentConfig.text}
+</button>`;
+
+            // CSS code
+            const cssCode = document.getElementById('css-code');
+            const tokenMap = {
+                primary: { bg: 'var(--interactive-01)', color: 'var(--text-04)', comment: '#1a874e, #ffffff' },
+                secondary: { bg: 'var(--interactive-02)', color: 'var(--text-04)', comment: '#757575, #ffffff' },
+                outline: { bg: 'var(--surface-01)', color: 'var(--text-01)', comment: '#ffffff, #070708' },
+                destructive: { bg: 'var(--interactive-error)', color: 'var(--text-04)', comment: '#bd1c21, #ffffff' },
+                ai: { bg: 'var(--interactive-ai)', color: 'var(--text-04)', comment: '#6e54fa, #ffffff' }
+            };
+            
+            const sizeMap = {
+                small: { padding: 'var(--space-04) var(--space-12)', height: '32px', comment: '4px 12px' },
+                medium: { padding: 'var(--space-08) var(--space-16)', height: '40px', comment: '8px 16px' },
+                large: { padding: 'var(--space-12) var(--space-24)', height: '48px', comment: '12px 24px' }
+            };
+            
+            const tokens = tokenMap[currentConfig.variant];
+            const sizing = sizeMap[currentConfig.size];
+            
+            cssCode.textContent = `/* ${currentConfig.variant.charAt(0).toUpperCase() + currentConfig.variant.slice(1)} ${currentConfig.size.charAt(0).toUpperCase() + currentConfig.size.slice(1)} Button Tokens */
+background-color: ${tokens.bg};    /* ${tokens.comment.split(', ')[0]} */
+color: ${tokens.color};                     /* ${tokens.comment.split(', ')[1]} */
+border-radius: var(--radius-xs);           /* 4px */
+padding: ${sizing.padding}; /* ${sizing.comment} */
+min-height: ${sizing.height};                          /* ${currentConfig.size.charAt(0).toUpperCase() + currentConfig.size.slice(1)} size */`;
+        }
+
+        function testButtonClick() {
+            alert('Button click event triggered! 🎉');
+        }
+
+        function testButtonFocus() {
+            document.getElementById('preview-button').focus();
+            setTimeout(() => {
+                alert('Button focused! Check the focus outline.');
+            }, 500);
+        }
+
+        function copyButtonCode() {
+            const activeTab = document.querySelector('.canvas-area .tab.active').dataset.tab;
+            let codeToCopy;
+            
+            switch(activeTab) {
+                case 'react':
+                    codeToCopy = document.getElementById('react-code').textContent;
+                    break;
+                case 'html':
+                    codeToCopy = document.getElementById('html-code').textContent;
+                    break;
+                case 'css':
+                    codeToCopy = document.getElementById('css-code').textContent;
+                    break;
+            }
+            
+            navigator.clipboard.writeText(codeToCopy).then(() => {
+                alert('Code copied to clipboard! 📋');
+            });
+        }
+
+        // Button preview click handler
+        document.getElementById('preview-button').addEventListener('click', function() {
+            if (!this.disabled) {
+                // Visual feedback
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+                
+                // Optional: Show click feedback
+                console.log('Button clicked!', currentConfig);
+            }
+        });
     </script>
 </body>
 </html>

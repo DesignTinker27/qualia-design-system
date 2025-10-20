@@ -196,11 +196,14 @@
             --label-xs-size: 12px;  --label-xs-line-height: 16px;
         }
 
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             font-family: var(--font-family-lato);
-            margin: 0; padding: 0;
+            margin: 0;
+            padding: 0;
             background-color: #f8f9fa;
             min-height: 100vh;
         }
@@ -339,7 +342,7 @@
 
         .token-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adjusted for more columns */
             gap: 16px;
             margin: 24px 0;
         }
@@ -420,6 +423,151 @@
 
         .copy-button:hover {
             background: #4b5563;
+        }
+
+        /* Spacing Visuals */
+        .spacing-item {
+            margin-bottom: 16px;
+        }
+
+        .spacing-rect-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .spacing-rect {
+            background: var(--interactive-01);
+            border-radius: 2px;
+            height: 24px; /* Fixed height for rectangles */
+            flex-shrink: 0;
+        }
+
+        .spacing-info {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .spacing-name {
+            font-weight: 600;
+            color: #2d3748;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+            min-width: 80px;
+        }
+
+        .spacing-value {
+            font-size: 12px;
+            color: #6b7280;
+            font-family: 'Monaco', 'Menlo', monospace;
+            min-width: 40px;
+        }
+
+        .spacing-usage {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.4;
+        }
+
+        /* Corner Radius Visuals */
+        .radius-item {
+            margin-bottom: 16px;
+        }
+
+        .radius-square-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .radius-square {
+            background: var(--interactive-01);
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+        }
+
+        .radius-info {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .radius-name {
+            font-weight: 600;
+            color: #2d3748;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+            min-width: 100px;
+        }
+
+        .radius-value {
+            font-size: 12px;
+            color: #6b7280;
+            font-family: 'Monaco', 'Menlo', monospace;
+            min-width: 40px;
+        }
+
+        .radius-usage {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.4;
+        }
+
+        /* Usage Guidelines */
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .usage-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .usage-card h4 {
+            color: #2d3748;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .usage-card ul {
+            margin: 0;
+            padding-left: 16px;
+        }
+
+        .usage-card li {
+            font-size: 13px;
+            color: #4b5563;
+            margin-bottom: 4px;
+        }
+
+        /* Typography Examples */
+        .type-example {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+            background: white;
+        }
+
+        .type-sample {
+            margin-bottom: 8px;
+        }
+
+        .type-specs {
+            font-size: 11px;
+            color: #6b7280;
+            font-family: 'Monaco', 'Menlo', monospace;
         }
 
         /* Red Flags Section Styling */
@@ -649,28 +797,42 @@
             background: #6e54fa;
         }
 
-        /* Rest of the styles remain the same... [truncated for brevity] */
 
         @media (max-width: 768px) {
             .demo-layout {
                 flex-direction: column;
             }
+            
             .sidebar {
                 width: 100%;
                 order: -1;
             }
+            
             .token-grid {
                 grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             }
+            .spacing-name, .radius-name {
+                min-width: 60px;
+            }
             .page-description {
                 font-size: 1rem;
+            }
+            .token-section, .red-flags-section, .decision-tree-section {
+                padding: 20px;
+            }
+            .decision-buttons-grid {
+                grid-template-columns: 1fr;
+            }
+            .decision-button {
+                min-height: 100px;
+                padding: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Full HTML content truncated for brevity - contains complete design system -->
     <div class="demo-layout">
+        <!-- Sidebar -->
         <nav class="sidebar">
             <h1>🎨 Qualia DS</h1>
             <p class="subtitle">Design Tokens</p>
@@ -689,11 +851,13 @@
             
             <div class="nav-section">
                 <h3>Components</h3>
-                <a href="button-demo.html" class="nav-item">Button</a>
+                <a href="button-interactive-demo.html" class="nav-item">Button</a>
             </div>
         </nav>
 
+        <!-- Main Content -->
         <div class="main-content">
+            <!-- Header -->
             <header class="header">
                 <h2>Design Tokens</h2>
                 <div>
@@ -707,14 +871,1915 @@
                     The foundation of our design system. These tokens ensure consistency across all Qualia products and provide a shared vocabulary between design and engineering.
                 </p>
 
-                <!-- All sections included: Red Flags, Decision Tree, Primitives, Brand, Semantic, Typography, Spacing, Radius -->
-                <!-- Interactive JavaScript functionality included -->
+                <!-- Red Flags Section -->
+                <section id="red-flags" class="red-flags-section token-section">
+                    <h2><span style="font-size: 1.5rem;">🚩</span>Red Flags: When to Ask for Help</h2>
+                    <p class="description">
+                        These situations indicate you might need guidance from the design systems team.
+                    </p>
+                    <div class="red-flags-list-container">
+                        <h3>When to Reach Out</h3>
+                        <ul>
+                            <li>You're thinking about creating a new color</li>
+                            <li>You can't find the right semantic token</li>
+                            <li>You're using brand colors for error/success states</li>
+                            <li>You're using primitive colors (Green/500) directly</li>
+                            <li>Your design needs spacing that's not on the scale</li>
+                            <li>You're mixing different corner radius values randomly</li>
+                        </ul>
+                    </div>
+                    <p class="red-flags-callout">
+                        When in doubt, ask! The design systems team is here to help you make the right choices. 🎉
+                    </p>
+                </section>
+
+                <!-- Interactive Decision Tree Section -->
+                <section id="decision-tree" class="decision-tree-section token-section">
+                    <h2>Interactive Token Decision Tree</h2>
+                    <p class="section-description" style="text-align: center;">
+                        Follow this step-by-step guide to choose the right tokens for any design element. Each selection will lead you to recommended tokens.
+                    </p>
+                    
+                    <div id="dt-step-1" class="decision-step-container">
+                        <h3>🎨 What are you designing?</h3>
+                        <div class="decision-buttons-grid">
+                            <button class="decision-button" onclick="dtShowStep('color', 'dt-step-2-color')">
+                                <div class="decision-button-icon">🌈</div>
+                                <div class="decision-button-title">Colors</div>
+                                <div class="decision-button-description">Backgrounds, text, interactive</div>
+                            </button>
+                            <button class="decision-button" onclick="dtShowStep('typography', 'dt-step-2-typography')">
+                                <div class="decision-button-icon">📝</div>
+                                <div class="decision-button-title">Typography</div>
+                                <div class="decision-button-description">Headlines, body, labels</div>
+                            </button>
+                            <button class="decision-button" onclick="dtShowStep('spacing', 'dt-step-2-spacing')">
+                                <div class="decision-button-icon">📏</div>
+                                <div class="decision-button-title">Spacing</div>
+                                <div class="decision-button-description">Margins, padding, gaps</div>
+                            </button>
+                            <button class="decision-button" onclick="dtShowStep('radius', 'dt-step-2-radius')">
+                                <div class="decision-button-icon">⚪</div>
+                                <div class="decision-button-title">Corner Rounding</div>
+                                <div class="decision-button-description">Component corners, borders</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Color choices -->
+                    <div id="dt-step-2-color" class="decision-step-container" style="display: none;">
+                        <button class="back-button" onclick="dtShowStep('', 'dt-step-1')">← Back to categories</button>
+                        <h3>🌈 What type of color?</h3>
+                        <div class="decision-buttons-grid">
+                            <button class="decision-button" onclick="dtShowResult('color', 'surface')">
+                                <div class="color-swatch" style="background-color: var(--surface-01); width: 100%; height: 50px; border-radius: 8px; margin-bottom: 12px;"></div>
+                                <div class="decision-button-title">Surface</div>
+                                <div class="decision-button-description">Backgrounds, cards, panels</div>
+                            </button>
+                            <button class="decision-button" onclick="dtShowResult('color', 'interactive')">
+                                <div class="color-swatch" style="background-color: var(--interactive-01-semantic); width: 100%; height: 50px; border-radius: 8px; margin-bottom: 12px;"></div>
+                                <div class="decision-button-title">Interactive</div>
+                                <div class="decision-button-description">Buttons, links, controls</div>
+                            </button>
+                            <button class="decision-button" onclick="dtShowResult('color', 'text')">
+                                <div class="color-swatch" style="background-color: var(--text-01); width: 100%; height: 50px; border-radius: 8px; margin-bottom: 12px;"></div>
+                                <div class="decision-button-title">Text</div>
+                                <div class="decision-button-description">Headlines, body, labels</div>
+                            </button>
+                            <button class="decision-button" onclick="dtShowResult('color', 'stroke')">
+                                <div class="color-swatch" style="background-color: var(--stroke-01); width: 100%; height: 50px; border-radius: 8px; margin-bottom: 12px;"></div>
+                                <div class="decision-button-title">Stroke</div>
+                                <div class="decision-button-description">Borders, dividers, outlines</div>
+                            </button>
+                            <button class="decision-button" onclick="dtShowResult('color', 'icon')">
+                                <div class="color-swatch" style="background-color: var(--icon-01); width: 100%; height: 50px; border-radius: 8px; margin-bottom: 12px;"></div>
+                                <div class="decision-button-title">Icon</div>
+                                <div class="decision-button-description">UI icons, status icons</div>
+                            </button>
+                            <button class="decision-button" onclick="dtShowResult('color', 'brand')">
+                                <div class="color-swatch" style="background-color: var(--brand-qualia-01); width: 100%; height: 50px; border-radius: 8px; margin-bottom: 12px;"></div>
+                                <div class="decision-button-title">Brand</div>
+                                <div class="decision-button-description">Product identity, logos</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Typography choices -->
+                    <div id="dt-step-2-typography" class="decision-step-container" style="display: none;">
+                        <button class="back-button" onclick="dtShowStep('', 'dt-step-1')">← Back to categories</button>
+                        <h3>📝 What type of typography?</h3>
+                        <div class="decision-buttons-grid">
+                            <button class="decision-button" onclick="dtShowResult('typography', 'headers')">
+                                <div style="font-size: 2rem; font-weight: 700; color: var(--text-01); margin-bottom: 8px;">H1</div>
+                                <div class="decision-button-title">Headers</div>
+                                <div class="decision-button-description">Page titles, section headers</div>
+                            </button>
+                            <button class="decision-button" onclick="dtShowResult('typography', 'body')">
+                                <div style="font-size: 1rem; color: var(--text-02); margin-bottom: 8px;">Body Text</div>
+                                <div class="decision-button-title">Body</div>
+                                <div class="decision-button-description">Paragraphs, descriptions</div>
+                            </button>
+                            <button class="decision-button" onclick="dtShowResult('typography', 'labels')">
+                                <div style="font-size: 0.875rem; font-weight: 600; color: var(--text-02); margin-bottom: 8px;">LABEL</div>
+                                <div class="decision-button-title">Labels</div>
+                                <div class="decision-button-description">Form fields, UI text</div>
+                            </button>
+                            <button class="decision-button" onclick="dtShowResult('typography', 'supplementary')">
+                                <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-03); margin-bottom: 8px;">Eyebrow</div>
+                                <div class="decision-button-title">Supplementary</div>
+                                <div class="decision-button-description">Captions, metadata</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Spacing choices -->
+                    <div id="dt-step-2-spacing" class="decision-step-container" style="display: none;">
+                        <button class="back-button" onclick="dtShowStep('', 'dt-step-1')">← Back to categories</button>
+                        <h3>📏 How much spacing?</h3>
+                        <div class="decision-buttons-grid">
+                            <button class="decision-button" onclick="dtShowResult('spacing', 'micro')">
+                                <div class="spacing-rect" style="width: 24px; height: 16px; margin-bottom: 8px;"></div>
+                                <div class="decision-button-title">Micro (0-8px)</div>
+                                <div class="decision-button-description">Icon gaps, internal padding</div>
+                            </button>
+                            <button class="decision-button" onclick="dtShowResult('spacing', 'component')">
+                                <div class="spacing-rect" style="width: 48px; height: 16px; margin-bottom: 8px;"></div>
+                                <div class="decision-button-title">Component (12-24px)</div>
+                                <div class="decision-button-description">Between form fields, cards</div>
+                            </button>
+                            <button class="decision-button" onclick="dtShowResult('spacing', 'section')">
+                                <div class="spacing-rect" style="width: 80px; height: 16px; margin-bottom: 8px;"></div>
+                                <div class="decision-button-title">Section (32-64px)</div>
+                                <div class="decision-button-description">Major layout breaks</div>
+                            </button>
+                            <button class="decision-button" onclick="dtShowResult('spacing', 'page')">
+                                <div class="spacing-rect" style="width: 120px; height: 16px; margin-bottom: 8px;"></div>
+                                <div class="decision-button-title">Page (80-120px)</div>
+                                <div class="decision-button-description">Hero areas, full page breaks</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Corner Rounding choices -->
+                    <div id="dt-step-2-radius" class="decision-step-container" style="display: none;">
+                        <button class="back-button" onclick="dtShowStep('', 'dt-step-1')">← Back to categories</button>
+                        <h3>⚪ How much rounding?</h3>
+                        <div class="decision-buttons-grid">
+                            <button class="decision-button" onclick="dtShowResult('radius', 'none-xs')">
+                                <div class="radius-square" style="border-radius: 0px; margin-bottom: 8px;"></div>
+                                <div class="decision-button-title">None to XS (0-4px)</div>
+                                <div class="decision-button-description">Sharp edges, subtle forms</div>
+                            </button>
+                            <button class="decision-button" onclick="dtShowResult('radius', 's-m')">
+                                <div class="radius-square" style="border-radius: 8px; margin-bottom: 8px;"></div>
+                                <div class="decision-button-title">S to M (8-12px)</div>
+                                <div class="decision-button-description">Standard buttons, cards</div>
+                            </button>
+                            <button class="decision-button" onclick="dtShowResult('radius', 'l-xl')">
+                                <div class="radius-square" style="border-radius: 16px; margin-bottom: 8px;"></div>
+                                <div class="decision-button-title">L to XL (16-24px)</div>
+                                <div class="decision-button-description">Prominent cards, hero elements</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Result Section -->
+                    <div id="dt-result-section" class="result-section" style="display: none;">
+                        <h3><span style="font-size: 1.5rem; margin-right: 8px;">✅</span>Recommended Tokens</h3>
+                        <div id="dt-result-content"></div>
+                        <button class="start-over-button" onclick="dtResetDecisionTree()">
+                            Start Over
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Primitive Colors Section -->
+                <section id="primitives" class="token-section">
+                    <h2 class="section-title">Primitive Colors</h2>
+                    <p class="section-description">
+                        These are the foundational color values, organized by hue. They serve as the building blocks for all other colors in the system and should be used with flexibility.
+                    </p>
+
+                    <!-- Black Scale -->
+                    <h3>Black Scale</h3>
+                    <div class="token-grid">
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--black-25); border-bottom: 1px solid #ddd;"></div>
+                            <div class="token-info">
+                                <div class="token-name">black-25</div>
+                                <div class="token-value">#FAFAFA</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('black-25')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--black-50); border-bottom: 1px solid #ddd;"></div>
+                            <div class="token-info">
+                                <div class="token-name">black-50</div>
+                                <div class="token-value">#F5F5F5</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('black-50')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--black-75); border-bottom: 1px solid #ddd;"></div>
+                            <div class="token-info">
+                                <div class="token-name">black-75</div>
+                                <div class="token-value">#EDEDED</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('black-75')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--black-100); border-bottom: 1px solid #ddd;"></div>
+                            <div class="token-info">
+                                <div class="token-name">black-100</div>
+                                <div class="token-value">#E8E8E8</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('black-100')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--black-200); border-bottom: 1px solid #ddd;"></div>
+                            <div class="token-info">
+                                <div class="token-name">black-200</div>
+                                <div class="token-value">#D1D1D1</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('black-200')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--black-300); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">black-300</div>
+                                <div class="token-value">#A1A1A1</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('black-300')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--black-400); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">black-400</div>
+                                <div class="token-value">#8A8A8A</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('black-400')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--black-500); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">black-500</div>
+                                <div class="token-value">#757575</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('black-500')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--black-600); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">black-600</div>
+                                <div class="token-value">#595A5C</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('black-600')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--black-700); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">black-700</div>
+                                <div class="token-value">#404042</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('black-700')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--black-800); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">black-800</div>
+                                <div class="token-value">#292A2B</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('black-800')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--black-900); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">black-900</div>
+                                <div class="token-value">#212122</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('black-900')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--black-1000); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">black-1000</div>
+                                <div class="token-value">#080808</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('black-1000')">Copy</button>
+                        </div>
+                    </div>
+
+                    <!-- Green Scale -->
+                    <h3>Green Scale</h3>
+                    <div class="token-grid">
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--green-100); color: #065f46;"></div>
+                            <div class="token-info">
+                                <div class="token-name">green-100</div>
+                                <div class="token-value">#C4EBD4</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('green-100')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--green-200); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">green-200</div>
+                                <div class="token-value">#A1DEB8</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('green-200')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--green-300); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">green-300</div>
+                                <div class="token-value">#78D29C</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('green-300')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--green-400); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">green-400</div>
+                                <div class="token-value">#57C487</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('green-400')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--green-500); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">green-500</div>
+                                <div class="token-value">#1A874F</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('green-500')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--green-600); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">green-600</div>
+                                <div class="token-value">#125930</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('green-600')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--green-700); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">green-700</div>
+                                <div class="token-value">#0D381F</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('green-700')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--green-800); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">green-800</div>
+                                <div class="token-value">#082312</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('green-800')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--green-900); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">green-900</div>
+                                <div class="token-value">#051708</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('green-900')">Copy</button>
+                        </div>
+                    </div>
+
+                    <!-- Blue Scale -->
+                    <h3>Blue Scale</h3>
+                    <div class="token-grid">
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--blue-100); color: #1e40af;"></div>
+                            <div class="token-info">
+                                <div class="token-name">blue-100</div>
+                                <div class="token-value">#BADAFA</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('blue-100')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--blue-200); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">blue-200</div>
+                                <div class="token-value">#ADD1F5</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('blue-200')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--blue-300); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">blue-300</div>
+                                <div class="token-value">#8ABAF3</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('blue-300')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--blue-400); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">blue-400</div>
+                                <div class="token-value">#529DE8</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('blue-400')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--blue-500); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">blue-500</div>
+                                <div class="token-value">#1F78CC</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('blue-500')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--blue-600); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">blue-600</div>
+                                <div class="token-value">#17598F</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('blue-600')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--blue-700); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">blue-700</div>
+                                <div class="token-value">#0F3D57</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('blue-700')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--blue-800); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">blue-800</div>
+                                <div class="token-value">#08212C</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('blue-800')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--blue-900); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">blue-900</div>
+                                <div class="token-value">#020C0F</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('blue-900')">Copy</button>
+                        </div>
+                    </div>
+
+                    <!-- Red Scale -->
+                    <h3>Red Scale</h3>
+                    <div class="token-grid">
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--red-100); color: #991b1b;"></div>
+                            <div class="token-info">
+                                <div class="token-name">red-100</div>
+                                <div class="token-value">#FFEBEB</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('red-100')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--red-200); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">red-200</div>
+                                <div class="token-value">#FDDCDB</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('red-200')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--red-300); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">red-300</div>
+                                <div class="token-value">#FAB8B5</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('red-300')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--red-400); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">red-400</div>
+                                <div class="token-value">#F2807C</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('red-400')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--red-500); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">red-500</div>
+                                <div class="token-value">#E63B3B</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('red-500')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--red-600); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">red-600</div>
+                                <div class="token-value">#BD1C21</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('red-600')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--red-700); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">red-700</div>
+                                <div class="token-value">#84161F</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('red-700')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--red-800); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">red-800</div>
+                                <div class="token-value">#561216</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('red-800')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--red-900); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">red-900</div>
+                                <div class="token-value">#3A0C11</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('red-900')">Copy</button>
+                        </div>
+                    </div>
+
+                    <!-- Yellow Scale -->
+                    <h3>Yellow Scale</h3>
+                    <div class="token-grid">
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--yellow-100); color: #92400e;"></div>
+                            <div class="token-info">
+                                <div class="token-name">yellow-100</div>
+                                <div class="token-value">#FAF5E3</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('yellow-100')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--yellow-200); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">yellow-200</div>
+                                <div class="token-value">#F0E3B5</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('yellow-200')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--yellow-300); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">yellow-300</div>
+                                <div class="token-value">#E8D187</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('yellow-300')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--yellow-400); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">yellow-400</div>
+                                <div class="token-value">#D9B343</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('yellow-400')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--yellow-500); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">yellow-500</div>
+                                <div class="token-value">#D4A62E</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('yellow-500')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--yellow-600); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">yellow-600</div>
+                                <div class="token-value">#D19C29</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('yellow-600')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--yellow-700); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">yellow-700</div>
+                                <div class="token-value">#D18C26</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('yellow-700')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--yellow-800); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">yellow-800</div>
+                                <div class="token-value">#CE7E1F</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('yellow-800')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--yellow-900); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">yellow-900</div>
+                                <div class="token-value">#CC6215</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('yellow-900')">Copy</button>
+                        </div>
+                    </div>
+
+                    <!-- Purple Scale -->
+                    <h3>Purple Scale</h3>
+                    <div class="token-grid">
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--purple-100); color: #581c87;"></div>
+                            <div class="token-info">
+                                <div class="token-name">purple-100</div>
+                                <div class="token-value">#EEE9FF</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('purple-100')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--purple-200); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">purple-200</div>
+                                <div class="token-value">#D1C4FC</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('purple-200')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--purple-300); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">purple-300</div>
+                                <div class="token-value">#B09EFC</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('purple-300')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--purple-400); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">purple-400</div>
+                                <div class="token-value">#8F76FC</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('purple-400')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--purple-500); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">purple-500</div>
+                                <div class="token-value">#6E54FA</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('purple-500')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--purple-600); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">purple-600</div>
+                                <div class="token-value">#5721F7</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('purple-600')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--purple-700); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">purple-700</div>
+                                <div class="token-value">#4410CF</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('purple-700')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--purple-800); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">purple-800</div>
+                                <div class="token-value">#3A0F9C</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('purple-800')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--purple-900); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">purple-900</div>
+                                <div class="token-value">#2E0F7A</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('purple-900')">Copy</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Brand Colors Section -->
+                <section id="brand" class="token-section">
+                    <h2 class="section-title">Brand Colors</h2>
+                    <p class="section-description">
+                        These colors represent Qualia's product ecosystem. Use them for brand recognition in logos, product navigation, or specific marketing accents.
+                    </p>
+
+                    <div class="token-grid">
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--brand-qualia-01); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">qualia-01</div>
+                                <div class="token-value">#6DC278</div>
+                                <div class="token-usage">Primary Qualia brand color</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('qualia-01')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--brand-qualia-02); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">qualia-02</div>
+                                <div class="token-value">#3D4042</div>
+                                <div class="token-usage">Secondary Qualia brand color</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('qualia-02')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--brand-clear-01); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">clear-01</div>
+                                <div class="token-value">#6E54FA</div>
+                                <div class="token-usage">Clear product primary</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('clear-01')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--brand-clear-02); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">clear-02</div>
+                                <div class="token-value">#333333</div>
+                                <div class="token-usage">Clear product secondary</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('clear-02')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--brand-assure); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">assure</div>
+                                <div class="token-value">#076596</div>
+                                <div class="token-usage">Assure product brand</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('assure')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--brand-atlas); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">atlas</div>
+                                <div class="token-value">#E3B529</div>
+                                <div class="token-usage">Atlas product brand</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('atlas')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--brand-connect); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">connect</div>
+                                <div class="token-value">#4FC7AB</div>
+                                <div class="token-usage">Connect product brand</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('connect')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--brand-core); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">core</div>
+                                <div class="token-value">#4DB07D</div>
+                                <div class="token-usage">Core product brand</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('core')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--brand-marketplace); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">marketplace</div>
+                                <div class="token-value">#E36333</div>
+                                <div class="token-usage">Marketplace product brand</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('marketplace')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--brand-shield); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">shield</div>
+                                <div class="token-value">#3098E3</div>
+                                <div class="token-usage">Shield product brand</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('shield')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--brand-resware); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">resware</div>
+                                <div class="token-value">#A12A1C</div>
+                                <div class="token-usage">Resware product brand</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('resware')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--brand-universal); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">universal</div>
+                                <div class="token-value">#212729</div>
+                                <div class="token-usage">Universal product brand</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('universal')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--brand-universal-inverted); border-bottom: 1px solid #ddd;"></div>
+                            <div class="token-info">
+                                <div class="token-name">universal-inverted</div>
+                                <div class="token-value">#FFFFFF</div>
+                                <div class="token-usage">Universal inverted product brand</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('universal-inverted')">Copy</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Semantic Colors Section -->
+                <section id="semantic" class="token-section">
+                    <h2 class="section-title">Semantic Colors</h2>
+                    <p class="section-description">
+                        Semantic colors convey meaning and purpose in the UI. Always prioritize these tokens for interface elements over primitive colors.
+                    </p>
+
+                    <!-- Surface Colors -->
+                    <h3>Surface Colors</h3>
+                    <div class="token-grid">
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--surface-01); border-bottom: 1px solid #ddd;"></div>
+                            <div class="token-info">
+                                <div class="token-name">surface_01</div>
+                                <div class="token-value">#FAFAFA</div>
+                                <div class="token-usage">Primary backgrounds, cards, panels</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('surface_01')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--surface-02); border-bottom: 1px solid #ddd;"></div>
+                            <div class="token-info">
+                                <div class="token-name">surface_02</div>
+                                <div class="token-value">#EDEDED</div>
+                                <div class="token-usage">Secondary backgrounds, elevated surfaces</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('surface_02')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--surface-03); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">surface_03</div>
+                                <div class="token-value">#080808</div>
+                                <div class="token-usage">High-contrast surfaces, overlays</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('surface_03')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--surface-ai); color: #581c87;"></div>
+                            <div class="token-info">
+                                <div class="token-name">surface_ai</div>
+                                <div class="token-value">#EEE9FF</div>
+                                <div class="token-usage">AI-powered feature backgrounds</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('surface_ai')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--surface-success); color: #065f46;"></div>
+                            <div class="token-info">
+                                <div class="token-name">surface_success</div>
+                                <div class="token-value">#C4EBD4</div>
+                                <div class="token-usage">Success state backgrounds</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('surface_success')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--surface-info); color: #1e40af;"></div>
+                            <div class="token-info">
+                                <div class="token-name">surface_info</div>
+                                <div class="token-value">#BADAFA</div>
+                                <div class="token-usage">Informational backgrounds</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('surface_info')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--surface-critical); color: #92400e;"></div>
+                            <div class="token-info">
+                                <div class="token-name">surface_critical</div>
+                                <div class="token-value">#FAF5E3</div>
+                                <div class="token-usage">Warning/caution backgrounds</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('surface_critical')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--surface-error); color: #991b1b;"></div>
+                            <div class="token-info">
+                                <div class="token-name">surface_error</div>
+                                <div class="token-value">#FFEBEB</div>
+                                <div class="token-usage">Error state backgrounds</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('surface_error')">Copy</button>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Colors -->
+                    <h3>Interactive Colors</h3>
+                    <div class="token-grid">
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--interactive-01-semantic); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">interactive_01</div>
+                                <div class="token-value">#1A874F</div>
+                                <div class="token-usage">Primary buttons, main actions</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('interactive_01')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--interactive-pressed); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">interactive_pressed</div>
+                                <div class="token-value">#0D381F</div>
+                                <div class="token-usage">Active/pressed state of primary</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('interactive_pressed')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--interactive-02); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">interactive_02</div>
+                                <div class="token-value">#757575</div>
+                                <div class="token-usage">Secondary buttons, alternative actions</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('interactive_02')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--interactive-02-pressed); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">interactive_02_pressed</div>
+                                <div class="token-value">#595A5C</div>
+                                <div class="token-usage">Active/pressed state of secondary</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('interactive_02_pressed')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--interactive-fill-disabled); color: #666;"></div>
+                            <div class="token-info">
+                                <div class="token-name">interactive_fill_disabled</div>
+                                <div class="token-value">#EDEDED</div>
+                                <div class="token-usage">Disabled button backgrounds</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('interactive_fill_disabled')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--interactive-text-disabled); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">interactive_text_disabled</div>
+                                <div class="token-value">#A1A1A1</div>
+                                <div class="token-usage">Disabled button text</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('interactive_text_disabled')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--interactive-icon); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">interactive_icon</div>
+                                <div class="token-value">#757575</div>
+                                <div class="token-usage">Interactive icons (clickable)</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('interactive_icon')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--interactive-icon-contrast); border-bottom: 1px solid #ddd;"></div>
+                            <div class="token-info">
+                                <div class="token-name">interactive_icon_contrast</div>
+                                <div class="token-value">#FAFAFA</div>
+                                <div class="token-usage">Icons on dark backgrounds</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('interactive_icon_contrast')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--interactive-icon-disabled); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">interactive_icon_disabled</div>
+                                <div class="token-value">#A1A1A1</div>
+                                <div class="token-usage">Disabled interactive icons</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('interactive_icon_disabled')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--interactive-ai); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">interactive_ai</div>
+                                <div class="token-value">#6E54FA</div>
+                                <div class="token-usage">AI-powered interactive elements</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('interactive_ai')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--interactive-error); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">interactive_error</div>
+                                <div class="token-value">#BD1C21</div>
+                                <div class="token-usage">Destructive actions (delete, remove)</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('interactive_error')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--interactive-success); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">interactive_success</div>
+                                <div class="token-value">#125930</div>
+                                <div class="token-usage">Positive actions (save, confirm)</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('interactive_success')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--interactive-caution); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">interactive_caution</div>
+                                <div class="token-value">#D4A62E</div>
+                                <div class="token-usage">Caution actions (archive, hide)</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('interactive_caution')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--interactive-info); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">interactive_info</div>
+                                <div class="token-value">#1F78CC</div>
+                                <div class="token-usage">Informational actions (learn more, help)</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('interactive_info')">Copy</button>
+                        </div>
+                    </div>
+
+                    <!-- Text Colors -->
+                    <h3>Text Colors</h3>
+                    <div class="token-grid">
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--text-01); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">text_01</div>
+                                <div class="token-value">#080808</div>
+                                <div class="token-usage">Primary text, headlines</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('text_01')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--text-02); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">text_02</div>
+                                <div class="token-value">#404042</div>
+                                <div class="token-usage">Secondary text, body copy</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('text_02')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--text-03); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">text_03</div>
+                                <div class="token-value">#757575</div>
+                                <div class="token-usage">Tertiary text, metadata, timestamps</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('text_03')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--text-04); border-bottom: 1px solid #ddd;"></div>
+                            <div class="token-info">
+                                <div class="token-name">text_04</div>
+                                <div class="token-value">#FAFAFA</div>
+                                <div class="token-usage">Text on dark backgrounds</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('text_04')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--text-ai); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">text_ai</div>
+                                <div class="token-value">#5721F7</div>
+                                <div class="token-usage">AI-related text content</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('text_ai')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--text-success); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">text_success</div>
+                                <div class="token-value">#125930</div>
+                                <div class="token-usage">Success messages</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('text_success')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--text-error); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">text_error</div>
+                                <div class="token-value">#BD1C21</div>
+                                <div class="token-usage">Error messages</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('text_error')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--text-critical); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">text_critical</div>
+                                <div class="token-value">#CC6215</div>
+                                <div class="token-usage">Warning text</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('text_critical')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--text-info); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">text_info</div>
+                                <div class="token-value">#17598F</div>
+                                <div class="token-usage">Informational text</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('text_info')">Copy</button>
+                        </div>
+                    </div>
+
+                    <!-- Stroke Colors -->
+                    <h3>Stroke Colors</h3>
+                    <div class="token-grid">
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--stroke-01); border-bottom: 1px solid #ddd;"></div>
+                            <div class="token-info">
+                                <div class="token-name">stroke_01</div>
+                                <div class="token-value">#E8E8E8</div>
+                                <div class="token-usage">Subtle borders, dividers</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('stroke_01')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--stroke-02); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">stroke_02</div>
+                                <div class="token-value">#A1A1A1</div>
+                                <div class="token-usage">Prominent borders, form fields</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('stroke_02')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--stroke-error); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">stroke_error</div>
+                                <div class="token-value">#BD1C21</div>
+                                <div class="token-usage">Error state borders</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('stroke_error')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--stroke-success); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">stroke_success</div>
+                                <div class="token-value">#125930</div>
+                                <div class="token-usage">Success state borders</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('stroke_success')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--stroke-info); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">stroke_info</div>
+                                <div class="token-value">#1F78CC</div>
+                                <div class="token-usage">Info state borders</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('stroke_info')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--stroke-caution); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">stroke_caution</div>
+                                <div class="token-value">#D4A62E</div>
+                                <div class="token-usage">Warning state borders</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('stroke_caution')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--stroke-ai); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">stroke_ai</div>
+                                <div class="token-value">#6E54FA</div>
+                                <div class="token-usage">AI feature borders</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('stroke_ai')">Copy</button>
+                        </div>
+                    </div>
+
+                    <!-- Icon Colors -->
+                    <h3>Icon Colors</h3>
+                    <div class="token-grid">
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--icon-01); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">icon_01</div>
+                                <div class="token-value">#080808</div>
+                                <div class="token-usage">Primary icons</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('icon_01')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--icon-02); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">icon_02</div>
+                                <div class="token-value">#404042</div>
+                                <div class="token-usage">Secondary icons</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('icon_02')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--icon-contrast); border-bottom: 1px solid #ddd;"></div>
+                            <div class="token-info">
+                                <div class="token-name">icon_contrast</div>
+                                <div class="token-value">#FAFAFA</div>
+                                <div class="token-usage">Icons on dark backgrounds</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('icon_contrast')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--icon-success); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">icon_success</div>
+                                <div class="token-value">#125930</div>
+                                <div class="token-usage">Success state icons</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('icon_success')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--icon-alert); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">icon_alert</div>
+                                <div class="token-value">#CE7E1F</div>
+                                <div class="token-usage">Warning/alert icons</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('icon_alert')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--icon-error); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">icon_error</div>
+                                <div class="token-value">#BD1C21</div>
+                                <div class="token-usage">Error state icons</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('icon_error')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--icon-info); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">icon_info</div>
+                                <div class="token-value">#17598F</div>
+                                <div class="token-usage">Information icons</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('icon_info')">Copy</button>
+                        </div>
+                        <div class="token-card">
+                            <div class="color-swatch" style="background-color: var(--icon-ai); color: white;"></div>
+                            <div class="token-info">
+                                <div class="token-name">icon_ai</div>
+                                <div class="token-value">#5721F7</div>
+                                <div class="token-usage">AI-related icons</div>
+                            </div>
+                            <button class="copy-button" onclick="copyToClipboard('icon_ai')">Copy</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Typography Section -->
+                <section id="typography" class="token-section">
+                    <h2 class="section-title">Typography Tokens</h2>
+                    <p class="section-description">
+                        Typography tokens establish clear information hierarchy and readability across all Qualia products. They define font families, sizes, weights, and line heights.
+                    </p>
+
+                    <h3>Headers - Creating Hierarchy</h3>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--header-xxl-size); font-weight: var(--font-weight-bold); line-height: var(--header-xxl-line-height); color: var(--text-01);">The quick brown fox jumps over the lazy dog.</div>
+                        <div class="type-specs">header_xxl • Lato Bold • 32px • Line Height 36px</div>
+                    </div>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--header-xl-size); font-weight: var(--font-weight-bold); line-height: var(--header-xl-line-height); color: var(--text-01);">The quick brown fox jumps over the lazy dog.</div>
+                        <div class="type-specs">header_xl • Lato Bold • 28px • Line Height 32px</div>
+                    </div>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--header-l-size); font-weight: var(--font-weight-bold); line-height: var(--header-l-line-height); color: var(--text-01);">The quick brown fox jumps over the lazy dog.</div>
+                        <div class="type-specs">header_l • Lato Bold • 22px • Line Height 28px</div>
+                    </div>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--header-m-size); font-weight: var(--font-weight-bold); line-height: var(--header-m-line-height); color: var(--text-01);">The quick brown fox jumps over the lazy dog.</div>
+                        <div class="type-specs">header_m • Lato Bold • 20px • Line Height 26px</div>
+                    </div>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--header-s-size); font-weight: var(--font-weight-bold); line-height: var(--header-s-line-height); color: var(--text-01);">The quick brown fox jumps over the lazy dog.</div>
+                        <div class="type-specs">header_s • Lato Bold • 18px • Line Height 24px</div>
+                    </div>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--header-xs-size); font-weight: var(--font-weight-medium); line-height: var(--header-xs-line-height); color: var(--text-01);">The quick brown fox jumps over the lazy dog.</div>
+                        <div class="type-specs">header_xs • Lato Medium • 18px • Line Height 24px</div>
+                    </div>
+
+                    <h3>Body Text - For Reading</h3>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--body-size); font-weight: var(--font-weight-regular); line-height: var(--body-line-height); color: var(--text-02);">The quick brown fox jumps over the lazy dog.</div>
+                        <div class="type-specs">body • Lato Regular • 16px • Line Height 24px</div>
+                    </div>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--body-dense-size); font-weight: var(--font-weight-regular); line-height: var(--body-dense-line-height); color: var(--text-02);">The quick brown fox jumps over the lazy dog.</div>
+                        <div class="type-specs">body-dense • Lato Regular • 14px • Line Height 20px</div>
+                    </div>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--body-dense-size); font-style: italic; font-weight: var(--font-weight-regular); line-height: var(--body-dense-line-height); color: var(--text-02);">The quick brown fox jumps over the lazy dog.</div>
+                        <div class="type-specs">body-dense-italic • Lato Italic • 14px • Line Height 20px</div>
+                    </div>
+
+                    <h3>Supplementary Text</h3>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--eyebrow-size); font-weight: var(--font-weight-bold); line-height: var(--eyebrow-line-height); text-transform: uppercase; color: var(--text-03);">Eyebrow</div>
+                        <div class="type-specs">eyebrow • Lato Bold • 12px • Line Height 16px • Uppercase</div>
+                    </div>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--caption-size); font-weight: var(--font-weight-regular); line-height: var(--caption-line-height); color: var(--text-03);">Caption</div>
+                        <div class="type-specs">caption • Lato Regular • 12px • Line Height 14px</div>
+                    </div>
+
+                    <h3>Labels - For Interface Elements</h3>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--label-l-size); font-weight: var(--font-weight-bold); line-height: var(--label-l-line-height); color: var(--text-02);">Label L</div>
+                        <div class="type-specs">label_l • Lato Bold • 16px • Line Height 24px</div>
+                    </div>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--label-l-size); font-weight: var(--font-weight-bold); line-height: var(--label-l-line-height); text-transform: uppercase; color: var(--text-02);">Label L Caps</div>
+                        <div class="type-specs">label_l_caps • Lato Bold • 16px • Line Height 24px • Uppercase</div>
+                    </div>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--label-m-size); font-weight: var(--font-weight-medium); line-height: var(--label-m-line-height); color: var(--text-02);">Label M</div>
+                        <div class="type-specs">label_m • Lato Medium • 16px • Line Height 24px</div>
+                    </div>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--label-m-size); font-weight: var(--font-weight-medium); line-height: var(--label-m-line-height); text-transform: uppercase; color: var(--text-02);">Label M Caps</div>
+                        <div class="type-specs">label_m_caps • Lato Medium • 16px • Line Height 24px • Uppercase</div>
+                    </div>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--label-s-size); font-weight: var(--font-weight-medium); line-height: var(--label-s-line-height); color: var(--text-03);">Label S</div>
+                        <div class="type-specs">label_s • Lato Medium • 14px • Line Height 16px</div>
+                    </div>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--label-s-size); font-weight: var(--font-weight-medium); line-height: var(--label-s-line-height); text-transform: uppercase; color: var(--text-03);">Label S Caps</div>
+                        <div class="type-specs">label_s_caps • Lato Medium • 14px • Line Height 16px • Uppercase</div>
+                    </div>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--label-xs-size); font-weight: var(--font-weight-bold); line-height: var(--label-xs-line-height); color: var(--text-03);">Label XS</div>
+                        <div class="type-specs">label_xs • Lato Bold • 12px • Line Height 16px</div>
+                    </div>
+                    <div class="type-example">
+                        <div class="type-sample" style="font-size: var(--label-xs-size); font-weight: var(--font-weight-bold); line-height: var(--label-xs-line-height); text-transform: uppercase; color: var(--text-03);">Label XS Caps</div>
+                        <div class="type-specs">label_xs_caps • Lato Bold • 12px • Line Height 16px • Uppercase</div>
+                    </div>
+                </section>
+
+                <!-- Spacing Section -->
+                <section id="spacing" class="token-section">
+                    <h2 class="section-title">Spacing Tokens</h2>
+                    <p class="section-description">
+                        Consistent spacing creates rhythm and hierarchy in your layouts. All spacing tokens follow a 4px base unit system and are designed for both vertical and horizontal application.
+                    </p>
+
+                    <div class="spacing-item">
+                        <div class="spacing-rect-container">
+                            <div class="spacing-rect" style="width: var(--space-0);"></div>
+                            <div class="spacing-name">space_0</div>
+                            <div class="spacing-value">0px</div>
+                        </div>
+                        <div class="spacing-usage"><strong>Zero spacing:</strong> Remove all spacing, flush layouts</div>
+                    </div>
+
+                    <div class="spacing-item">
+                        <div class="spacing-rect-container">
+                            <div class="spacing-rect" style="width: var(--space-04);"></div>
+                            <div class="spacing-name">space_04</div>
+                            <div class="spacing-value">4px</div>
+                        </div>
+                        <div class="spacing-usage"><strong>Micro spacing:</strong> Icon gaps, tight internal component padding</div>
+                    </div>
+
+                    <div class="spacing-item">
+                        <div class="spacing-rect-container">
+                            <div class="spacing-rect" style="width: var(--space-08);"></div>
+                            <div class="spacing-name">space_08</div>
+                            <div class="spacing-value">8px</div>
+                        </div>
+                        <div class="spacing-usage"><strong>Close spacing:</strong> Between related elements, button padding</div>
+                    </div>
+
+                    <div class="spacing-item">
+                        <div class="spacing-rect-container">
+                            <div class="spacing-rect" style="width: var(--space-12);"></div>
+                            <div class="spacing-name">space_12</div>
+                            <div class="spacing-value">12px</div>
+                        </div>
+                        <div class="spacing-usage"><strong>Compact spacing:</strong> Form field gaps, card internal padding</div>
+                    </div>
+
+                    <div class="spacing-item">
+                        <div class="spacing-rect-container">
+                            <div class="spacing-rect" style="width: var(--space-16);"></div>
+                            <div class="spacing-name">space_16</div>
+                            <div class="spacing-value">16px</div>
+                        </div>
+                        <div class="spacing-usage"><strong>Standard spacing (go-to):</strong> Default component margins, section padding</div>
+                    </div>
+
+                    <div class="spacing-item">
+                        <div class="spacing-rect-container">
+                            <div class="spacing-rect" style="width: var(--space-24);"></div>
+                            <div class="spacing-name">space_24</div>
+                            <div class="spacing-value">24px</div>
+                        </div>
+                        <div class="spacing-usage"><strong>Moderate spacing:</strong> Between component groups, larger card padding</div>
+                    </div>
+
+                    <div class="spacing-item">
+                        <div class="spacing-rect-container">
+                            <div class="spacing-rect" style="width: var(--space-32);"></div>
+                            <div class="spacing-name">space_32</div>
+                            <div class="spacing-value">32px</div>
+                        </div>
+                        <div class="spacing-usage"><strong>Generous spacing:</strong> Between major layout sections, large component separation</div>
+                    </div>
+
+                    <div class="spacing-item">
+                        <div class="spacing-rect-container">
+                            <div class="spacing-rect" style="width: var(--space-40);"></div>
+                            <div class="spacing-name">space_40</div>
+                            <div class="spacing-value">40px</div>
+                        </div>
+                        <div class="spacing-usage"><strong>Layout spacing:</strong> Between distinct UI components, medium page sections</div>
+                    </div>
+
+                    <div class="spacing-item">
+                        <div class="spacing-rect-container">
+                            <div class="spacing-rect" style="width: var(--space-48);"></div>
+                            <div class="spacing-name">space_48</div>
+                            <div class="spacing-value">48px</div>
+                        </div>
+                        <div class="spacing-usage"><strong>Large layout spacing:</strong> Between major layout areas, significant content blocks</div>
+                    </div>
+
+                    <div class="spacing-item">
+                        <div class="spacing-rect-container">
+                            <div class="spacing-rect" style="width: var(--space-64);"></div>
+                            <div class="spacing-name">space_64</div>
+                            <div class="spacing-value">64px</div>
+                        </div>
+                        <div class="spacing-usage"><strong>Extra-large spacing:</strong> Between prominent page sections, hero banners</div>
+                    </div>
+
+                    <div class="spacing-item">
+                        <div class="spacing-rect-container">
+                            <div class="spacing-rect" style="width: var(--space-80);"></div>
+                            <div class="spacing-name">space_80</div>
+                            <div class="spacing-value">80px</div>
+                        </div>
+                        <div class="spacing-usage"><strong>Major section spacing:</strong> Large vertical breaks, significant content areas</div>
+                    </div>
+
+                    <div class="spacing-item">
+                        <div class="spacing-rect-container">
+                            <div class="spacing-rect" style="width: var(--space-96);"></div>
+                            <div class="spacing-name">space_96</div>
+                            <div class="spacing-value">96px</div>
+                        </div>
+                        <div class="spacing-usage"><strong>Hero spacing:</strong> Around prominent hero sections, page top/bottom padding</div>
+                    </div>
+
+                    <div class="spacing-item">
+                        <div class="spacing-rect-container">
+                            <div class="spacing-rect" style="width: var(--space-120);"></div>
+                            <div class="spacing-name">space_120</div>
+                            <div class="spacing-value">120px</div>
+                        </div>
+                        <div class="spacing-usage"><strong>Maximum spacing:</strong> Largest content separations, full-page breaks</div>
+                    </div>
+
+                    <div class="usage-grid">
+                        <div class="usage-card">
+                            <h4>🎯 Quick Decision Guide</h4>
+                            <ul>
+                                <li><strong>Inside a component?</strong> Use space_04 to space_16</li>
+                                <li><strong>Between components?</strong> Use space_16 to space_32</li>
+                                <li><strong>Between page sections?</strong> Use space_48 to space_96</li>
+                                <li><strong>Unsure?</strong> Start with space_16 - it works for most situations</li>
+                            </ul>
+                        </div>
+
+                        <div class="usage-card">
+                            <h4>📐 Component-Level (4-16px)</h4>
+                            <ul>
+                                <li>Icon and text gaps in buttons (space_08)</li>
+                                <li>Form field internal padding (space_08, space_12)</li>
+                                <li>Navigation menu item spacing (space_04)</li>
+                                <li>Card content margins (space_16)</li>
+                            </ul>
+                        </div>
+
+                        <div class="usage-card">
+                            <h4>🏗️ Layout-Level (24-64px)</h4>
+                            <ul>
+                                <li>Between form sections (space_24, space_32)</li>
+                                <li>Major component separation (space_32, space_40)</li>
+                                <li>Page section divisions (space_48, space_64)</li>
+                                <li>Content area spacing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Corner Rounding Section -->
+                <section id="radius" class="token-section">
+                    <h2 class="section-title">Corner Rounding Tokens</h2>
+                    <p class="section-description">
+                        Corner rounding creates visual hierarchy and defines interaction states. A thoughtful application of radius helps guide the user's eye and conveys component importance.
+                    </p>
+
+                    <div class="radius-item">
+                        <div class="radius-square-container">
+                            <div class="radius-square" style="border-radius: var(--radius-none);"></div>
+                            <div class="radius-name">radius_none</div>
+                            <div class="radius-value">0px</div>
+                        </div>
+                        <div class="radius-usage"><strong>Sharp corners:</strong> Data tables, technical interfaces, legacy compatibility</div>
+                    </div>
+
+                    <div class="radius-item">
+                        <div class="radius-square-container">
+                            <div class="radius-square" style="border-radius: var(--radius-xs);"></div>
+                            <div class="radius-name">radius_xs</div>
+                            <div class="radius-value">4px</div>
+                        </div>
+                        <div class="radius-usage"><strong>Subtle rounding:</strong> Form fields, small buttons, tags</div>
+                    </div>
+
+                    <div class="radius-item">
+                        <div class="radius-square-container">
+                            <div class="radius-square" style="border-radius: var(--radius-s);"></div>
+                            <div class="radius-name">radius_s</div>
+                            <div class="radius-value">8px</div>
+                        </div>
+                        <div class="radius-usage"><strong>Standard rounding:</strong> Buttons, form controls, small cards</div>
+                    </div>
+
+                    <div class="radius-item">
+                        <div class="radius-square-container">
+                            <div class="radius-square" style="border-radius: var(--radius-m);"></div>
+                            <div class="radius-name">radius_m</div>
+                            <div class="radius-value">12px</div>
+                        </div>
+                        <div class="radius-usage"><strong>Medium rounding:</strong> Cards, panels, modal dialogs</div>
+                    </div>
+
+                    <div class="radius-item">
+                        <div class="radius-square-container">
+                            <div class="radius-square" style="border-radius: var(--radius-l);"></div>
+                            <div class="radius-name">radius_l</div>
+                            <div class="radius-value">16px</div>
+                        </div>
+                        <div class="radius-usage"><strong>Large rounding:</strong> Prominent cards, feature panels</div>
+                    </div>
+
+                    <div class="radius-item">
+                        <div class="radius-square-container">
+                            <div class="radius-square" style="border-radius: var(--radius-xl);"></div>
+                            <div class="radius-name">radius_xl</div>
+                            <div class="radius-value">24px</div>
+                        </div>
+                        <div class="radius-usage"><strong>Maximum rounding:</strong> Hero elements, major feature cards</div>
+                    </div>
+
+                    <div class="usage-grid">
+                        <div class="usage-card">
+                            <h4>🎯 Rounding Strategy</h4>
+                            <ul>
+                                <li><strong>More interactive</strong> = more rounded</li>
+                                <li><strong>More important</strong> = more rounded</li>
+                                <li><strong>Keep consistent</strong> within component families</li>
+                                <li><strong>Increase rounding</strong> to show importance</li>
+                            </ul>
+                        </div>
+
+                        <div class="usage-card">
+                            <h4>🔘 Interactive Elements</h4>
+                            <ul>
+                                <li><strong>Buttons:</strong> radius_xs to radius_s</li>
+                                <li><strong>Form fields:</strong> radius_xs</li>
+                                <li><strong>Links:</strong> radius_xs</li>
+                                <li><strong>Navigation:</strong> radius_s</li>
+                            </ul>
+                        </div>
+
+                        <div class="usage-card">
+                            <h4>🏗️ Content Containers</h4>
+                            <ul>
+                                <li><strong>Cards:</strong> radius_m to radius_l</li>
+                                <li><strong>Panels:</strong> radius_m</li>
+                                <li><strong>Modals:</strong> radius_l</li>
+                                <li><strong>Hero sections:</strong> radius_xl</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
 
     <script>
-        // All JavaScript functionality for decision tree and interactions included
+        // Decision Tree Data
+        const dtResults = {
+            color: {
+                surface: {
+                    title: "Surface Color Tokens",
+                    description: "For backgrounds, cards, and panels.",
+                    tokens: [
+                        { name: "surface_01", value: "#FAFAFA", usage: "Primary backgrounds, main content areas" },
+                        { name: "surface_02", value: "#EDEDED", usage: "Elevated surfaces like cards" },
+                        { name: "surface_success", value: "#C4EBD4", usage: "Success state backgrounds" },
+                        { name: "surface_error", value: "#FFEBEB", usage: "Error state backgrounds" },
+                        { name: "surface_ai", value: "#EEE9FF", usage: "AI-powered feature backgrounds" }
+                    ],
+                    link: '#semantic'
+                },
+                interactive: {
+                    title: "Interactive Color Tokens",
+                    description: "For buttons, links, and clickable elements.",
+                    tokens: [
+                        { name: "interactive_01", value: "#1A874F", usage: "Primary buttons, main actions" },
+                        { name: "interactive_02", value: "#757575", usage: "Secondary buttons, alternative actions" },
+                        { name: "interactive_error", value: "#BD1C21", usage: "Destructive actions" },
+                        { name: "interactive_ai", value: "#6E54FA", usage: "AI-powered interactive elements" }
+                    ],
+                    link: '#semantic'
+                },
+                text: {
+                    title: "Text Color Tokens",
+                    description: "For headlines, body text, and labels.",
+                    tokens: [
+                        { name: "text_01", value: "#080808", usage: "Primary text, headlines" },
+                        { name: "text_02", value: "#404042", usage: "Secondary text, body copy" },
+                        { name: "text_03", value: "#757575", usage: "Tertiary text, metadata" },
+                        { name: "text_error", value: "#BD1C21", usage: "Error messages" },
+                        { name: "text_ai", value: "#5721F7", usage: "AI-related text content" }
+                    ],
+                    link: '#semantic'
+                },
+                stroke: {
+                    title: "Stroke Color Tokens",
+                    description: "For borders, dividers, and outlines.",
+                    tokens: [
+                        { name: "stroke_01", value: "#E8E8E8", usage: "Subtle borders, dividers" },
+                        { name: "stroke_02", value: "#A1A1A1", usage: "Prominent borders, form fields" },
+                        { name: "stroke_error", value: "#BD1C21", usage: "Error state borders" },
+                        { name: "stroke_ai", value: "#6E54FA", usage: "AI feature borders" }
+                    ],
+                    link: '#semantic'
+                },
+                icon: {
+                    title: "Icon Color Tokens",
+                    description: "For UI icons and status indicators.",
+                    tokens: [
+                        { name: "icon_01", value: "#080808", usage: "Primary icons" },
+                        { name: "icon_02", value: "#404042", usage: "Secondary icons" },
+                        { name: "icon_success", value: "#125930", usage: "Success state icons" },
+                        { name: "icon_ai", value: "#5721F7", usage: "AI-related icons" }
+                    ],
+                    link: '#semantic'
+                },
+                brand: {
+                    title: "Brand Color Tokens",
+                    description: "For product identity and branding.",
+                    tokens: [
+                        { name: "qualia-01", value: "#6DC278", usage: "Primary Qualia brand color" },
+                        { name: "clear-01", value: "#6E54FA", usage: "Clear product primary brand color" },
+                        { name: "assure", value: "#076596", usage: "Assure product brand color" }
+                    ],
+                    link: '#brand'
+                }
+            },
+            typography: {
+                headers: {
+                    title: "Header Typography Tokens",
+                    description: "For establishing hierarchy in titles and headings.",
+                    tokens: [
+                        { name: "header_xxl", value: "32px/36px Lato Bold", usage: "Hero headings, page titles" },
+                        { name: "header_xl", value: "28px/32px Lato Bold", usage: "Section headings, major titles" },
+                        { name: "header_l", value: "22px/28px Lato Bold", usage: "Subsection headings" }
+                    ],
+                    link: '#typography'
+                },
+                body: {
+                    title: "Body Text Typography Tokens",
+                    description: "For readable content like paragraphs and descriptions.",
+                    tokens: [
+                        { name: "body", value: "16px/24px Lato Regular", usage: "Default body text" },
+                        { name: "body-dense", value: "14px/20px Lato Regular", usage: "Compact body text" }
+                    ],
+                    link: '#typography'
+                },
+                labels: {
+                    title: "Label Typography Tokens",
+                    description: "For UI elements, form fields, and interactive labels.",
+                    tokens: [
+                        { name: "label_l", value: "16px/24px Lato Bold", usage: "Large form labels" },
+                        { name: "label_m", value: "16px/24px Lato Medium", usage: "Standard form labels" }
+                    ],
+                    link: '#typography'
+                },
+                supplementary: {
+                    title: "Supplementary Typography Tokens",
+                    description: "For captions, metadata, and small descriptive text.",
+                    tokens: [
+                        { name: "eyebrow", value: "12px/16px Lato Bold Uppercase", usage: "Category labels, overlines" },
+                        { name: "caption", value: "12px/14px Lato Regular", usage: "Image captions, fine print" }
+                    ],
+                    link: '#typography'
+                }
+            },
+            spacing: {
+                micro: {
+                    title: "Micro Spacing Tokens",
+                    description: "Tight spaces for internal component elements (0-8px).",
+                    tokens: [
+                        { name: "space_0", value: "0px", usage: "Remove all spacing, flush layouts" },
+                        { name: "space_04", value: "4px", usage: "Icon gaps, tight internal padding" },
+                        { name: "space_08", value: "8px", usage: "Between related elements, button padding" }
+                    ],
+                    link: '#spacing'
+                },
+                component: {
+                    title: "Component Spacing Tokens",
+                    description: "Standard spacing for individual components (12-24px).",
+                    tokens: [
+                        { name: "space_12", value: "12px", usage: "Form field gaps, card internal padding" },
+                        { name: "space_16", value: "16px", usage: "Default component margins (go-to)" },
+                        { name: "space_24", value: "24px", usage: "Between component groups, large card padding" }
+                    ],
+                    link: '#spacing'
+                },
+                section: {
+                    title: "Section Spacing Tokens",
+                    description: "Generous spacing for layout sections (32-64px).",
+                    tokens: [
+                        { name: "space_32", value: "32px", usage: "Between major layout sections" },
+                        { name: "space_40", value: "40px", usage: "Between distinct UI components" },
+                        { name: "space_48", value: "48px", usage: "Between major layout areas" },
+                        { name: "space_64", value: "64px", usage: "Between prominent page sections" }
+                    ],
+                    link: '#spacing'
+                },
+                page: {
+                    title: "Page & Hero Spacing Tokens",
+                    description: "Maximum spacing for page-level breaks and hero areas (80-120px).",
+                    tokens: [
+                        { name: "space_80", value: "80px", usage: "Large vertical breaks, significant content areas" },
+                        { name: "space_96", value: "96px", usage: "Around prominent hero sections" },
+                        { name: "space_120", value: "120px", usage: "Largest content separations, full-page breaks" }
+                    ],
+                    link: '#spacing'
+                }
+            },
+            radius: {
+                'none-xs': {
+                    title: "None to Extra Small Rounding",
+                    description: "Sharp corners for technical interfaces or subtle softness for forms (0-4px).",
+                    tokens: [
+                        { name: "radius_none", value: "0px", usage: "Sharp corners: data tables, technical interfaces" },
+                        { name: "radius_xs", value: "4px", usage: "Subtle rounding: form fields, small buttons" }
+                    ],
+                    link: '#radius'
+                },
+                's-m': {
+                    title: "Small to Medium Rounding",
+                    description: "Standard rounding for common components (8-12px).",
+                    tokens: [
+                        { name: "radius_s", value: "8px", usage: "Standard rounding: buttons, form controls" },
+                        { name: "radius_m", value: "12px", usage: "Medium rounding: cards, panels, modal dialogs" }
+                    ],
+                    link: '#radius'
+                },
+                'l-xl': {
+                    title: "Large to Extra Large Rounding",
+                    description: "Prominent rounding for important elements and hero sections (16-24px).",
+                    tokens: [
+                        { name: "radius_l", value: "16px", usage: "Large rounding: prominent cards, feature panels" },
+                        { name: "radius_xl", value: "24px", usage: "Maximum rounding: hero elements, major feature cards" }
+                    ],
+                    link: '#radius'
+                }
+            }
+        };
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                const buttons = document.querySelectorAll('.copy-button');
+                buttons.forEach(btn => {
+                    const tokenNameElement = btn.previousElementSibling; 
+                    const tokenNameActual = tokenNameElement ? tokenNameElement.previousElementSibling : null;
+
+                    if (tokenNameActual && tokenNameActual.textContent.trim() === text) {
+                        btn.textContent = 'Copied!';
+                        btn.style.background = '#10b981'; 
+                        setTimeout(() => {
+                            btn.textContent = 'Copy';
+                            btn.style.background = '#6b7280'; 
+                        }, 1000);
+                    }
+                });
+            });
+        }
+
+        // Decision Tree Logic
+        function dtShowStep(category, stepId) {
+            document.querySelectorAll('.decision-step-container').forEach(step => {
+                step.style.display = 'none';
+            });
+            document.getElementById('dt-result-section').style.display = 'none';
+            document.getElementById(stepId).style.display = 'block';
+
+            document.getElementById('decision-tree').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function dtShowResult(category, type) {
+            const result = dtResults[category]?.[type];
+            if (!result) return;
+            
+            document.querySelectorAll('.decision-step-container').forEach(step => {
+                step.style.display = 'none';
+            });
+            
+            document.getElementById('dt-result-section').style.display = 'block';
+            const resultTitle = document.querySelector('#dt-result-section h3');
+            resultTitle.innerHTML = `<span style="font-size: 1.5rem; margin-right: 8px;">✅</span>${result.title}`;
+            
+            let content = `<p style="color: #374151; margin-bottom: 20px;">${result.description}</p><div style="margin-bottom: 20px;">`;
+            result.tokens.forEach(token => {
+                content += `
+                    <div class="result-token-card">
+                        <div class="result-token-name">${token.name}</div>
+                        <div class="result-token-value">${token.value}</div>
+                        <div class="result-token-usage">${token.usage}</div>
+                    </div>
+                `;
+            });
+            content += '</div>';
+            content += `<div class="result-example-box"><h4>💡 For more details:</h4><p>Visit the <a href="${result.link}" onclick="event.preventDefault(); scrollToSection('${result.link.substring(1)}') ;dtResetDecisionTree()" style="color: #0284c7; text-decoration: underline;">full ${result.link.substring(1).replace(/_/g, ' ')} section</a> for comprehensive usage guidelines.</p></div>`;
+            
+            document.getElementById('dt-result-content').innerHTML = content;
+            
+            document.getElementById('dt-result-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function dtResetDecisionTree() {
+            dtShowStep('', 'dt-step-1');
+        }
+
+        function scrollToSection(id) {
+            const targetElement = document.getElementById(id);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                window.history.pushState(null, '', `#${id}`);
+                
+                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                const navItem = document.querySelector(`.nav-item[href="#${id}"]`);
+                if (navItem) {
+                    navItem.classList.add('active');
+                }
+            }
+        }
+
+        // Initial setup for sidebar and decision tree
+        document.addEventListener('DOMContentLoaded', function() {
+            const initialHash = window.location.hash || '#primitives';
+            document.querySelectorAll('.nav-item').forEach(item => {
+                if (item.getAttribute('href') === initialHash) {
+                    item.classList.add('active');
+                }
+            });
+            dtResetDecisionTree();
+        });
+
+        // Update navigation on scroll
+        window.addEventListener('scroll', function() {
+            const sections = [
+                'red-flags', 'decision-tree', 'primitives', 'brand', 'semantic',
+                'typography', 'spacing', 'radius'
+            ];
+            let currentActiveSection = '';
+            
+            for (let i = 0; i < sections.length; i++) {
+                const sectionId = sections[i];
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top <= 150 && rect.bottom > 150) { 
+                        currentActiveSection = sectionId;
+                        break; 
+                    }
+                }
+            }
+            
+            if (currentActiveSection) {
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === '#' + currentActiveSection) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>
+FINAL_V3_CONTENT
