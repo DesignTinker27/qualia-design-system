@@ -1,15 +1,17 @@
 # Design System Documentation Skill
 
+**When asked to create or update design system documentation, or to generate usage guidelines for Qualia, apply the following standards and best practices:**
+
 ## Overview
 This skill generates comprehensive design system documentation that matches Qualia's standards and your established format preferences.
 
-## When to Use
-- Creating token usage guidelines
-- Building component documentation
-- Generating interactive demos
-- Preparing stakeholder-ready documentation
+## When to Use (Trigger Phrases)
+- "Create token documentation"
+- "Generate usage guidelines"
+- "Build component documentation"
+- "Prepare stakeholder-ready documentation"
 
-## Standards & Preferences
+## Documentation Standards
 
 ### Documentation Structure
 1. **Executive Summary** - Business impact in 2-3 concise bullets
