@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "name": "Qualia Design System Tokens",
+    "version": "1.0.0",
+    "description": "Design tokens for Qualia's unified design system",
+    "generated": "2024-10-20T16:18:48Z"
+  },
+  "color": {
+    "brand": {
+      "qualia": {
+        "01": { "value": "#6DC278", "type": "color", "description": "Primary Qualia brand color" },
+        "02": { "value": "#3D4042", "type": "color", "description": "Secondary Qualia brand color" }
+      },
+      "clear": {
+        "01": { "value": "#6E54FA", "type": "color", "description": "Clear product primary" },
+        "02": { "value": "#333333", "type": "color", "description": "Clear product secondary" }
+      },
+      "assure": { "value": "#076596", "type": "color" },
+      "atlas": { "value": "#E3B529", "type": "color" },
+      "connect": { "value": "#4FC7AB", "type": "color" },
+      "core": { "value": "#4DB07D", "type": "color" },
+      "marketplace": { "value": "#E36333", "type": "color" },
+      "shield": { "value": "#3098E3", "type": "color" },
+      "resware": { "value": "#A12A1C", "type": "color" },
+      "universal": { "value": "#212729", "type": "color" },
+      "universal-inverted": { "value": "#FFFFFF", "type": "color" }
+    },
+    "primitive": {
+      "black": {
+        "25": { "value": "#FAFAFA", "type": "color" },
+        "50": { "value": "#F5F5F5", "type": "color" },
+        "75": { "value": "#EDEDED", "type": "color" },
+        "100": { "value": "#E8E8E8", "type": "color" },
+        "200": { "value": "#D1D1D1", "type": "color" },
+        "300": { "value": "#A1A1A1", "type": "color" },
+        "400": { "value": "#8A8A8A", "type": "color" },
+        "500": { "value": "#757575", "type": "color" },
+        "600": { "value": "#595A5C", "type": "color" },
+        "700": { "value": "#404042", "type": "color" },
+        "800": { "value": "#292A2B", "type": "color" },
+        "900": { "value": "#212122", "type": "color" },
+        "1000": { "value": "#080808", "type": "color" }
+      },
+      "green": {
+        "100": { "value": "#C4EBD4", "type": "color" },
+        "200": { "value": "#A1DEB8", "type": "color" },
+        "300": { "value": "#78D29C", "type": "color" },
+        "400": { "value": "#57C487", "type": "color" },
+        "500": { "value": "#1A874F", "type": "color" },
+        "600": { "value": "#125930", "type": "color" },
+        "700": { "value": "#0D381F", "type": "color" },
+        "800": { "value": "#082312", "type": "color" },
+        "900": { "value": "#051708", "type": "color" }
+      },
+      "blue": {
+        "100": { "value": "#BADAFA", "type": "color" },
+        "200": { "value": "#ADD1F5", "type": "color" },
+        "300": { "value": "#8ABAF3", "type": "color" },
+        "400": { "value": "#529DE8", "type": "color" },
+        "500": { "value": "#1F78CC", "type": "color" },
+        "600": { "value": "#17598F", "type": "color" },
+        "700": { "value": "#0F3D57", "type": "color" },
+        "800": { "value": "#08212C", "type": "color" },
+        "900": { "value": "#020C0F", "type": "color" }
+      },
+      "red": {
+        "100": { "value": "#FFEBEB", "type": "color" },
+        "200": { "value": "#FDDCDB", "type": "color" },
+        "300": { "value": "#FAB8B5", "type": "color" },
+        "400": { "value": "#F2807C", "type": "color" },
+        "500": { "value": "#E63B3B", "type": "color" },
+        "600": { "value": "#BD1C21", "type": "color" },
+        "700": { "value": "#84161F", "type": "color" },
+        "800": { "value": "#561216", "type": "color" },
+        "900": { "value": "#3A0C11", "type": "color" }
+      },
+      "yellow": {
+        "100": { "value": "#FAF5E3", "type": "color" },
+        "200": { "value": "#F0E3B5", "type": "color" },
+        "300": { "value": "#E8D187", "type": "color" },
+        "400": { "value": "#D9B343", "type": "color" },
+        "500": { "value": "#D4A62E", "type": "color" },
+        "600": { "value": "#D19C29", "type": "color" },
+        "700": { "value": "#D18C26", "type": "color" },
+        "800": { "value": "#CE7E1F", "type": "color" },
+        "900": { "value": "#CC6215", "type": "color" }
+      },
+      "purple": {
+        "100": { "value": "#EEE9FF", "type": "color" },
+        "200": { "value": "#D1C4FC", "type": "color" },
+        "300": { "value": "#B09EFC", "type": "color" },
+        "400": { "value": "#8F76FC", "type": "color" },
+        "500": { "value": "#6E54FA", "type": "color" },
+        "600": { "value": "#5721F7", "type": "color" },
+        "700": { "value": "#4410CF", "type": "color" },
+        "800": { "value": "#3A0F9C", "type": "color" },
+        "900": { "value": "#2E0F7A", "type": "color" }
+      }
+    },
+    "semantic": {
+      "surface": {
+        "01": { "value": "{color.primitive.black.25}", "type": "color", "description": "Primary backgrounds, cards, panels" },
+        "02": { "value": "{color.primitive.black.75}", "type": "color", "description": "Secondary backgrounds, elevated surfaces" },
+        "03": { "value": "{color.primitive.black.1000}", "type": "color", "description": "High-contrast surfaces, overlays" },
+        "ai": { "value": "{color.primitive.purple.100}", "type": "color", "description": "AI-powered feature backgrounds" },
+        "success": { "value": "{color.primitive.green.100}", "type": "color", "description": "Success state backgrounds" },
+        "info": { "value": "{color.primitive.blue.100}", "type": "color", "description": "Informational backgrounds" },
+        "critical": { "value": "{color.primitive.yellow.100}", "type": "color", "description": "Warning/caution backgrounds" },
+        "error": { "value": "{color.primitive.red.100}", "type": "color", "description": "Error state backgrounds" }
+      },
+      "interactive": {
+        "01": { "value": "{color.primitive.green.500}", "type": "color", "description": "Primary buttons, main actions" },
+        "pressed": { "value": "{color.primitive.green.700}", "type": "color", "description": "Active/pressed state of primary" },
+        "02": { "value": "{color.primitive.black.500}", "type": "color", "description": "Secondary buttons, alternative actions" },
+        "02-pressed": { "value": "{color.primitive.black.600}", "type": "color", "description": "Active/pressed state of secondary" },
+        "fill-disabled": { "value": "{color.primitive.black.75}", "type": "color", "description": "Disabled button backgrounds" },
+        "text-disabled": { "value": "{color.primitive.black.300}", "type": "color", "description": "Disabled button text" },
+        "icon": { "value": "{color.primitive.black.500}", "type": "color", "description": "Interactive icons (clickable)" },
+        "icon-contrast": { "value": "{color.primitive.black.25}", "type": "color", "description": "Icons on dark backgrounds" },
+        "icon-disabled": { "value": "{color.primitive.black.300}", "type": "color", "description": "Disabled interactive icons" },
+        "ai": { "value": "{color.primitive.purple.500}", "type": "color", "description": "AI-powered interactive elements" },
+        "error": { "value": "{color.primitive.red.600}", "type": "color", "description": "Destructive actions (delete, remove)" },
+        "success": { "value": "{color.primitive.green.600}", "type": "color", "description": "Positive actions (save, confirm)" },
+        "caution": { "value": "{color.primitive.yellow.500}", "type": "color", "description": "Caution actions (archive, hide)" },
+        "info": { "value": "{color.primitive.blue.500}", "type": "color", "description": "Informational actions (learn more, help)" }
+      },
+      "text": {
+        "01": { "value": "{color.primitive.black.1000}", "type": "color", "description": "Primary text, headlines" },
+        "02": { "value": "{color.primitive.black.700}", "type": "color", "description": "Secondary text, body copy" },
+        "03": { "value": "{color.primitive.black.500}", "type": "color", "description": "Tertiary text, metadata, timestamps" },
+        "04": { "value": "{color.primitive.black.25}", "type": "color", "description": "Text on dark backgrounds" },
+        "ai": { "value": "{color.primitive.purple.600}", "type": "color", "description": "AI-related text content" },
+        "success": { "value": "{color.primitive.green.600}", "type": "color", "description": "Success messages" },
+        "error": { "value": "{color.primitive.red.600}", "type": "color", "description": "Error messages" },
+        "critical": { "value": "{color.primitive.yellow.900}", "type": "color", "description": "Warning text" },
+        "info": { "value": "{color.primitive.blue.600}", "type": "color", "description": "Informational text" }
+      },
+      "stroke": {
+        "01": { "value": "{color.primitive.black.100}", "type": "color", "description": "Subtle borders, dividers" },
+        "02": { "value": "{color.primitive.black.300}", "type": "color", "description": "Prominent borders, form fields" },
+        "error": { "value": "{color.primitive.red.600}", "type": "color", "description": "Error state borders" },
+        "success": { "value": "{color.primitive.green.600}", "type": "color", "description": "Success state borders" },
+        "info": { "value": "{color.primitive.blue.500}", "type": "color", "description": "Info state borders" },
+        "caution": { "value": "{color.primitive.yellow.500}", "type": "color", "description": "Warning state borders" },
+        "ai": { "value": "{color.primitive.purple.500}", "type": "color", "description": "AI feature borders" }
+      },
+      "icon": {
+        "01": { "value": "{color.primitive.black.1000}", "type": "color", "description": "Primary icons" },
+        "02": { "value": "{color.primitive.black.700}", "type": "color", "description": "Secondary icons" },
+        "contrast": { "value": "{color.primitive.black.25}", "type": "color", "description": "Icons on dark backgrounds" },
+        "success": { "value": "{color.primitive.green.600}", "type": "color", "description": "Success state icons" },
+        "alert": { "value": "{color.primitive.yellow.800}", "type": "color", "description": "Warning/alert icons" },
+        "error": { "value": "{color.primitive.red.600}", "type": "color", "description": "Error state icons" },
+        "info": { "value": "{color.primitive.blue.600}", "type": "color", "description": "Information icons" },
+        "ai": { "value": "{color.primitive.purple.600}", "type": "color", "description": "AI-related icons" }
+      }
+    }
+  },
+  "space": {
+    "0": { "value": "0px", "type": "spacing", "description": "Remove all spacing, flush layouts" },
+    "04": { "value": "4px", "type": "spacing", "description": "Micro spacing: Icon gaps, tight internal component padding" },
+    "08": { "value": "8px", "type": "spacing", "description": "Close spacing: Between related elements, button padding" },
+    "12": { "value": "12px", "type": "spacing", "description": "Compact spacing: Form field gaps, card internal padding" },
+    "16": { "value": "16px", "type": "spacing", "description": "Standard spacing (go-to): Default component margins, section padding" },
+    "24": { "value": "24px", "type": "spacing", "description": "Moderate spacing: Between component groups, larger card padding" },
+    "32": { "value": "32px", "type": "spacing", "description": "Generous spacing: Between major layout sections, large component separation" },
+    "40": { "value": "40px", "type": "spacing", "description": "Layout spacing: Between distinct UI components, medium page sections" },
+    "48": { "value": "48px", "type": "spacing", "description": "Large layout spacing: Between major layout areas, significant content blocks" },
+    "64": { "value": "64px", "type": "spacing", "description": "Extra-large spacing: Between prominent page sections, hero banners" },
+    "80": { "value": "80px", "type": "spacing", "description": "Major section spacing: Large vertical breaks, significant content areas" },
+    "96": { "value": "96px", "type": "spacing", "description": "Hero spacing: Around prominent hero sections, page top/bottom padding" },
+    "120": { "value": "120px", "type": "spacing", "description": "Maximum spacing: Largest content separations, full-page breaks" }
+  },
+  "radius": {
+    "none": { "value": "0px", "type": "borderRadius", "description": "Sharp corners: data tables, technical interfaces, legacy compatibility" },
+    "xs": { "value": "4px", "type": "borderRadius", "description": "Subtle rounding: form fields, small buttons, tags" },
+    "s": { "value": "8px", "type": "borderRadius", "description": "Standard rounding: buttons, form controls, small cards" },
+    "m": { "value": "12px", "type": "borderRadius", "description": "Medium rounding: cards, panels, modal dialogs" },
+    "l": { "value": "16px", "type": "borderRadius", "description": "Large rounding: prominent cards, feature panels" },
+    "xl": { "value": "24px", "type": "borderRadius", "description": "Maximum rounding: hero elements, major feature cards" }
+  },
+  "typography": {
+    "fontFamily": {
+      "lato": { "value": "'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", "type": "fontFamilies" }
+    },
+    "fontWeight": {
+      "regular": { "value": 400, "type": "fontWeights" },
+      "medium": { "value": 500, "type": "fontWeights" },
+      "bold": { "value": 700, "type": "fontWeights" }
+    },
+    "fontSize": {
+      "header-xxl": { "value": 32, "type": "fontSizes", "description": "Hero headings, page titles" },
+      "header-xl": { "value": 28, "type": "fontSizes", "description": "Section headings, major titles" },
+      "header-l": { "value": 22, "type": "fontSizes", "description": "Subsection headings" },
+      "header-m": { "value": 20, "type": "fontSizes", "description": "Component headings" },
+      "header-s": { "value": 18, "type": "fontSizes", "description": "Small section headings" },
+      "header-xs": { "value": 18, "type": "fontSizes", "description": "Micro headings" },
+      "body": { "value": 16, "type": "fontSizes", "description": "Default body text" },
+      "body-dense": { "value": 14, "type": "fontSizes", "description": "Compact body text" },
+      "label-l": { "value": 16, "type": "fontSizes", "description": "Large form labels" },
+      "label-m": { "value": 16, "type": "fontSizes", "description": "Standard form labels" },
+      "label-s": { "value": 14, "type": "fontSizes", "description": "Small labels" },
+      "label-xs": { "value": 12, "type": "fontSizes", "description": "Micro labels" },
+      "eyebrow": { "value": 12, "type": "fontSizes", "description": "Category labels, overlines" },
+      "caption": { "value": 12, "type": "fontSizes", "description": "Image captions, fine print" }
+    },
+    "lineHeight": {
+      "header-xxl": { "value": 36, "type": "lineHeights" },
+      "header-xl": { "value": 32, "type": "lineHeights" },
+      "header-l": { "value": 28, "type": "lineHeights" },
+      "header-m": { "value": 26, "type": "lineHeights" },
+      "header-s": { "value": 24, "type": "lineHeights" },
+      "header-xs": { "value": 24, "type": "lineHeights" },
+      "body": { "value": 24, "type": "lineHeights" },
+      "body-dense": { "value": 20, "type": "lineHeights" },
+      "label-l": { "value": 24, "type": "lineHeights" },
+      "label-m": { "value": 24, "type": "lineHeights" },
+      "label-s": { "value": 16, "type": "lineHeights" },
+      "label-xs": { "value": 16, "type": "lineHeights" },
+      "eyebrow": { "value": 16, "type": "lineHeights" },
+      "caption": { "value": 14, "type": "lineHeights" }
+    }
+  }
+}
