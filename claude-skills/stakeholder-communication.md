@@ -1,13 +1,15 @@
 # Stakeholder Communication Skill
 
+**When asked to prepare communications for stakeholders (VPs, engineers, design community) regarding Qualia's design system, apply the following formats, tone, and messaging:**
+
 ## Overview
 This skill formats updates and communications for different audiences (VPs, engineering teams, design cohorts) using your established tone and structure preferences.
 
-## When to Use
-- Writing executive summaries for leadership
-- Creating Discord posts for design system community
-- Preparing Slack updates for cross-functional teams
-- Drafting business impact communications
+## When to Use (Trigger Phrases)
+- "Write executive summaries for leadership"
+- "Create Discord posts for design system community"
+- "Prepare Slack updates for cross-functional teams"
+- "Draft business impact communications"
 
 ## Audience-Specific Formats
 
@@ -101,6 +103,7 @@ Key outcomes:
 - Testing and validation steps
 
 ## Success Indicators
+
 - Leadership understands business value immediately
 - Engineers have clear implementation path
 - Design community provides helpful feedback
