@@ -1,13 +1,15 @@
 # GitHub Engineering Handoff Skill
 
+**When asked to prepare design system assets for engineering, create PRs, or manage GitHub deployments for Qualia, apply the following standards and workflow:**
+
 ## Overview
 This skill manages the complete process of preparing design system assets for engineering integration, including PR creation, documentation, and stakeholder communication.
 
-## When to Use
-- Creating PRs for tokens, components, or documentation
-- Preparing engineering handoff materials
-- Setting up GitHub Pages for stakeholder sharing
-- Writing JIRA tickets for engineering work
+## When to Use (Trigger Phrases)
+- "Create PRs for tokens/components/documentation"
+- "Prepare engineering handoff materials"
+- "Set up GitHub Pages"
+- "Write JIRA tickets for engineering"
 
 ## Established Workflow
 
