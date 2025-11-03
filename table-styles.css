@@ -1,0 +1,136 @@
+/* Table styling for semantic color tokens */
+.token-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.token-table thead {
+    background: #2d3748;
+    color: white;
+}
+
+.token-table th {
+    padding: 16px 20px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.token-table th:first-child {
+    width: 25%;
+}
+
+.token-table th:nth-child(2) {
+    width: 15%;
+}
+
+.token-table th:nth-child(3) {
+    width: 15%;
+    text-align: center;
+}
+
+.token-table th:nth-child(4) {
+    width: 45%;
+}
+
+.token-table tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.token-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.token-table tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.token-table tbody tr:hover {
+    background: #e2e8f0;
+}
+
+.token-table td {
+    padding: 16px 20px;
+    vertical-align: middle;
+}
+
+.token-name {
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 14px;
+    background: #f1f5f9;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.token-value {
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 12px;
+    color: #6b7280;
+    background: #f9fafb;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.color-swatch-table {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    margin: 0 auto;
+    display: block;
+}
+
+.token-usage {
+    font-size: 13px;
+    color: #4b5563;
+    line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .token-table {
+        font-size: 12px;
+    }
+    
+    .token-table th,
+    .token-table td {
+        padding: 12px 8px;
+    }
+    
+    .color-swatch-table {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .token-name,
+    .token-value {
+        font-size: 11px;
+        padding: 2px 4px;
+    }
+}
+
+/* Category headers */
+.table-category-header {
+    background: #f8fafc;
+    font-weight: 700;
+    color: #1a202c;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+}
+
+.table-category-header td {
+    padding: 12px 20px;
+    border-top: 2px solid #e2e8f0;
+}
